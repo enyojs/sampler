@@ -1,10 +1,81 @@
-/*
-	Put anything you reference with "url()" in ../assets/
-	This way, you can minify your application, and just remove the "source" folder for production
-*/
-#app {
-	margin: 16px;
-	border-radius: 4px;
-	background-color: silver;
-	padding: 16px;
+body {
+	-webkit-overflow-scrolling: touch;
+	font-family: 'Muli', 'Helvetica Neue', 'Nimbus Sans L', Arial, sans-serif;
+}
+button {
+	font-family: 'Muli', 'Helvetica Neue', 'Nimbus Sans L', Arial, sans-serif;
+}
+
+.item {
+	position: relative;
+	border-bottom: 1px solid #0E0E0E;
+	padding: 16px 12px;
+	background-color: #333333;
+	color:white;
+}
+
+.list {
+	background: url(../assets/bg.png);
+}
+
+.item.onyx-selected {
+	background-color: #226B9A;
+}
+
+.panels > * {
+	width:320px;
+	box-shadow: -4px 0px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow: -4px 0px 4px rgba(0,0,0,0.3);
+	-webkit-box-shadow: -4px 0px 4px rgba(0,0,0,0.3);
+}
+
+.scroller {
+	margin: 0;
+}
+
+.back {
+	width:75px;
+}
+
+.footer-toolbar {
+    height:60px;
+}
+
+
+.hidden {
+	opacity:0;
+}
+
+.wide {
+	min-width:100%;
+}
+
+.pullout {
+	position: absolute;
+	top: 0px;
+	right: 0;
+	bottom: 0;
+	width: 50%;
+	background: #D8D8D8;
+	box-shadow: -4px 0px 4px rgba(0,0,0,0.3);
+}
+
+.source {
+	padding:15px;
+	font-family: monospace;
+	font-size: 12px;
+	white-space: pre-wrap;
+}
+
+.source-tabs {
+	width:60px;
+}
+
+.nowrap {
+	width:1000px;
+}
+
+.wrap-label {
+	vertical-align:middle; 
+	padding-left:5px;
 }

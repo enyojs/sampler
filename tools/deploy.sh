@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd `dirname $0`
-
 # the deploy target folder
 FOLDER=deploy
 
@@ -15,14 +13,23 @@ SOURCE=$(cd `dirname $0`/../; pwd)
 NAME=${SOURCE##*/}
 
 # target names
-DEPLOY="$NAME$SUFFIX"
-TARGET="$SOURCE/$FOLDER/$DEPLOY"
-
-if [ -d $TARGET ]; then
-	echo "$DEPLOY folder already exists, please rename or remove it and try again."
-	exit 1
+if [ -z $1 ]; then
+	DEPLOY="$NAME$SUFFIX"
+	TARGET="$SOURCE/$FOLDER/$DEPLOY"
+	if [ -d $TARGET ]; then
+		echo "$DEPLOY folder already exists, please rename or remove it and try again."
+		exit 1
+	fi
+else
+	TARGET=$1
+#	read -p "Deploying to $TARGET (will remove existing if present). Are you sure? " -n 1
+#	if [[ ! $REPLY =~ ^[Yy]$ ]]
+#	then
+#	    exit 1
+#	fi
+	rm -rf $TARGET
 fi
-
+	
 echo "This script can create a deployment in $TARGET"
 
 cat <<EOF

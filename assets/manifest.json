@@ -1,0 +1,53 @@
+{
+	"libPath":"",
+	"samples": [
+		{"name": "Enyo Core", "samples": [
+			{"name": "Playground"},
+			{"name": "Ajax"},
+			{"name": "Scroller"},
+			{"name": "Base UI"},
+			{"name": "Test Nesting", "samples": [
+				{"name": "Another level", "samples": [
+					{"name": "And we go deeper...", "samples": [
+						{"name":"This is"},
+						{"name":"the end"},
+						{"name":"of the"},
+						{"name":"road."}
+					]}
+				]},
+				{"name": "Or you can try here", "samples": [
+					{"name":"Not much"},
+					{"name":"to see"},
+					{"name":"here."}
+				]}
+			]}
+		]},
+		{"name": "Onyx", "samples": [
+			{"name": "Toolbars", "path":"$lib/onyx/samples/ToolbarSample"},
+			{"name": "Basic Buttons", "path":"$lib/onyx/samples/ButtonSample"},
+			{"name": "Grouped Buttons", "path":"$lib/onyx/samples/ButtonGroupSample"},
+			{"name": "Icon Buttons", "path":"$lib/onyx/samples/IconButtonSample"},
+			{"name": "Toggle Buttons", "path":"$lib/onyx/samples/ToggleButtonSample"},
+			{"name": "Checkboxes", "path":"$lib/onyx/samples/CheckboxSample"},
+			{"name": "Inputs", "path":"$lib/onyx/samples/InputSample"},
+			{"name": "Group Boxes", "path":"$lib/onyx/samples/GroupboxSample"},
+			{"name": "Progress Bars", "path":"$lib/onyx/samples/ProgressSample"},
+			{"name": "Sliders", "path":"$lib/onyx/samples/SliderSample"},
+			{"name": "Popups", "path":"$lib/onyx/samples/PopupSample"}
+		]},
+		{"name": "Layout", "samples": [
+			{"name": "Fittables", "samples": [
+				{"name": "Basic sample", "path":"$lib/layout/fittable/samples/FittableSample"},
+				{"name": "Details", "path":"$lib/layout/fittable/samples/FittableDescription"},
+				{"name": "Example app layout 1", "path":"$lib/layout/fittable/samples/FittableAppLayout1"},
+				{"name": "Example app layout 2", "path":"$lib/layout/fittable/samples/FittableAppLayout2"},
+				{"name": "Example app layout 3", "path":"$lib/layout/fittable/samples/FittableAppLayout3"},
+				{"name": "Example app layout 4", "path":"$lib/layout/fittable/samples/FittableAppLayout4"}
+			]},
+			{"name": "Lists"},
+			{"name": "Panels"},
+			{"name": "Trees"}
+		]},
+		{"name": "Canvas"}
+	]
+}

@@ -1,6 +1,4 @@
-bootplate
+Enyo 2.0 Sampler
 =========
 
-Application template for packaged Enyo
-
-Refer to the [Wiki](https://github.com/enyojs/enyo/wiki/Bootplate) for how to get started.
+A cross-platform application for viewing Enyo 2.0 samples from all its various libraries.

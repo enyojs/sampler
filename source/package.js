@@ -1,6 +1,9 @@
 enyo.depends(
 	"$lib/layout",
+	"$lib/layout/fittable/samples",
 	"$lib/onyx",
+	"$lib/onyx/samples",
+	"$lib/onyx/source/wip-package.js",
 	"App.css",
 	"App.js"
 );
