@@ -7,7 +7,7 @@ enyo.kind({
 	},
 	components: [
 		{kind: "Panels", name:"mainPanels", classes:"panels enyo-fit", arrangerKind: "CollapsingArranger", components: [
-			{kind: "Panels", name:"navigation", arrangerKind:"CarouselArranger", classes:"enyo-fit"},
+			{kind: "Panels", name:"navPanels", arrangerKind:"CarouselArranger", onTransitionFinish:"navChanged", draggable:false, classes:"enyo-fit"},
 			{kind: "Panels", name:"contentPanels", arrangerKind:"CollapsingArranger", draggable:false, classes:"panels enyo-fit", components:[
 				{kind: "FittableRows", classes:"wide", components: [
 					{kind:"Scroller", name:"sampleContent", horizontal: "hidden", fit:true, classes:"onyx", components:[
@@ -51,7 +51,7 @@ enyo.kind({
 		this.loadSamples();
 		this.resized();
 		// Performance of realtime fit on mobile devices is usually poor
-		this.$.mainPanels.realtimeFit = !enyo.platform.touch;
+		//this.$.mainPanels.realtimeFit = !enyo.platform.touch;
 	},
 	loadSamples: function() {
 		new enyo.Ajax({url: "assets/manifest.json"})
@@ -59,58 +59,51 @@ enyo.kind({
 				if (inSamples.libPath) {
 					enyo.path.addPath("lib", inSamples.libPath);
 				}
-				inSamples.samples.top = true;
-				this.pushSampleList(inSamples.samples, "Enyo 2.0 Sampler");
+				this.pushSampleList(inSamples);
 			})
 			.go();
 	},
 	rendered: function() {
 		this.inherited(arguments);
 	},
-	pushSampleList: function(inSamples, name) {
-		var index = this.$.navigation.getIndex();
-		// Pop off any nav panels to the right of this one
-		this.$.navigation.setAnimate(false);
-		for (var last=this.$.navigation.getPanels().length-1; last > index; last--) {
-			this.$.navigation.getPanels()[last].destroy();
+	pushSampleList: function(inSamples) {
+		var index = this.$.navPanels.getIndex();
+		// Pop off any previously viewed NavigationList to to the right of this one
+		this.$.navPanels.setAnimate(false);
+		for (var last=this.$.navPanels.getPanels().length-1; last > index; last--) {
+			this.$.navPanels.getPanels()[last].destroy();
 		}
-		this.$.navigation.setIndexDirect(index);
-		this.$.navigation.setAnimate(true);
-		var rows = this.$.navigation.createComponent(
-			{kind: "FittableRows", classes:"enyo-fit", components: [
-				{kind: "onyx.Toolbar", style:"background-color:#555;", content:name},
-				{kind: "List", classes:"list", fit:true, onSetupItem: "setupItem", samples:inSamples, count:inSamples.length, components: [
-					{classes: "item enyo-border-box", samples:inSamples, ontap: "navTap"}
-				]},
-				{kind: "onyx.Toolbar", classes:"footer-toolbar", components: [
-					{kind: "onyx.Button", content:"Back", ontap:"navBack", showing:!inSamples.top }
-				]}
-			]},
+		this.$.navPanels.setIndexDirect(index);
+		this.$.navPanels.setAnimate(true);
+		// Add a new NavigationList
+		var navList = this.$.navPanels.createComponent(
+			{kind:"NavigationList", 
+				sampleName: inSamples.name, 
+				sampleNamespace: inSamples.ns, 
+				sampleList: inSamples.samples, 
+				onNavTap: "navTap", 
+				onNavBack: "navBack"},
 			{owner:this}
 		);
-		rows.render();
-		this.$.navigation.reflow();
-		this.$.navigation.setIndex(index+1);
-	},
-	setupItem: function(inSender, inEvent) {
-		var item = inSender.getClientControls()[0];
-		item.setContent(inSender.samples[inEvent.index].name);
-		item.addRemoveClass("onyx-selected", inSender.isSelected(inEvent.index));
+		navList.render();
+		this.$.navPanels.reflow();
+		this.$.navPanels.next();
 	},
 	toggleFullScreen: function() {
 		this.$.mainPanels.setIndex(this.$.mainPanels.index ? 0 : 1);
 	},
 	navTap: function(inSender, inEvent) {
-		var sample = inSender.samples[inEvent.index];
+		var sample = inSender.sampleList[inEvent.index];
 		this.resetSample();
 		if (sample.samples) {
-			this.pushSampleList(sample.samples, sample.name);
+			this.pushSampleList(sample);
 		}
 		if (sample.path) {
 			// Create a new sample kind instance inside sampleContent
 			var kind = sample.path.substring(sample.path.lastIndexOf("/") + 1);
+			var kindNamespace = sample.ns || this.currNamespace;
 			var path = sample.path.substring(0, sample.path.lastIndexOf("/") + 1);
-			var instance = this.$.sampleContent.createComponent({kind:kind});
+			var instance = this.$.sampleContent.createComponent({kind:(kindNamespace + "." + kind)});
 			this.$.sampleContent.render();
 			this.$.sampleContent.resized();
 			// Load the source code for the sample
@@ -119,7 +112,7 @@ enyo.kind({
 					this.$.sourceContent.setContent(inSource);
 				})
 				.go();
-			new enyo.Ajax({url: enyo.path.rewrite(path + "sample.css"), handleAs:"text"})
+			new enyo.Ajax({url: enyo.path.rewrite(path + (sample.css || kind) + ".css"), handleAs:"text"})
 				.response(this, function(inSender, inSource) {
 					this.$.cssContent.setContent(inSource);
 				})
@@ -140,16 +133,25 @@ enyo.kind({
 			}
 		}
 	},
+	navChanged: function() {
+		// Update the namespace used for samples without an explicit namespace
+		var curr = this.$.navPanels.getActive();
+		if (curr && curr.sampleNamespace) {
+			this.currNamespace = curr.sampleNamespace;
+		}
+	},
+	navBack: function() {
+		this.$.navPanels.getActive().clearSelection();
+		this.$.navPanels.previous();
+		this.$.navPanels.getActive().clearSelection();
+		this.resetSample();
+	},
 	resetSample: function() {
 		this.$.sampleContent.destroyClientControls();
 		this.$.sourceContent.setContent("");
 		this.$.cssContent.setContent("");
 		this.$.viewSource.hide();
-		this.hideSource();
-	},
-	navBack: function() {
-		this.resetSample();
-		this.$.navigation.previous();
+		//this.hideSource();
 	},
 	viewSource: function() {
 		this.$.contentPanels.setIndex(1);
@@ -180,5 +182,59 @@ enyo.kind({
 	},
 	hashChange: function() {
 		var n = this.getHashComponentName();
+	}
+});
+
+enyo.kind({
+	name: "NavigationList",
+	kind: "FittableRows", 
+	classes:"enyo-fit",
+	published: {
+		sampleList:"",
+		sampleName:"",
+		sampleNamespace:""
+	},
+	events: {
+		onNavTap:"",
+		onNavBack:""
+	},
+	components: [
+		{kind: "onyx.Toolbar", style:"background-color:#555;"},
+		{kind: "List", classes:"list", touch:true, fit:true, onSetupItem: "setupItem", components: [
+			{name:"item", classes: "item enyo-border-box", ontap: "navTap"}
+		]},
+		{kind: "onyx.Toolbar", classes:"footer-toolbar", components: [
+			{kind: "onyx.Button", name:"back", content:"Back", ontap:"navBack"}
+		]}
+	],
+	create: function() {
+		this.inherited(arguments);
+		this.sampleNameChanged();
+		this.sampleListChanged();
+	},
+	sampleNameChanged: function() {
+		this.$.toolbar.setContent(this.sampleName);
+	},
+	sampleListChanged: function() {
+		this.$.back.setShowing(!this.sampleList.isTop);
+		this.$.toolbar.setContent(this.sampleName);
+		this.$.list.setCount(this.sampleList.length); 
+	},
+	setupItem: function(inSender, inEvent) {
+		var item = inSender.getClientControls()[0];
+		item.setContent(this.sampleList[inEvent.index].name);
+		item.addRemoveClass("onyx-selected", inSender.isSelected(inEvent.index));
+	},
+	clearSelection: function() {
+		if (this.selected !== undefined) {
+			this.$.list.getSelection().deselect(this.selected);
+		}
+	},
+	navTap: function(inSender, inEvent) {
+		this.selected = inEvent.index;
+		this.doNavTap(inEvent);
+	},
+	navBack: function(inSender, inEvent) {
+		this.doNavBack(inEvent);
 	}
 });
