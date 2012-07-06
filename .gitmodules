@@ -7,3 +7,9 @@
 [submodule "lib/layout"]
 	path = lib/layout
 	url = https://github.com/enyojs/layout.git
+[submodule "lib/canvas"]
+	path = lib/canvas
+	url = https://github.com/enyojs/canvas.git
+[submodule "lib/extra"]
+	path = lib/extra
+	url = https://github.com/enyojs/extra.git

@@ -21,10 +21,10 @@ enyo.kind({
 				{kind: "FittableRows", classes:"wide onyx", components: [
 					{kind: "Panels", name:"sourcePanels", fit:true, draggable:false, components: [
 						{kind: "Scroller", classes:"enyo-fit scroller", components: [
-							{name:"sourceContent", classes:"source nowrap"}
+							{name:"sourceContent", classes:"source nowrap enyo-selectable"}
 						]},
 						{kind: "Scroller", classes:"enyo-fit scroller", components: [
-							{name:"cssContent", classes:"source nowrap"}
+							{name:"cssContent", classes:"source nowrap enyo-selectable"}
 						]}
 					]},
 					{kind:"onyx.Toolbar", layoutKind: "FittableColumnsLayout", classes:"footer-toolbar", noStretch:true, components: [

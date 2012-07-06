@@ -1,0 +1,68 @@
+<h1>Enyo: A Brief Tour</h1>
+<p>Thanks for checking out Enyo!  This document will help you orient yourself with how the framework is organized and what each piece offers.  From there we encourage you to dig into the tutorials and other documentation and get started!</p>
+<p>In a given Enyo release, you will find the following folders:</p>
+<ul>
+<li><strong>enyo</strong> - the core</li>
+<li><strong>lib</strong> - where all plugins and add-on libraries go
+<ul>
+<li><strong>onyx</strong> - a toolbox of UI components</li>
+<li><strong>layout</strong> - a set of layout components</li>
+<li><strong>canvas</strong> - components for building HTML5-based canvas views</li>
+<li><strong>extra</strong> - additional utility components</li>
+</ul>
+</li>
+</ul>
+<h2>Enyo</h2>
+<p>The core of the framework, known simply as <code>enyo</code> in the source code, provides powerful features that enable complex applications and add-on libraries to be built atop the Web stack in a modular way:</p>
+<ul>
+<li><strong>Object encapsulation, inheritance, and ownership hierarchy</strong> - Kinds and Components</li>
+<li><strong>View and DOM widget model</strong> - UiComponent and Control</li>
+<li><strong>Event routing</strong> - Dispatcher and Signals</li>
+<li><strong>Services model</strong> - Async and Ajax</li>
+<li><strong>Basic HTML components</strong> - Base UI</li>
+<li><strong>Touch support</strong> - Touch scroller and gesture simulation</li>
+<li><strong>Package loader</strong> - <code>enyo.depends()</code> and <code>package.js</code></li>
+</ul>
+<p>These pieces are actually separable (it&rsquo;s easy to make micro-builds of Enyo), but we believe they form a useful working set, so we provide them together as the Enyo core.</p>
+<p>Everything else described below is an optional package built on top of the core.  You can choose to include these <em>&agrave; la carte</em> to fit your application&rsquo;s needs.  However, these are only reference libraries for what we envision will be a large ecosystem of add-on libraries that bring different look and feel, layout options, service wrappers, etc.  Check out the <a href="http://enyojs.com/gallery">Enyo Community Gallery</a> to see just how easy it is to create and share new components and add-on libraries.</p>
+<h2>Onyx</h2>
+<p>The Onyx library provides a toolbox of beautifully-styled UI components for building mobile and desktop applications.  It is ever-expanding, and currently includes the following:</p>
+<ul>
+<li><strong>Buttons</strong> (plain, icon, radio, and toggle buttons)</li>
+<li><strong>Inputs</strong> (text input field, text area, rich text area)</li>
+<li><strong>Popups</strong></li>
+<li><strong>Header bars</strong></li>
+<li><strong>Group boxes</strong></li>
+<li><strong>Progress bars</strong></li>
+<li><strong>Sliders</strong></li>
+</ul>
+<p>Take a look at <a href="http://enyojs.com/samples/onyxsampler">Onyx Sampler</a> to see the Onyx widget set in action.</p>
+<h2>Layout</h2>
+<p>While Enyo components can be laid out using pure HTML/CSS techniques, we have provided a Layout library that gives you easy-to-use, performant, cross-browser compatible containers for your common layout needs:</p>
+<ul>
+<li><strong>Fittable Rows and Columns</strong></li>
+<li><strong>Lists</strong></li>
+<li><strong>Panels</strong></li>
+</ul>
+<p>You can read up on these layout options <a href="https://github.com/enyojs/layout">here</a>.</p>
+<h2>Canvas</h2>
+<p>Enyo&rsquo;s encapsulation model works equally well for structuring canvas-based components as it does for traditional UI, and we have provided a library that abstracts common canvas primitives as Enyo components:</p>
+<ul>
+<li><strong>Canvas and CanvasControl</strong></li>
+<li><strong>Shapes</strong> (Circle, Rectangle)</li>
+<li><strong>Text</strong></li>
+<li><strong>Image</strong></li>
+</ul>
+<p>You can easily extend these to create complex graphical applications and games, such as our <a href="http://enyojs.com/samples/piratepig">Pirate Pig</a> canvas demo application.</p>
+<h2>Extra</h2>
+<p>The &ldquo;extra&rdquo; library holds a number of useful utility-type components, which are used in various samples and demo applications.</p>
+<h2>Bootplate</h2>
+<p>Bootplate is a template that provides a complete starter project containing everything you need to develop and deploy Enyo apps out of the box, and is now included in each release.  It contains current versions of Enyo and the most common libraries for app developers (Onyx and Layout), as well as scripts to minify and create deployable versions of the source and assets.  Get started with bootplate <a href="Bootplate">here</a>.</p>
+<h1>Learn More</h1>
+<p>From here, there are a number of guides you can continue reading to help ramp up into Enyo development:</p>
+<ul>
+<li>If you&rsquo;d like a step-by-step introduction to Enyo, head to the <a href="http://enyojs.com/tutorial">tutorials</a>.</li>
+<li>To get off to the races writing Enyo apps, check out <a href="Bootplate">Bootplate</a>.</li>
+<li>To learn more about the nuts and bolts of Enyo app structure, read the <a href="Getting-Started">Getting Started</a> guide.</li>
+<li>For the complete list of documentation, see the <a href="https://github.com/enyojs/enyo/wiki">Enyo documentation</a> overview.</li>
+</ul>

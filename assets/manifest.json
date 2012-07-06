@@ -3,25 +3,15 @@
 	"name": "Enyo 2.0 Sampler",
 	"samples": [
 		{"name": "Enyo Core", "ns":"enyo.sample", "samples": [
-			{"name": "Playground"},
-			{"name": "Ajax"},
-			{"name": "Scroller"},
-			{"name": "Base UI"},
-			{"name": "Test Nesting", "samples": [
-				{"name": "Another level", "samples": [
-					{"name": "And we go deeper...", "samples": [
-						{"name":"This is"},
-						{"name":"the end"},
-						{"name":"of the"},
-						{"name":"road."}
-					]}
-				]},
-				{"name": "Or you can try here", "samples": [
-					{"name":"Not much"},
-					{"name":"to see"},
-					{"name":"here."}
-				]}
-			]}
+			{"name": "Playground", "path":"$enyo/samples/Playground"},
+			{"name": "Ajax", "samples": [
+				{"name": "Ajax", "path":"$enyo/samples/AjaxSample"},
+				{"name": "JSON-P", "path":"$enyo/samples/JsonpSample"},
+				{"name": "WebService Component", "path":"$enyo/samples/WebServiceSample"}
+			]},
+			{"name": "Scroller", "path":"$enyo/samples/ScrollerSample"},
+			{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"},
+			{"name": "Base UI"}
 		]},
 		{"name": "Onyx", "ns":"onyx.sample", "samples": [
 			{"name": "Toolbars", "path":"$lib/onyx/samples/ToolbarSample", "css":"sample"},
@@ -37,7 +27,7 @@
 			{"name": "Popups", "path":"$lib/onyx/samples/PopupSample", "css":"sample"}
 		]},
 		{"name": "Layout", "ns":"enyo.sample", "samples": [
-			{"name": "Fittables", "samples": [
+			{"name": "Fittable Layouts", "samples": [
 				{"name": "Basic sample", "path":"$lib/layout/fittable/samples/FittableSample", "css":"sample"},
 				{"name": "Details", "path":"$lib/layout/fittable/samples/FittableDescription", "css":"sample"},
 				{"name": "Example app layout 1", "path":"$lib/layout/fittable/samples/FittableAppLayout1", "css":"sample"},
@@ -45,20 +35,21 @@
 				{"name": "Example app layout 3", "path":"$lib/layout/fittable/samples/FittableAppLayout3", "css":"sample"},
 				{"name": "Example app layout 4", "path":"$lib/layout/fittable/samples/FittableAppLayout4", "css":"sample"}
 			]},
-			{"name": "Lists", "ns":"enyo.sample", "samples": [
+			{"name": "List", "ns":"enyo.sample", "samples": [
 				{"name": "Basic list", "path":"$lib/layout/panels/list/samples/ListBasicSample"},
-				{"name": "Contacts list sample", "path":"$lib/layout/panels/list/samples/ListContactsSample"},
-				{"name": "Pulldown list sample", "path":"$lib/layout/panels/list/samples/ListPulldownSample"}
+				{"name": "Contacts list sample", "path":"$lib/layout/list/samples/ListContactsSample"},
+				{"name": "Pulldown list sample", "path":"$lib/layout/list/samples/ListPulldownSample"}
 			]},
 			{"name": "Panels", "ns":"enyo.sample", "samples": [
 				{"name": "Arranger sampler", "path":"$lib/layout/panels/samples/PanelsSample"},
 				{"name": "Flickr app example", "path":"$lib/layout/panels/samples/PanelsFlickrSample"},
 				{"name": "Sliding app example", "path":"$lib/layout/panels/samples/PanelsSlidingSample"}
 			]},
-			{"name": "Trees", "ns":"enyo.sample", "samples": [
-				{"name": "Tree sample", "path":"$lib/layout/tree/samples/TreeSample"}
-			]}
+			{"name": "Tree", "ns":"enyo.sample", "path":"$lib/layout/tree/samples/TreeSample"}
 		]},
-		{"name": "Canvas"}
+		{"name": "Canvas", "ns":"enyo.sample", "samples": [	
+			{"name": "Canvas primitives", "path":"$lib/canvas/samples/CanvasPrimitivesSample"},
+			{"name": "Bouncing balls", "path":"$lib/canvas/samples/CanvasBallsSample"}
+		]}
 	]
 }

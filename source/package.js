@@ -8,6 +8,9 @@ enyo.depends(
 	"$lib/onyx",
 	"$lib/onyx/source/wip-package.js",
 	"$lib/onyx/samples",
+	"$lib/canvas",
+	"$lib/canvas/samples",
+	"$enyo/samples",
 	"App.css",
 	"App.js"
 );
