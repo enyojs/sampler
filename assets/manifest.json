@@ -24,6 +24,9 @@
 			{"name": "Group Boxes", "path":"$lib/onyx/samples/GroupboxSample", "css":"sample"},
 			{"name": "Progress Bars", "path":"$lib/onyx/samples/ProgressSample", "css":"sample"},
 			{"name": "Sliders", "path":"$lib/onyx/samples/SliderSample", "css":"sample"},
+			{"name": "Drawers", "path":"$lib/onyx/samples/DrawerSample", "css":"sample"},
+			{"name": "Menus", "path":"$lib/onyx/samples/MenuSample", "css":"sample"},
+			{"name": "Pickers", "path":"$lib/onyx/samples/PickerSample", "css":"sample"},
 			{"name": "Popups", "path":"$lib/onyx/samples/PopupSample", "css":"sample"}
 		]},
 		{"name": "Layout", "ns":"enyo.sample", "samples": [
