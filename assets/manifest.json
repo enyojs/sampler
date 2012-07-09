@@ -1,5 +1,5 @@
 {
-	"libPath":"",
+	"sourcePath":"",
 	"name": "Enyo 2.0 Sampler",
 	"samples": [
 		{"name": "Enyo Core", "ns":"enyo.sample", "samples": [

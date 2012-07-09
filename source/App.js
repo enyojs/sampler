@@ -56,8 +56,9 @@ enyo.kind({
 	loadSamples: function() {
 		new enyo.Ajax({url: "assets/manifest.json"})
 			.response(this, function(inSender, inSamples) {
-				if (inSamples.libPath) {
-					enyo.path.addPath("lib", inSamples.libPath);
+				if (inSamples.sourcePath) {
+					enyo.path.addPath("lib", inSamples.sourcePath + "/lib");
+					enyo.path.addPath("enyo", inSamples.sourcePath + "/enyo");
 				}
 				this.pushSampleList(inSamples);
 			})
