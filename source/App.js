@@ -60,6 +60,7 @@ enyo.kind({
 					enyo.path.addPath("lib", inSamples.sourcePath + "/lib");
 					enyo.path.addPath("enyo", inSamples.sourcePath + "/enyo");
 				}
+				inSamples.isTop = true;
 				this.pushSampleList(inSamples);
 			})
 			.go();
@@ -79,9 +80,7 @@ enyo.kind({
 		// Add a new NavigationList
 		var navList = this.$.navPanels.createComponent(
 			{kind:"NavigationList", 
-				sampleName: inSamples.name, 
-				sampleNamespace: inSamples.ns, 
-				sampleList: inSamples.samples, 
+				samples: inSamples, 
 				onNavTap: "navTap", 
 				onNavBack: "navBack"},
 			{owner:this}
@@ -94,7 +93,7 @@ enyo.kind({
 		this.$.mainPanels.setIndex(this.$.mainPanels.index ? 0 : 1);
 	},
 	navTap: function(inSender, inEvent) {
-		var sample = inSender.sampleList[inEvent.index];
+		var sample = inSender.samples.samples[inEvent.index];
 		this.resetSample();
 		if (sample.samples) {
 			this.pushSampleList(sample);
@@ -137,8 +136,8 @@ enyo.kind({
 	navChanged: function() {
 		// Update the namespace used for samples without an explicit namespace
 		var curr = this.$.navPanels.getActive();
-		if (curr && curr.sampleNamespace) {
-			this.currNamespace = curr.sampleNamespace;
+		if (curr && curr.samples.ns) {
+			this.currNamespace = curr.samples.ns;
 		}
 	},
 	navBack: function() {
@@ -191,9 +190,7 @@ enyo.kind({
 	kind: "FittableRows", 
 	classes:"enyo-fit",
 	published: {
-		sampleList:"",
-		sampleName:"",
-		sampleNamespace:""
+		samples:""
 	},
 	events: {
 		onNavTap:"",
@@ -210,20 +207,16 @@ enyo.kind({
 	],
 	create: function() {
 		this.inherited(arguments);
-		this.sampleNameChanged();
-		this.sampleListChanged();
+		this.samplesChanged();
 	},
-	sampleNameChanged: function() {
-		this.$.toolbar.setContent(this.sampleName);
-	},
-	sampleListChanged: function() {
-		this.$.back.setShowing(!this.sampleList.isTop);
-		this.$.toolbar.setContent(this.sampleName);
-		this.$.list.setCount(this.sampleList.length); 
+	samplesChanged: function() {
+		this.$.toolbar.setContent(this.samples.name);
+		this.$.back.setShowing(!this.samples.isTop);
+		this.$.list.setCount(this.samples.samples.length); 
 	},
 	setupItem: function(inSender, inEvent) {
 		var item = inSender.getClientControls()[0];
-		item.setContent(this.sampleList[inEvent.index].name);
+		item.setContent(this.samples.samples[inEvent.index].name);
 		item.addRemoveClass("onyx-selected", inSender.isSelected(inEvent.index));
 	},
 	clearSelection: function() {

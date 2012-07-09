@@ -10,8 +10,7 @@
 				{"name": "WebService Component", "path":"$enyo/samples/WebServiceSample"}
 			]},
 			{"name": "Scroller", "path":"$enyo/samples/ScrollerSample"},
-			{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"},
-			{"name": "Base UI"}
+			{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"}
 		]},
 		{"name": "Onyx", "ns":"onyx.sample", "samples": [
 			{"name": "Toolbars", "path":"$lib/onyx/samples/ToolbarSample", "css":"sample"},
