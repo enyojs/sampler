@@ -38,7 +38,7 @@
 				{"name": "Example app layout 4", "path":"$lib/layout/fittable/samples/FittableAppLayout4", "css":"sample"}
 			]},
 			{"name": "List", "ns":"enyo.sample", "samples": [
-				{"name": "Basic list", "path":"$lib/layout/panels/list/samples/ListBasicSample"},
+				{"name": "Basic list", "path":"$lib/layout/list/samples/ListBasicSample"},
 				{"name": "Contacts list sample", "path":"$lib/layout/list/samples/ListContactsSample"},
 				{"name": "Pulldown list sample", "path":"$lib/layout/list/samples/ListPulldownSample"}
 			]},
