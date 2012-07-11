@@ -15,7 +15,8 @@ enyo.kind({
 					{kind: "FittableColumns", name:"viewSourceToolbar", noStretch: true, classes: "onyx-toolbar onyx-toolbar-inline footer-toolbar", components: [
 						{kind: "onyx.Grabber", ontap:"toggleFullScreen"},
 						{fit:true}, // Spacer
-						{kind: "onyx.Button", name:"viewSource", content: "View Source", ontap:"viewSource", showing:false}
+						{kind: "onyx.Button", name:"viewSource", content: "View Source", ontap:"viewSource", showing:false},
+						{kind: "onyx.Button", name:"openExternal", content: "Open", ontap:"openExternal", showing:false}
 					]}
 				]},
 				{kind: "FittableRows", classes:"wide onyx", components: [
@@ -107,6 +108,7 @@ enyo.kind({
 			this.$.sampleContent.render();
 			this.$.sampleContent.resized();
 			// Load the source code for the sample
+			this.externalURL = enyo.path.rewrite(sample.path + ".html");
 			new enyo.Ajax({url: enyo.path.rewrite(sample.path + ".js"), handleAs:"text"})
 				.response(this, function(inSender, inSource) {
 					this.$.sourceContent.setContent(inSource);
@@ -122,6 +124,7 @@ enyo.kind({
 				this.$.mainPanels.next();
 			}
 			this.$.viewSource.show();
+			this.$.openExternal.show();
 			this.$.viewSourceToolbar.resized();
 		}
 		if (!sample.samples && !sample.path) {
@@ -151,15 +154,16 @@ enyo.kind({
 		this.$.sourceContent.setContent("");
 		this.$.cssContent.setContent("");
 		this.$.viewSource.hide();
-		//this.hideSource();
+		this.$.openExternal.hide();
 	},
 	viewSource: function() {
 		this.$.contentPanels.setIndex(1);
-		//this.$.sourcePullout.animateTo(0);
+	},
+	openExternal: function() {
+		window.open(this.externalURL, "_blank");
 	},
 	hideSource: function() {
 		this.$.contentPanels.setIndex(0);
-		//this.$.sourcePullout.animateTo(100);
 	},
 	resized: function() {
 		this.$.srcCancelButton.setShowing(!enyo.Panels.isScreenNarrow());
