@@ -1,4 +1,25 @@
+.DS_Store
+server/login/start_server.sh
+server/login/certificate.pem
+server/login/privatekey.pem
 
-/build
-/deploy
-/www
+# Enyo build/deploy folders
+deploy/
+build/
+www/
+
+# Android generated files
+projects/Android/bin/
+projects/Android/gen/
+local.properties
+
+# iOS generated files
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+*.mode1
+*.mode2v3
+*.mode1v3
+xcuserdata
+Snapshots
