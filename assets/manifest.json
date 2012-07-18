@@ -3,58 +3,58 @@
 	"name": "Enyo 2.0 Sampler",
 	"samples": [
 		{"name": "Enyo Core", "ns":"enyo.sample", "samples": [
-			{"name": "Playground", "path":"$enyo/samples/Playground"},
+			{"name": "Playground", "path":"enyo/samples/Playground"},
 			{"name": "Ajax", "samples": [
-				{"name": "Ajax", "path":"$enyo/samples/AjaxSample"},
-				{"name": "JSON-P", "path":"$enyo/samples/JsonpSample"},
-				{"name": "WebService Component", "path":"$enyo/samples/WebServiceSample"}
+				{"name": "Ajax", "path":"enyo/samples/AjaxSample"},
+				{"name": "JSON-P", "path":"enyo/samples/JsonpSample"},
+				{"name": "WebService Component", "path":"enyo/samples/WebServiceSample"}
 			]},
-			{"name": "Scroller", "path":"$enyo/samples/ScrollerSample"},
-			{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"}
+			{"name": "Scroller", "path":"enyo/samples/ScrollerSample"},
+			{"name": "Repeater", "path":"enyo/samples/RepeaterSample"}
 		]},
 		{"name": "Onyx", "ns":"onyx.sample", "samples": [
-			{"name": "Toolbars", "path":"$lib/onyx/samples/ToolbarSample", "css":"sample"},
-			{"name": "Basic Buttons", "path":"$lib/onyx/samples/ButtonSample", "css":"sample"},
-			{"name": "Grouped Buttons", "path":"$lib/onyx/samples/ButtonGroupSample", "css":"sample"},
-			{"name": "Icon Buttons", "path":"$lib/onyx/samples/IconButtonSample", "css":"sample"},
-			{"name": "Toggle Buttons", "path":"$lib/onyx/samples/ToggleButtonSample", "css":"sample"},
-			{"name": "Checkboxes", "path":"$lib/onyx/samples/CheckboxSample", "css":"sample"},
-			{"name": "Inputs", "path":"$lib/onyx/samples/InputSample", "css":"sample"},
-			{"name": "Group Boxes", "path":"$lib/onyx/samples/GroupboxSample", "css":"sample"},
-			{"name": "Progress Bars", "path":"$lib/onyx/samples/ProgressSample", "css":"sample"},
-			{"name": "Sliders", "path":"$lib/onyx/samples/SliderSample", "css":"sample"},
-			{"name": "Drawers", "path":"$lib/onyx/samples/DrawerSample"},
-			{"name": "Menus", "path":"$lib/onyx/samples/MenuSample", "css":"sample"},
-			{"name": "Pickers", "path":"$lib/onyx/samples/PickerSample", "css":"sample"},
-			{"name": "Tooltips", "path":"$lib/onyx/samples/TooltipSample", "css":"sample"},
-			{"name": "Spinners", "path":"$lib/onyx/samples/SpinnerSample", "css":"sample"},
-			{"name": "Popups", "path":"$lib/onyx/samples/PopupSample", "css":"sample"}
+			{"name": "Toolbars", "path":"lib/onyx/samples/ToolbarSample", "css":"sample"},
+			{"name": "Basic Buttons", "path":"lib/onyx/samples/ButtonSample", "css":"sample"},
+			{"name": "Grouped Buttons", "path":"lib/onyx/samples/ButtonGroupSample", "css":"sample"},
+			{"name": "Icon Buttons", "path":"lib/onyx/samples/IconButtonSample", "css":"sample"},
+			{"name": "Toggle Buttons", "path":"lib/onyx/samples/ToggleButtonSample", "css":"sample"},
+			{"name": "Checkboxes", "path":"lib/onyx/samples/CheckboxSample", "css":"sample"},
+			{"name": "Inputs", "path":"lib/onyx/samples/InputSample", "css":"sample"},
+			{"name": "Group Boxes", "path":"lib/onyx/samples/GroupboxSample", "css":"sample"},
+			{"name": "Progress Bars", "path":"lib/onyx/samples/ProgressSample", "css":"sample"},
+			{"name": "Sliders", "path":"lib/onyx/samples/SliderSample", "css":"sample"},
+			{"name": "Drawers", "path":"lib/onyx/samples/DrawerSample"},
+			{"name": "Menus", "path":"lib/onyx/samples/MenuSample", "css":"sample"},
+			{"name": "Pickers", "path":"lib/onyx/samples/PickerSample", "css":"sample"},
+			{"name": "Tooltips", "path":"lib/onyx/samples/TooltipSample", "css":"sample"},
+			{"name": "Spinners", "path":"lib/onyx/samples/SpinnerSample", "css":"sample"},
+			{"name": "Popups", "path":"lib/onyx/samples/PopupSample", "css":"sample"}
 		]},
 		{"name": "Layout", "ns":"enyo.sample", "samples": [
 			{"name": "Fittable Layouts", "samples": [
-				{"name": "Basic sample", "path":"$lib/layout/fittable/samples/FittableSample", "css":"sample"},
-				{"name": "Details", "path":"$lib/layout/fittable/samples/FittableDescription", "css":"sample"},
-				{"name": "Example app layout 1", "path":"$lib/layout/fittable/samples/FittableAppLayout1", "css":"sample"},
-				{"name": "Example app layout 2", "path":"$lib/layout/fittable/samples/FittableAppLayout2", "css":"sample"},
-				{"name": "Example app layout 3", "path":"$lib/layout/fittable/samples/FittableAppLayout3", "css":"sample"},
-				{"name": "Example app layout 4", "path":"$lib/layout/fittable/samples/FittableAppLayout4", "css":"sample"}
+				{"name": "Basic sample", "path":"lib/layout/fittable/samples/FittableSample", "css":"sample"},
+				{"name": "Details", "path":"lib/layout/fittable/samples/FittableDescription", "css":"sample"},
+				{"name": "Example app layout 1", "path":"lib/layout/fittable/samples/FittableAppLayout1", "css":"sample"},
+				{"name": "Example app layout 2", "path":"lib/layout/fittable/samples/FittableAppLayout2", "css":"sample"},
+				{"name": "Example app layout 3", "path":"lib/layout/fittable/samples/FittableAppLayout3", "css":"sample"},
+				{"name": "Example app layout 4", "path":"lib/layout/fittable/samples/FittableAppLayout4", "css":"sample"}
 			]},
 			{"name": "List", "ns":"enyo.sample", "samples": [
-				{"name": "Basic list", "path":"$lib/layout/list/samples/ListBasicSample"},
-				{"name": "Pulldown list (Twitter)", "path":"$lib/layout/list/samples/ListPulldownSample"},
-				{"name": "Lazy-loading list (Flickr)", "path":"$lib/layout/panels/samples/PanelsFlickrSample"},
-				{"name": "Editable list (Contacts)", "path":"$lib/layout/list/samples/ListContactsSample"}
+				{"name": "Basic list", "path":"lib/layout/list/samples/ListBasicSample"},
+				{"name": "Pulldown list (Twitter)", "path":"lib/layout/list/samples/ListPulldownSample"},
+				{"name": "Lazy-loading list (Flickr)", "path":"lib/layout/panels/samples/PanelsFlickrSample"},
+				{"name": "Editable list (Contacts)", "path":"lib/layout/list/samples/ListContactsSample"}
 			]},
 			{"name": "Panels", "ns":"enyo.sample", "samples": [
-				{"name": "Arranger sampler", "path":"$lib/layout/panels/samples/PanelsSample"},
-				{"name": "Sliding app example", "path":"$lib/layout/panels/samples/PanelsSlidingSample"},
-				{"name": "Flickr app example", "path":"$lib/layout/panels/samples/PanelsFlickrSample"}
+				{"name": "Arranger sampler", "path":"lib/layout/panels/samples/PanelsSample"},
+				{"name": "Sliding app example", "path":"lib/layout/panels/samples/PanelsSlidingSample"},
+				{"name": "Flickr app example", "path":"lib/layout/panels/samples/PanelsFlickrSample"}
 			]},
-			{"name": "Tree", "ns":"enyo.sample", "path":"$lib/layout/tree/samples/TreeSample"}
+			{"name": "Tree", "ns":"enyo.sample", "path":"lib/layout/tree/samples/TreeSample"}
 		]},
 		{"name": "Canvas", "ns":"enyo.sample", "samples": [	
-			{"name": "Canvas primitives", "path":"$lib/canvas/samples/CanvasPrimitivesSample"},
-			{"name": "Bouncing balls", "path":"$lib/canvas/samples/CanvasBallsSample"}
+			{"name": "Canvas primitives", "path":"lib/canvas/samples/CanvasPrimitivesSample"},
+			{"name": "Bouncing balls", "path":"lib/canvas/samples/CanvasBallsSample"}
 		]}
 	]
 }
