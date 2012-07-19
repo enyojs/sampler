@@ -10,7 +10,7 @@ enyo.kind({
 			{kind: "Panels", name:"navPanels", arrangerKind:"CarouselArranger", onTransitionFinish:"navChanged", draggable:false, classes:"enyo-fit"},
 			{kind: "Panels", name:"contentPanels", arrangerKind:"CollapsingArranger", draggable:false, classes:"panels enyo-fit", components:[
 				{kind: "FittableRows", classes:"wide", components: [
-					{kind:"Scroller", name:"sampleContent", horizontal: "hidden", fit:true, classes:"onyx", components:[
+					{kind:"Scroller", name:"sampleContent", horizontal: "hidden", fit:true, classes:"onyx enyo-unselectable", components:[
 					]},
 					{kind: "FittableColumns", name:"viewSourceToolbar", noStretch: true, classes: "onyx-toolbar onyx-toolbar-inline footer-toolbar", components: [
 						{kind: "onyx.Grabber", ontap:"toggleFullScreen"},
