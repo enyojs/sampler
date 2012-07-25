@@ -192,7 +192,7 @@ enyo.kind({
 enyo.kind({
 	name: "NavigationList",
 	kind: "FittableRows", 
-	classes:"enyo-fit",
+	classes:"enyo-fit enyo-unselectable",
 	published: {
 		samples:""
 	},
