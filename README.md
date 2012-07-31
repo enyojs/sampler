@@ -5,6 +5,8 @@ A cross-platform application for viewing Enyo 2.0 samples from all its various l
 
 The app allows navigation through each library's samples.  Each sample is designed to be usable across all form factors, as a kind that can be rendered within the Sampler app, as well as standalone via the accompanying .html file.
 
+You can inspect the current sample through the console via `window.sample`.
+
 Since the app AJAX's in the JavaScript and CSS source files for the viewer, a few simple conventions must be followed to add new samples to the app:
 
 * The `assets/manifest.json` file defines the left-hand navigation hierarchy of the app:
