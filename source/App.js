@@ -105,6 +105,7 @@ enyo.kind({
 			var kindNamespace = sample.ns || this.currNamespace;
 			var path = sample.path.substring(0, sample.path.lastIndexOf("/") + 1);
 			var instance = this.$.sampleContent.createComponent({kind:(kindNamespace + "." + kind)});
+			window.sample=instance;
 			this.$.sampleContent.render();
 			this.$.sampleContent.resized();
 			// Load the source code for the sample
@@ -155,6 +156,7 @@ enyo.kind({
 		this.$.cssContent.setContent("");
 		this.$.viewSource.hide();
 		this.$.openExternal.hide();
+		window.sample = undefined;
 	},
 	viewSource: function() {
 		this.$.contentPanels.setIndex(1);
