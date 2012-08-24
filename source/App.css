@@ -12,6 +12,9 @@ button {
 	padding: 16px 12px;
 	background-color: #333333;
 	color:white;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .list {
@@ -78,4 +81,24 @@ button {
 .wrap-label {
 	vertical-align:middle; 
 	padding-left:5px;
+}
+
+.test-tools {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.test-tools > * {
+	padding-bottom:10px;
+}
+
+.test-button-left {
+	margin-right:2.5%;
+	width:47.5%;
+}
+
+.test-button-right {
+	margin-left:2.5%;
+	width:47.5%;
 }
