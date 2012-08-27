@@ -75,7 +75,7 @@ button {
 }
 
 .nowrap {
-	width:2000px;
+	white-space: pre;
 }
 
 .wrap-label {

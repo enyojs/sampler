@@ -23,10 +23,10 @@ enyo.kind({
 				{kind: "FittableRows", classes:"wide onyx", components: [
 					{kind: "Panels", name:"sourcePanels", fit:true, draggable:false, components: [
 						{kind: "Scroller", classes:"enyo-fit scroller", components: [
-							{name:"sourceContent", classes:"source nowrap enyo-selectable"}
+							{kind:"SourceView", name:"sourceContent"}
 						]},
 						{kind: "Scroller", classes:"enyo-fit scroller", components: [
-							{name:"cssContent", classes:"source nowrap enyo-selectable"}
+							{kind:"SourceView", name:"cssContent"}
 						]}
 					]},
 					{kind:"onyx.Toolbar", layoutKind: "FittableColumnsLayout", classes:"footer-toolbar", noStretch:true, components: [
@@ -290,8 +290,8 @@ enyo.kind({
 		}
 	},
 	wrapChanged: function(inSender, inEvent) {
-		this.$.sourceContent.addRemoveClass("nowrap", !inSender.getValue());
-		this.$.cssContent.addRemoveClass("nowrap", !inSender.getValue());
+		this.$.sourceContent.setWrap(inSender.getValue());
+		this.$.cssContent.setWrap(inSender.getValue());
 	},
 	getHashComponentName: function() {
 		return window.location.hash.slice(1);
@@ -336,6 +336,34 @@ enyo.kind({
 	quitTest: function() {
 		this.resetSample();
 		this.$.navPanels.popView();
+	}
+});
+
+enyo.kind({
+	name: "SourceView",
+	kind: "Control",
+	tag: "pre",
+	classes: "source enyo-selectable",
+	published: {
+		wrap: false
+	},
+	create: function() {
+		this.inherited(arguments);
+		this.wrapChanged();
+	},
+	// IE8 normalizes whitespace when setting innerHTML even in <pre> tags, so appending
+	// text nodes into the pre works around it (http://stackoverflow.com/a/195385)
+	contentChanged: function(inOld) {
+		var node = this.hasNode();
+		if (node) {
+			while(node.hasChildNodes()) { 
+				node.removeChild(node.firstChild);
+			}
+			node.appendChild(document.createTextNode(this.content));
+		}
+	},
+	wrapChanged: function(inOld) {
+		this.addRemoveClass("nowrap", !this.wrap);
 	}
 });
 
