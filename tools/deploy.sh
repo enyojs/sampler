@@ -65,3 +65,11 @@ for i in $SOURCE/lib/*; do
 		cp -r $i "$TARGET/lib"
 	fi
 done
+
+# copy samples - sampler only step!
+echo "Copying samples"
+cd ..
+for f in `find enyo lib -name samples -type d | sed 's/\/samples//g'`; 
+	do mkdir -p $TARGET/$f/samples; 
+	cp -r $f/samples $TARGET/$f; 
+done
