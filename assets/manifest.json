@@ -43,7 +43,8 @@
 				{"name": "Basic list", "path":"$lib/layout/list/samples/ListBasicSample"},
 				{"name": "Pulldown list (Twitter)", "path":"$lib/layout/list/samples/ListPulldownSample"},
 				{"name": "Lazy-loading list (Flickr)", "path":"$lib/layout/panels/samples/PanelsFlickrSample"},
-				{"name": "Editable list (Contacts)", "path":"$lib/layout/list/samples/ListContactsSample"}
+				{"name": "Editable list (Contacts)", "path":"$lib/layout/list/samples/ListContactsSample"},
+				{"name": "Around list", "path":"$lib/layout/list/samples/ListAroundSample"}
 			]},
 			{"name": "Panels", "ns":"enyo.sample", "loadPackages":"$lib/layout/panels/samples", "samples": [
 				{"name": "Arranger sampler", "path":"$lib/layout/panels/samples/PanelsSample"},
