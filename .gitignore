@@ -23,3 +23,6 @@ local.properties
 *.mode1v3
 xcuserdata
 Snapshots
+
+# webOS generated files
+*.ipk

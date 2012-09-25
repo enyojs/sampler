@@ -1,0 +1,10 @@
+{
+  "id": "com.enyojs.enyo2sampler.nightly",
+  "version": "0.0.1",
+  "vendor": "Palm, Inc.",
+  "type": "web",
+  "main": "index.html",
+  "title": "Enyo 2 Sampler Nightly",
+  "uiRevision": "2",
+  "icon": "icon.png"
+}
