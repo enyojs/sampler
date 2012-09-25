@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8251C1231611385C00BCCFD6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8251C1221611385C00BCCFD6 /* Default-568h@2x.png */; };
 		82B108B715B092B700D10360 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B108B615B092B700D10360 /* Foundation.framework */; };
 		82B108B915B092B700D10360 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B108B815B092B700D10360 /* UIKit.framework */; };
 		82B108BB15B092B700D10360 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B108BA15B092B700D10360 /* CoreGraphics.framework */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8251C1221611385C00BCCFD6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		82B108B215B092B700D10360 /* Enyo Sampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Enyo Sampler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B108B615B092B700D10360 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		82B108B815B092B700D10360 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -132,6 +134,7 @@
 		82B108A415B092B600D10360 = {
 			isa = PBXGroup;
 			children = (
+				8251C1221611385C00BCCFD6 /* Default-568h@2x.png */,
 				82C392D715B0A3800042CC3B /* Default-Landscape~ipad.png */,
 				82C392D515B0A3790042CC3B /* Default-Portrait~ipad.png */,
 				82C392D315B0A3620042CC3B /* Default@2x.png */,
@@ -363,6 +366,7 @@
 				82C392D415B0A3620042CC3B /* Default@2x.png in Resources */,
 				82C392D615B0A3790042CC3B /* Default-Portrait~ipad.png in Resources */,
 				82C392D815B0A3800042CC3B /* Default-Landscape~ipad.png in Resources */,
+				8251C1231611385C00BCCFD6 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +525,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -551,6 +556,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
