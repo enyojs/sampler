@@ -3,6 +3,9 @@ Enyo 2.0 Sampler
 
 A cross-platform application for viewing Enyo 2.0 samples from all its various libraries.
 
+For the most recent released version, see the [Enyo JS website](http://enyojs.com/sampler).
+The latest nightly build is also available at <http://nightly.enyojs.com/latest/sampler/debug.html>.
+
 The app allows navigation through each library's samples.  Each sample is designed to be usable across all form factors, as a kind that can be rendered within the Sampler app, as well as standalone via the accompanying .html file.
 
 You can inspect the current sample through the console via `window.sample`.
