@@ -11,6 +11,8 @@ www/
 # Android generated files
 projects/Android/bin/
 projects/Android/gen/
+projects/Android-nightly/bin/
+projects/Android-nightly/gen/
 local.properties
 
 # iOS generated files
