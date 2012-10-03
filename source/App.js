@@ -3,13 +3,14 @@ enyo.kind({
 	classes: "app onyx font-lato enyo-unselectable",
 	samples:[],
 	handlers: {
-		onresize:"resized"
+		onresize:"resized",
+		onHideSampleSource:"hideSource"
 	},
 	browserScopeTestKey: "agt1YS1wcm9maWxlcnINCxIEVGVzdBjU2-gRDA",
 	components: [
 		{kind: "Panels", name:"mainPanels", classes:"panels enyo-fit", arrangerKind: "CollapsingArranger", components: [
 			{kind: "ViewStack", name:"navPanels", onTransitionFinish:"navChanged", classes:"enyo-fit"},
-			{kind: "Panels", name:"contentPanels", arrangerKind:"CollapsingArranger", draggable:false, classes:"panels enyo-fit", components:[
+			{kind: "Panels", name:"contentPanels", arrangerKind:"CollapsingArranger", draggable:false, classes:"panels enyo-fit", onTransitionFinish: "contentTransitionComplete", components: [
 				{kind: "FittableRows", classes:"wide", components: [
 					{kind:"Scroller", name:"sampleContent", horizontal: "hidden", fit:true, classes:"onyx enyo-unselectable", components:[
 					]},
@@ -18,30 +19,6 @@ enyo.kind({
 						{fit:true}, // Spacer
 						{kind: "onyx.Button", name:"viewSource", content: "View Source", ontap:"viewSource", showing:false},
 						{kind: "onyx.Button", name:"openExternal", content: "Open", ontap:"openExternal", showing:false}
-					]}
-				]},
-				{kind: "FittableRows", classes:"wide onyx", components: [
-					{kind: "Panels", name:"sourcePanels", fit:true, draggable:false, components: [
-						{kind: "Scroller", classes:"enyo-fit scroller", components: [
-							{kind:"SourceView", name:"sourceContent"}
-						]},
-						{kind: "Scroller", classes:"enyo-fit scroller", components: [
-							{kind:"SourceView", name:"cssContent"}
-						]}
-					]},
-					{kind:"onyx.Toolbar", layoutKind: "FittableColumnsLayout", classes:"footer-toolbar", noStretch:true, components: [
-						{kind: "onyx.Button", name:"srcCancelButton", content:"Close", ontap:"hideSource"},
-						{kind: "onyx.IconButton", name:"srcCancelIcon", src:"assets/cancel.png", ontap:"hideSource"},
-						{fit:true, style:"text-align:center;", components: [
-							{kind: "onyx.RadioGroup", onActivate:"sourceChanged", components: [
-								{content: "JS",  classes:"source-tabs", active: true},
-								{content: "CSS", classes:"source-tabs"}
-							]}
-						]},
-						{ components: [
-							{kind: "onyx.Checkbox", onchange:"wrapChanged"},
-							{content:"Wrap", classes:"enyo-inline wrap-label"}
-						]}
 					]}
 				]}
 			]}
@@ -231,16 +208,32 @@ enyo.kind({
 		if ((this.externalURL.indexOf("http") != 0) || (this.externalURL.indexOf(window.location.origin) == 0)) {
 			new enyo.Ajax({url: enyo.path.rewrite(sample.path + ".js"), handleAs:"text"})
 				.response(this, function(inSender, inSource) {
-					this.$.sourceContent.setContent(inSource);
+					this.jsSource = inSource;
+					var components = this.getComponents();
+					for(var i=0;i<components.length;i++) {
+						if(components[i].name == "sourceViewer") {
+							this.$.sourceViewer.jsSource = inSource;
+							this.$.sourceViewer.jsSourceChanged();
+							break;
+						}
+					}
 				})
 				.go();
 			new enyo.Ajax({url: enyo.path.rewrite(path + (sample.css || kind) + ".css"), handleAs:"text"})
 				.response(this, function(inSender, inSource) {
-					this.$.cssContent.setContent(inSource);
+					this.cssSource = inSource;
+					var components = this.getComponents();
+					for(var i=0, showingSource=false;i<components.length;i++) {
+						if(components[i].name == "sourceViewer") {
+							this.$.sourceViewer.cssSource = inSource;
+							this.$.sourceViewer.cssSourceChanged();
+							break;
+						}
+					}
 				})
 				.go();
 		} else {
-			this.$.sourceContent.setContent("Sorry, the source for this sample is on a separate server and cannot be displayed due to cross-origin restrictions.");
+			this.$.jsContent.setContent("Sorry, the source for this sample is on a separate server and cannot be displayed due to cross-origin restrictions.");
 			this.$.cssContent.setContent("Sorry, the source for this sample is on a separate server and cannot be displayed due to cross-origin restrictions.");
 		}
 		// Advance to the sample panel
@@ -250,7 +243,16 @@ enyo.kind({
 		this.$.viewSource.show();
 		this.$.openExternal.show();
 		this.$.viewSourceToolbar.resized();
-	}, 
+	},
+	resized: function() {
+		var components = this.getComponents();
+		for(var i=0;i<components.length;i++) {
+			if(components[i].name == "sourceViewer") {
+				this.$.sourceViewer.resized();
+				break;
+			}
+		}
+	},
 	navChanged: function() {
 		// Update the namespace used for samples without an explicit namespace
 		var curr = this.$.navPanels.getActive();
@@ -265,33 +267,32 @@ enyo.kind({
 	},
 	resetSample: function() {
 		this.$.sampleContent.destroyClientControls();
-		this.$.sourceContent.setContent("");
-		this.$.cssContent.setContent("");
 		this.$.viewSource.hide();
 		this.$.openExternal.hide();
 		window.sample = undefined;
 	},
 	viewSource: function() {
+		var newComponent = this.$.contentPanels.createComponent({name: "sourceViewer", kind: "dynamicSourceViewer", jsSource: this.jsSource, cssSource: this.cssSource}, {owner: this});
+		newComponent.jsSourceChanged();
+		newComponent.cssSourceChanged();
+		this.$.contentPanels.render();
 		this.$.contentPanels.setIndex(1);
+	},
+	hideSource: function() {
+		this.hidingSource = true;
+		this.$.contentPanels.setIndex(0);
+	},
+	contentTransitionComplete: function(inSender, inEvent) {
+		if(this.hidingSource) {
+			this.destroySourceViewer();
+		}
+	},
+	destroySourceViewer: function() {
+		this.$.sourceViewer.destroy();
+		this.hidingSource = false;
 	},
 	openExternal: function() {
 		window.open(this.externalURL, "_blank");
-	},
-	hideSource: function() {
-		this.$.contentPanels.setIndex(0);
-	},
-	resized: function() {
-		this.$.srcCancelButton.setShowing(!enyo.Panels.isScreenNarrow());
-		this.$.srcCancelIcon.setShowing(enyo.Panels.isScreenNarrow());
-	},
-	sourceChanged: function(inSender, inEvent) {
-		if (inEvent.originator.active) {
-			this.$.sourcePanels.setIndex(inEvent.originator.indexInContainer());
-		}
-	},
-	wrapChanged: function(inSender, inEvent) {
-		this.$.sourceContent.setWrap(inSender.getValue());
-		this.$.cssContent.setWrap(inSender.getValue());
 	},
 	getHashComponentName: function() {
 		return window.location.hash.slice(1);
@@ -364,6 +365,60 @@ enyo.kind({
 	},
 	wrapChanged: function(inOld) {
 		this.addRemoveClass("nowrap", !this.wrap);
+	}
+});
+
+enyo.kind({
+	name: "dynamicSourceViewer",
+	kind: "FittableRows",
+	classes:"wide onyx",
+	published: {
+		jsSource: "",
+		cssSource: ""
+	},
+	events: {
+		onHideSampleSource: ""
+	},
+	components: [
+		{kind: "Panels", name:"sourcePanels", fit:true, draggable:false, components: [
+			{kind: "Scroller", classes:"enyo-fit scroller", components: [
+				{kind:"SourceView", name:"jsContent" }
+			]},
+			{kind: "Scroller", classes:"enyo-fit scroller", components: [
+				{kind:"SourceView", name:"cssContent"}
+			]}
+		]},
+		{kind: "onyx.Toolbar", layoutKind: "FittableColumnsLayout", classes: "footer-toolbar", noStretch: true, components: [
+			{kind: "onyx.Button", name: "srcCancelButton", content: "Close", ontap: "doHideSampleSource"},
+			{kind: "onyx.IconButton", name: "srcCancelIcon", src: "assets/cancel.png", ontap: "doHideSampleSource"},
+			{fit:true, style: "text-align:center;", components: [
+				{kind: "onyx.RadioGroup", onActivate: "sourceChanged", components: [
+					{content: "JS",  classes: "source-tabs", active: true},
+					{content: "CSS", classes: "source-tabs"}
+				]}
+			]},
+			{components: [
+				{kind: "onyx.Checkbox", onchange: "wrapChanged"},
+				{content: "Wrap", classes: "enyo-inline wrap-label"}
+			]}
+		]}
+	],
+	jsSourceChanged: function() {
+		this.$.jsContent.setContent(this.getJsSource());
+	},
+	cssSourceChanged: function() { this.$.cssContent.setContent(this.getCssSource()); },
+	sourceChanged: function(inSender, inEvent) {
+		if (inEvent.originator.active) {
+			this.$.sourcePanels.setIndex(inEvent.originator.indexInContainer());
+		}
+	},
+	wrapChanged: function(inSender, inEvent) {
+		this.$.jsContent.setWrap(inSender.getValue());
+		this.$.cssContent.setWrap(inSender.getValue());
+	},
+	resized: function() {
+		this.$.srcCancelButton.setShowing(!enyo.Panels.isScreenNarrow());
+		this.$.srcCancelIcon.setShowing(enyo.Panels.isScreenNarrow());
 	}
 });
 
