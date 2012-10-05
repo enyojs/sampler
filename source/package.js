@@ -6,6 +6,8 @@ enyo.depends(
 	"$lib/layout/list/samples",
 	"$lib/layout/tree",
 	"$lib/layout/tree/samples",
+	"$lib/layout/imageview",
+	"$lib/layout/imageview/samples",
 	"$lib/onyx/samples",
 	"$lib/canvas",
 	"$lib/canvas/samples",
