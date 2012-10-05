@@ -1,6 +1,11 @@
 enyo.depends(
 	"$lib/layout",
 	"$lib/onyx",
+	"$lib/g11n",
+	"$lib/g11n/source/address",
+	"$lib/g11n/source/css/",	
+	"$lib/g11n/source/name",
+	"$lib/g11n/source/phone",				
 	"$lib/layout/fittable/samples",
 	"$lib/layout/panels/samples",
 	"$lib/layout/list/samples",
@@ -8,8 +13,9 @@ enyo.depends(
 	"$lib/layout/tree/samples",
 	"$lib/onyx/samples",
 	"$lib/canvas",
-	"$lib/canvas/samples",
+	"$lib/canvas/samples",	
 	"$enyo/samples",
+	"$lib/g11n/samples",	
 	"App.css",
 	"App.js"
 );
