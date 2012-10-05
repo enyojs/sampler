@@ -275,7 +275,8 @@ enyo.kind({
 		var newComponent = this.$.contentPanels.createComponent({name: "sourceViewer", kind: "dynamicSourceViewer", jsSource: this.jsSource, cssSource: this.cssSource}, {owner: this});
 		newComponent.jsSourceChanged();
 		newComponent.cssSourceChanged();
-		this.$.contentPanels.render();
+		newComponent.render();
+		this.$.contentPanels.resized();
 		this.$.contentPanels.setIndex(1);
 	},
 	hideSource: function() {

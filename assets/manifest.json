@@ -51,7 +51,9 @@
 				{"name": "Sliding app example", "path":"$lib/layout/panels/samples/PanelsSlidingSample"},
 				{"name": "Flickr app example", "path":"$lib/layout/panels/samples/PanelsFlickrSample"}
 			]},
-			{"name": "Tree", "ns":"enyo.sample", "loadPackages":"$lib/layout/tree/samples", "path":"$lib/layout/tree/samples/TreeSample"}
+			{"name": "Tree", "ns":"enyo.sample", "loadPackages":"$lib/layout/tree/samples", "path":"$lib/layout/tree/samples/TreeSample"},
+			{"name": "Image View", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageViewSample"},
+			{"name": "Image Carousel", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageCarouselSample"}
 		]},
 		{"name": "Canvas", "ns":"enyo.sample", "loadPackages":"$lib/canvas $lib/canvas/samples", "samples": [	
 			{"name": "Canvas primitives", "path":"$lib/canvas/samples/CanvasPrimitivesSample"},
