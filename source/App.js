@@ -276,7 +276,7 @@ enyo.kind({
 		newComponent.jsSourceChanged();
 		newComponent.cssSourceChanged();
 		newComponent.render();
-		this.$.contentPanels.resized();
+		this.$.contentPanels.render();
 		this.$.contentPanels.setIndex(1);
 	},
 	hideSource: function() {
