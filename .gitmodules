@@ -15,4 +15,4 @@
 	url = ../extra.git
 [submodule "lib/g11n"]
 	path = lib/g11n
-	url = git@github.com:enyojs/g11n.git
+	url = ../g11n.git
