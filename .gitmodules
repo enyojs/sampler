@@ -13,3 +13,6 @@
 [submodule "lib/extra"]
 	path = lib/extra
 	url = ../extra.git
+[submodule "lib/g11n"]
+	path = lib/g11n
+	url = ../g11n.git
