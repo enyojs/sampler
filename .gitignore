@@ -4,9 +4,9 @@ server/login/certificate.pem
 server/login/privatekey.pem
 
 # Enyo build/deploy folders
-deploy/
-build/
-www/
+/deploy/
+/build/
+/www/
 
 # Android generated files
 projects/Android/bin/
