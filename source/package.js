@@ -2,7 +2,6 @@ enyo.depends(
 	"$lib/layout",
 	"$lib/onyx",
 	"$lib/g11n",
-	"$lib/g11n/source/address",
 	"$lib/g11n/source/css/",	
 	"$lib/g11n/source/name",
 	"$lib/g11n/source/phone",				
