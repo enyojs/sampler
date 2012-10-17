@@ -1,6 +1,6 @@
 {
 	"sourcePath":"",
-	"name": "Enyo 2.0 Sampler",
+	"name": "Enyo 2 Sampler",
 	"samples": [
 		{"name": "Enyo Core", "ns":"enyo.sample", "loadPackages":"$enyo/samples", "samples": [
 			{"name": "Playground", "path":"$enyo/samples/Playground"},
@@ -10,7 +10,8 @@
 				{"name": "WebService Component", "path":"$enyo/samples/WebServiceSample"}
 			]},
 			{"name": "Scroller", "path":"$enyo/samples/ScrollerSample"},
-			{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"}
+			{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"},
+			{"name": "Gestures", "path":"$enyo/samples/GestureSample"}
 		]},
 		{"name": "Onyx", "ns":"onyx.sample", "loadPackages":"$lib/onyx $lib/onyx/samples", "samples": [
 			{"name": "Toolbars", "path":"$lib/onyx/samples/ToolbarSample", "css":"sample"},
@@ -62,7 +63,7 @@
 			{"name": "Canvas primitives", "path":"$lib/canvas/samples/CanvasPrimitivesSample"},
 			{"name": "Bouncing balls", "path":"$lib/canvas/samples/CanvasBallsSample"}
 		]},
-		{"name": "G11n", "ns":"g11n.sample", "loadPackages":"$lib/g11n $lib/g11n/samples $lib/onyx/samples", "samples": [	
+		{"name": "Globalization", "ns":"g11n.sample", "loadPackages":"$lib/g11n $lib/g11n/samples $lib/onyx/samples", "samples": [	
 			{"name": "Address", "path":"$lib/g11n/samples/AddressSample", "css":"sample"},
 			{"name": "CSS", "path":"$lib/g11n/samples/LocalizedCssSample", "css":"sample"},			
 			{"name": "Date", "path":"$lib/g11n/samples/DateSample", "css":"sample"},
