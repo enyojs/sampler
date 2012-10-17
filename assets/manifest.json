@@ -1,6 +1,6 @@
 {
 	"sourcePath":"",
-	"name": "Enyo 2.0 Sampler",
+	"name": "Enyo Sampler",
 	"samples": [
 		{"name": "Enyo Core", "ns":"enyo.sample", "loadPackages":"$enyo/samples", "samples": [
 			{"name": "Playground", "path":"$enyo/samples/Playground"},
