@@ -64,7 +64,7 @@
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return [super shouldAutorotateToInterfaceOrientation:interfaceOrientation];
+    return true;
 }
 
 /* Comment out the block below to over-ride */
