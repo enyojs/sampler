@@ -41,6 +41,7 @@ button {
 
 .footer-toolbar {
     height:60px;
+    overflow:visible;
 }
 
 
