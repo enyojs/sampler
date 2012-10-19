@@ -12,13 +12,23 @@ enyo.kind({
 			{kind: "ViewStack", name:"navPanels", onTransitionFinish:"navChanged", classes:"enyo-fit"},
 			{kind: "Panels", name:"contentPanels", arrangerKind:"CollapsingArranger", draggable:false, classes:"panels enyo-fit", onTransitionFinish: "contentTransitionComplete", components: [
 				{kind: "FittableRows", classes:"wide", components: [
-					{kind:"Scroller", name:"sampleContent", horizontal: "hidden", fit:true, classes:"onyx enyo-unselectable", components:[
-					]},
-					{kind: "FittableColumns", name:"viewSourceToolbar", noStretch: true, classes: "onyx-toolbar onyx-toolbar-inline footer-toolbar", components: [
+					{kind:"Scroller", name:"sampleContent", horizontal: "hidden", fit:true, classes:"onyx enyo-unselectable"},
+					{kind: "onyx.Toolbar", layoutKind:"FittableColumnsLayout", name:"viewSourceToolbar", noStretch: true, classes: "footer-toolbar", components: [
 						{kind: "onyx.Grabber", ontap:"toggleFullScreen"},
 						{fit:true}, // Spacer
 						{kind: "onyx.Button", name:"viewSource", content: "View Source", ontap:"viewSource", showing:false},
-						{kind: "onyx.Button", name:"openExternal", content: "Open", ontap:"openExternal", showing:false}
+						{kind: "onyx.TooltipDecorator", components: [
+							{kind: "onyx.Button", name:"openFiddle", ontap:"openFiddle", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
+								{kind:"onyx.Icon", src:"assets/fiddle.png", style:"margin-top:-5px;"}
+							]},
+							{kind: "onyx.Tooltip", content:"Open sample in jsFiddle"}
+						]},
+						{kind: "onyx.TooltipDecorator", components: [
+							{kind: "onyx.Button", name:"openExternal", ontap:"openExternal", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
+								{kind:"onyx.Icon", src:"assets/open-external.png", style:"margin-top:-5px;"}
+							]},
+							{kind: "onyx.Tooltip", content:"Open sample in new tab"}
+						]}
 					]}
 				]}
 			]}
@@ -199,7 +209,8 @@ enyo.kind({
 		var kind = sample.path.substring(sample.path.lastIndexOf("/") + 1);
 		var kindNamespace = sample.ns || this.currNamespace;
 		var path = sample.path.substring(0, sample.path.lastIndexOf("/") + 1);
-		var instance = this.$.sampleContent.createComponent({kind:(kindNamespace + "." + kind)});
+		this.kind = kindNamespace + "." + kind;
+		var instance = this.$.sampleContent.createComponent({kind:this.kind});
 		window.sample=instance;
 		this.$.sampleContent.render();
 		this.$.sampleContent.resized();
@@ -242,6 +253,7 @@ enyo.kind({
 		}
 		this.$.viewSource.show();
 		this.$.openExternal.show();
+		this.$.openFiddle.show();
 		this.$.viewSourceToolbar.resized();
 	},
 	resized: function() {
@@ -269,6 +281,7 @@ enyo.kind({
 		this.$.sampleContent.destroyClientControls();
 		this.$.viewSource.hide();
 		this.$.openExternal.hide();
+		this.$.openFiddle.hide();
 		window.sample = undefined;
 	},
 	viewSource: function() {
@@ -294,6 +307,38 @@ enyo.kind({
 	},
 	openExternal: function() {
 		window.open(this.externalURL, "_blank");
+	},
+	openFiddle: function() {
+		var form;
+		form = document.createElement("form");
+		form.method = "post";
+		form.action = "http://jsfiddle.net/api/post/enyo/nightly/dependencies/onyx,layout,canvas/";
+		form.target = "_blank";
+		var el;
+		// JavaScript
+		el = document.createElement("textarea");
+		el.style.display = "none";
+		el.type = "hidden";
+		el.name = "js";
+		el.value = this.jsSource.replace(/\"assets\//g, "\"http://nightly.enyojs.com/latest/sampler/assets/");			
+		form.appendChild(el);
+		// CSS
+		el = document.createElement("textarea");
+		el.style.display = "none";
+		el.type = "hidden";
+		el.name = "css";
+		el.value = this.cssSource;
+		form.appendChild(el);
+		// HTML
+		el = document.createElement("textarea");
+		el.style.display = "none";
+		el.type = "hidden";
+		el.name = "html";
+		el.value = "<script>\n\tnew " + this.kind + "().renderInto(document.body);\n</script>";
+		form.appendChild(el);
+		document.body.appendChild(form);
+		form.submit();
+	    document.body.removeChild(form);
 	},
 	getHashComponentName: function() {
 		return window.location.hash.slice(1);
@@ -814,7 +859,7 @@ enyo.kind({
 		var item = inEvent.item;
 		var issue = this.knownIssues[inEvent.index];
 		item.$.issueKey.setContent(issue.key);
-		item.$.issueKey.setAttributes({href:"https://enyojs.atlassian.net/browse/" + issue.key, target:"_top"});
+		item.$.issueKey.setAttributes({href:"https://enyojs.atlassian.net/browse/" + issue.key, target:"_blank"});
 		item.$.issueSummary.setContent(issue.fields.summary);
 	},
 	descChanged: function() {
