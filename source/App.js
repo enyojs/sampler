@@ -305,11 +305,7 @@ enyo.kind({
 	},
 	openFiddle: function() {
 		var form;
-		if (form = document.getElementById("_sampler_fiddle_form")) {
-			document.body.removeChild(form);
-		}
 		form = document.createElement("form");
-		form.id = "_sampler_fiddle_form";
 		form.method = "post";
 		form.action = "http://jsfiddle.net/api/post/enyo/nightly/dependencies/onyx,layout,canvas/";
 		form.target = "_blank";
@@ -337,6 +333,7 @@ enyo.kind({
 		form.appendChild(el);
 		document.body.appendChild(form);
 		form.submit();
+	    document.body.removeChild(form);
 	},
 	getHashComponentName: function() {
 		return window.location.hash.slice(1);
