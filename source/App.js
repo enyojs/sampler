@@ -334,7 +334,7 @@ enyo.kind({
 		el.style.display = "none";
 		el.type = "hidden";
 		el.name = "html";
-		el.value = "<script>\n\tnew " + this.kind + "().write();\n</script>";
+		el.value = "<script>\n\tnew " + this.kind + "().renderInto(document.body);\n</script>";
 		form.appendChild(el);
 		document.body.appendChild(form);
 		form.submit();
