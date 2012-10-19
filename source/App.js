@@ -12,17 +12,22 @@ enyo.kind({
 			{kind: "ViewStack", name:"navPanels", onTransitionFinish:"navChanged", classes:"enyo-fit"},
 			{kind: "Panels", name:"contentPanels", arrangerKind:"CollapsingArranger", draggable:false, classes:"panels enyo-fit", onTransitionFinish: "contentTransitionComplete", components: [
 				{kind: "FittableRows", classes:"wide", components: [
-					{kind:"Scroller", name:"sampleContent", horizontal: "hidden", fit:true, classes:"onyx enyo-unselectable", components:[
-					]},
-					{kind: "FittableColumns", name:"viewSourceToolbar", noStretch: true, classes: "onyx-toolbar onyx-toolbar-inline footer-toolbar", components: [
+					{kind:"Scroller", name:"sampleContent", horizontal: "hidden", fit:true, classes:"onyx enyo-unselectable"},
+					{kind: "onyx.Toolbar", layoutKind:"FittableColumnsLayout", name:"viewSourceToolbar", noStretch: true, classes: "footer-toolbar", components: [
 						{kind: "onyx.Grabber", ontap:"toggleFullScreen"},
 						{fit:true}, // Spacer
 						{kind: "onyx.Button", name:"viewSource", content: "View Source", ontap:"viewSource", showing:false},
-						{kind: "onyx.Button", name:"openFiddle", ontap:"openFiddle", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
-							{kind:"onyx.Icon", src:"assets/fiddle.png", style:"margin-top:-5px;"}
+						{kind: "onyx.TooltipDecorator", components: [
+							{kind: "onyx.Button", name:"openFiddle", ontap:"openFiddle", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
+								{kind:"onyx.Icon", src:"assets/fiddle.png", style:"margin-top:-5px;"}
+							]},
+							{kind: "onyx.Tooltip", content:"Open sample in jsFiddle"}
 						]},
-						{kind: "onyx.Button", name:"openExternal", ontap:"openExternal", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
-							{kind:"onyx.Icon", src:"assets/open-external.png", style:"margin-top:-5px;"}
+						{kind: "onyx.TooltipDecorator", components: [
+							{kind: "onyx.Button", name:"openExternal", ontap:"openExternal", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
+								{kind:"onyx.Icon", src:"assets/open-external.png", style:"margin-top:-5px;"}
+							]},
+							{kind: "onyx.Tooltip", content:"Open sample in new tab"}
 						]}
 					]}
 				]}
