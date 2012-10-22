@@ -3,6 +3,7 @@
 	"name": "Enyo 2 Sampler",
 	"samples": [
 		{"name": "Enyo Core", "ns":"enyo.sample", "loadPackages":"$enyo/samples", "samples": [
+			{"name": "Platform", "path":"$enyo/samples/PlatformSample"},
 			{"name": "Playground", "path":"$enyo/samples/Playground"},
 			{"name": "Ajax", "samples": [
 				{"name": "Ajax", "path":"$enyo/samples/AjaxSample"},
