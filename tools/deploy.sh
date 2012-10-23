@@ -1,4 +1,4 @@
-#!/bin/bash
+	#!/bin/bash
 
 cd `dirname $0`
 
@@ -93,8 +93,19 @@ done
 
 # copy samples - sampler only step!
 echo "Copying samples"
-cd ..
-for f in `find enyo lib -name samples -type d | sed 's/\/samples//g'`; 
-	do mkdir -p $TARGET/$f/samples; 
-	cp -r $f/samples $TARGET/$f; 
+pushd ..
+pushd enyo
+ENYO_SAMPLES=`find . -name samples -type d | sed 's/\/samples//g'`
+popd
+LIB_SAMPLES=`find lib -name samples -type d | sed 's/\/samples//g'`
+popd
+for f in $ENYO_SAMPLES; do
+	mkdir -p ../build/$f/samples; 
+	cp -r ../enyo/$f/samples ../build/$f; 
+	mkdir -p $TARGET/build/$f/samples; 
+	cp -r ../enyo/$f/samples $TARGET/build/$f; 
+done
+for f in $LIB_SAMPLES; do
+	mkdir -p $TARGET/$f/samples; 
+	cp -r ../$f/samples $TARGET/$f; 
 done
