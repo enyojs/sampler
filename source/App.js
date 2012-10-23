@@ -312,7 +312,7 @@ enyo.kind({
 		var form;
 		form = document.createElement("form");
 		form.method = "post";
-		form.action = "http://jsfiddle.net/api/post/enyo/nightly/dependencies/onyx,layout,canvas/";
+		form.action = "http://jsfiddle.net/api/post/enyo/nightly/dependencies/onyx,layout,canvas,g11n/";
 		form.target = "_blank";
 		var el;
 		// JavaScript
