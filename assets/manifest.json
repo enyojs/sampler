@@ -4,7 +4,6 @@
 	"samples": [
 		{"name": "Enyo Core", "ns":"enyo.sample", "loadPackages":"$enyo/samples", "samples": [
 			{"name": "Platform", "path":"$enyo/samples/PlatformSample"},
-			{"name": "Playground", "path":"$enyo/samples/Playground"},
 			{"name": "Ajax", "samples": [
 				{"name": "Ajax", "path":"$enyo/samples/AjaxSample"},
 				{"name": "JSON-P", "path":"$enyo/samples/JsonpSample"},
@@ -48,8 +47,7 @@
 				{"name": "Pulldown list (Twitter)", "path":"$lib/layout/list/samples/ListPulldownSample"},
 				{"name": "Lazy-loading list (Flickr)", "path":"$lib/layout/panels/samples/PanelsFlickrSample"},
 				{"name": "Editable list (Contacts)", "path":"$lib/layout/list/samples/ListContactsSample"},
-				{"name": "Around list", "path":"$lib/layout/list/samples/ListAroundSample"},
-				{"name": "FlyweightRepeater", "path":"$lib/layout/list/samples/FlyweightRepeaterSample"}
+				{"name": "Around list", "path":"$lib/layout/list/samples/ListAroundSample"}
 			]},
 			{"name": "Panels", "ns":"enyo.sample", "loadPackages":"$lib/layout/panels/samples", "samples": [
 				{"name": "Arranger sampler", "path":"$lib/layout/panels/samples/PanelsSample"},
