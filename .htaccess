@@ -1,0 +1,31 @@
+<IfModule mod_deflate.c>
+SetOutputFilter DEFLATE
+
+<IfModule mod_setenvif.c>
+# Netscape 4.x has some problems…
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+
+# Netscape 4.06-4.08 have some more problems
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+
+# MSIE masquerades as Netscape, but it is fine
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+
+# NOTE: Due to a bug in mod_setenvif up to Apache 2.0.48
+# the above regex won’t work. You can use the following
+# workaround to get the desired effect:
+#BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+
+# Don’t compress already-compressed files
+SetEnvIfNoCase Request_URI .(?:gif|jpe?g|png)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI .(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI .(?:avi|mov|mp3|mp4|rm|flv|swf|mp?g)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI .pdf$ no-gzip dont-vary
+</IfModule>
+
+<IfModule mod_headers.c>
+# Make sure proxies don’t deliver the wrong content
+Header append Vary User-Agent env=!dont-vary
+Header set Access-Control-Allow-Origin *
+</IfModule>
+</IfModule>
