@@ -31,7 +31,8 @@
 			{"name": "TimePicker", "path":"$lib/onyx/samples/TimePickerSample", "css":"sample"},						
 			{"name": "Tooltips", "path":"$lib/onyx/samples/TooltipSample", "css":"sample"},
 			{"name": "Spinners", "path":"$lib/onyx/samples/SpinnerSample", "css":"sample"},
-			{"name": "Popups", "path":"$lib/onyx/samples/PopupSample", "css":"sample"}
+			{"name": "Popups", "path":"$lib/onyx/samples/PopupSample", "css":"sample"},
+			{"name": "ContextualPopups", "path":"$lib/onyx/samples/ContextualPopupSample", "css":"sample"}		
 		]},
 		{"name": "Layout", "ns":"enyo.sample", "loadPackages":"$lib/layout", "samples": [
 			{"name": "Fittable Layouts", "loadPackages":"$lib/layout/fittable/samples", "samples": [
