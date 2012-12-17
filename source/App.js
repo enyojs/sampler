@@ -338,7 +338,7 @@ enyo.kind({
 		form.appendChild(el);
 		document.body.appendChild(form);
 		form.submit();
-	    document.body.removeChild(form);
+		document.body.removeChild(form);
 	},
 	getHashComponentName: function() {
 		return window.location.hash.slice(1);
@@ -610,7 +610,7 @@ enyo.kind({
 		this.$.list.setCount(this.samples.samples.length); 
 	},
 	setupItem: function(inSender, inEvent) {
-		var item = inSender.getClientControls()[0];
+		var item = this.$.item;
 		item.setContent(this.samples.samples[inEvent.index].name);
 		item.addRemoveClass("onyx-selected", inSender.isSelected(inEvent.index));
 	},
@@ -632,7 +632,7 @@ enyo.kind({
 	name: "SettingsView",
 	kind: "FittableRows", 
 	events: {
-		onQuit:"",
+		onQuit:""
 	},
 	classes:"enyo-fit enyo-unselectable onyx",
 	components: [
@@ -646,19 +646,19 @@ enyo.kind({
 							{kind:"onyx.Input", name:"manifestURL", onchange:"manifestChanged", fit:true},
 							{kind:"onyx.IconButton", style:"width:32px;", src:"assets/remove-icon.png", ontap:"removeManifest"}
 						]}
-					]},
+					]}
 				]},
 				{kind: "onyx.Button", content:"Add Samples", ontap:"addManifest", style:"margin-bottom:10px;"},
 				{kind:"onyx.Groupbox", components: [
 					{kind: "onyx.GroupboxHeader", content:"JIRA Collector ID"},
 					{kind: "onyx.InputDecorator", layoutKind:"FittableColumnsLayout", noStretch:true, components: [
-						{kind:"onyx.Input", name:"jiraCollectorId", fit:true},
+						{kind:"onyx.Input", name:"jiraCollectorId", fit:true}
 					]}
 				]},
 				{kind:"onyx.Groupbox", components: [
 					{kind: "onyx.GroupboxHeader", content:"Alternate Source Path"},
 					{kind: "onyx.InputDecorator", layoutKind:"FittableColumnsLayout", noStretch:true, components: [
-						{kind:"onyx.Input", placeholder:"(experimental)", name:"sourcePath", key:"sourcePath", fit:true},
+						{kind:"onyx.Input", placeholder:"(experimental)", name:"sourcePath", key:"sourcePath", fit:true}
 					]}
 				]}
 			]}
@@ -736,7 +736,7 @@ enyo.kind({
 				{kind:"onyx.Groupbox", name:"descGroup", components: [
 					{kind: "onyx.GroupboxHeader", content:"Fail Description"},
 					{kind: "onyx.InputDecorator", components: [
-						{kind: "onyx.TextArea", name:"descText", style: "width: 100%;", oninput:"descChanged"},
+						{kind: "onyx.TextArea", name:"descText", style: "width: 100%;", oninput:"descChanged"}
 					]}
 				]},
 				{components: [
@@ -926,5 +926,5 @@ enyo.kind({
 			newScript.src += '?sandboxid=' + sandboxId;
 		}
 		firstScript.parentNode.insertBefore(newScript, firstScript);
-  	}
+	}
 });
