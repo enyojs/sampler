@@ -82,7 +82,7 @@ enyo.kind({
 					// Additional sample manifests are pushed onto the end of the
 					// master manifest list
 					this.samples.samples.push(inSamples);
-					// Since the source for addSamples were not included in the app's package.js, 
+					// Since the source for addSamples were not included in the app's package.js,
 					// we need to runtime-load the source packages
 					this.loadSamplePackages(inSamples);
 					// Recurse, until the addSamples list is exhausted
@@ -125,18 +125,18 @@ enyo.kind({
 			}
 		}
 	},
-	parseQueryString: function() { 
+	parseQueryString: function() {
 		// Put query string into hash
 		var queryString = {};
-		var decode = function (s) { 
-			return decodeURIComponent(s.replace(/\+/g, " ")); 
+		var decode = function (s) {
+			return decodeURIComponent(s.replace(/\+/g, " "));
 		};
-		var q = location.search.substring(1); 
+		var q = location.search.substring(1);
 		if (!q.length) {
 			return;
 		}
 		var keyValues = q.split('&');
-		for (var i in keyValues) { 
+		for (var i in keyValues) {
 			var key = keyValues[i].split('=');
 			if (key.length > 1) {
 				queryString[decode(key[0])] = decode(key[1]);
@@ -153,15 +153,15 @@ enyo.kind({
 			localStorage.setItem("sourcePath", queryString["sourcePath"]);
 		}
 		if (queryString["extras"] ||
-			localStorage.getItem("addSamples") || 
-			localStorage.getItem("jiraCollectorId") || 
+			localStorage.getItem("addSamples") ||
+			localStorage.getItem("jiraCollectorId") ||
 			localStorage.getItem("sourcePath")) {
 			localStorage.setItem("extras", "true");
 		}
 		if (queryString["reset"]) {
 			localStorage.setItem("addSamples", "");
-			localStorage.setItem("jiraCollectorId", ""); 
-			localStorage.setItem("sourcePath", ""); 
+			localStorage.setItem("jiraCollectorId", "");
+			localStorage.setItem("sourcePath", "");
 			localStorage.setItem("extras", "");
 		}
 		if (!queryString["debug"]) {
@@ -174,9 +174,9 @@ enyo.kind({
 	pushSampleList: function(inSamples) {
 		// Add a new NavigationList
 		this.$.navPanels.pushView(
-			{kind:"NavigationList", 
-				samples: inSamples, 
-				onNavTap: "navTap", 
+			{kind:"NavigationList",
+				samples: inSamples,
+				onNavTap: "navTap",
 				onNavBack: "navBack",
 				onMenuAction: "handleMenuAction",
 				version: this.versionContent},
@@ -216,7 +216,7 @@ enyo.kind({
 		this.$.sampleContent.resized();
 		// Load the source code for the sample
 		this.externalURL = enyo.path.rewrite(sample.path + ".html");
-		if ((this.externalURL.indexOf("http") != 0) || (this.externalURL.indexOf(window.location.origin) == 0)) {
+		if ((this.externalURL.indexOf("http") !== 0) || (this.externalURL.indexOf(window.location.origin) === 0)) {
 			new enyo.Ajax({url: enyo.path.rewrite(sample.path + ".js"), handleAs:"text"})
 				.response(this, function(inSender, inSource) {
 					this.jsSource = inSource;
@@ -320,7 +320,7 @@ enyo.kind({
 		el.style.display = "none";
 		el.type = "hidden";
 		el.name = "js";
-		el.value = this.jsSource.replace(/\"assets\//g, "\"http://nightly.enyojs.com/latest/sampler/assets/");			
+		el.value = this.jsSource.replace(/\"assets\//g, "\"http://nightly.enyojs.com/latest/sampler/assets/");
 		form.appendChild(el);
 		// CSS
 		el = document.createElement("textarea");
@@ -351,13 +351,13 @@ enyo.kind({
 	},
 	handleMenuAction: function(inSender, inEvent) {
 		if (inEvent.action == "startTest") {
-			this.$.navPanels.pushView(
-				{ kind:"TestController", 
-				  onQuit:"quitTest", 
-				  onRenderSample:"renderTest", 
-				  samples:this.samples,
-				  browserScopeTestKey: this.browserScopeTestKey},
-				{owner:this}
+			this.$.navPanels.pushView({
+					kind:"TestController",
+					onQuit:"quitTest",
+					onRenderSample:"renderTest",
+					samples:this.samples,
+					browserScopeTestKey: this.browserScopeTestKey },
+				{ owner:this }
 			);
 		} else if (inEvent.action == "browserscope") {
 			this.resetSample();
@@ -365,7 +365,7 @@ enyo.kind({
 			var style = "width:100%; height:100%; border:0px;";
 			this.$.sampleContent.createComponent({tag:"iframe", src:src, style:style});
 			this.$.sampleContent.render();
-			this.$.sampleContent.resized();	
+			this.$.sampleContent.resized();
 		} else if (inEvent.action == "switchNightly") {
 			this.sourcePath = "http://nightly.enyojs.com/enyo-nightly-" + inEvent.version;
 			this.versionContent = inEvent.content;
@@ -403,7 +403,7 @@ enyo.kind({
 	contentChanged: function(inOld) {
 		var node = this.hasNode();
 		if (node) {
-			while(node.hasChildNodes()) { 
+			while(node.hasChildNodes()) {
 				node.removeChild(node.firstChild);
 			}
 			node.appendChild(document.createTextNode(this.content));
@@ -538,7 +538,7 @@ enyo.kind({
 
 enyo.kind({
 	name: "NavigationList",
-	kind: "FittableRows", 
+	kind: "FittableRows",
 	classes:"enyo-fit enyo-unselectable",
 	published: {
 		samples:""
@@ -573,11 +573,11 @@ enyo.kind({
 	create: function() {
 		this.inherited(arguments);
 		this.samplesChanged();
-		
+
 		if (localStorage.getItem("extras") == "true") {
 			this.$.extrasMenu.setShowing(true);
 		}
-		
+
 		// Populate last 20 nightly dates
 		var date = new Date();
 		for (var i=0; i<20; i++) {
@@ -599,7 +599,7 @@ enyo.kind({
 	},
 	nightlyAction: function(inSender, inEvent) {
 		this.doMenuAction({
-			action:"switchNightly", 
+			action:"switchNightly",
 			version:inEvent.originator.version,
 			content:inEvent.originator.content});
 		return true;
@@ -607,7 +607,7 @@ enyo.kind({
 	samplesChanged: function() {
 		this.$.toolbar.setContent(this.samples.name + (this.version ? " (" + this.version + ")" : ""));
 		this.$.back.setShowing(!this.samples.isTop);
-		this.$.list.setCount(this.samples.samples.length); 
+		this.$.list.setCount(this.samples.samples.length);
 	},
 	setupItem: function(inSender, inEvent) {
 		var item = this.$.item;
@@ -630,7 +630,7 @@ enyo.kind({
 
 enyo.kind({
 	name: "SettingsView",
-	kind: "FittableRows", 
+	kind: "FittableRows",
 	events: {
 		onQuit:""
 	},
@@ -702,7 +702,7 @@ enyo.kind({
 
 enyo.kind({
 	name: "TestController",
-	kind: "FittableRows", 
+	kind: "FittableRows",
 	events: {
 		onQuit:"",
 		onRenderSample:""
@@ -836,8 +836,8 @@ enyo.kind({
 		this.$.sampleName.setContent(this.pickerNameForSample(this.currSample));
 		this.doRenderSample({sample:sample});
 		this.$.nextBtn.setDisabled(this.currSample == (this.sampleList.length-1));
-		this.$.prevBtn.setDisabled(this.currSample == 0);
-		
+		this.$.prevBtn.setDisabled(this.currSample === 0);
+
 		// Query JIRA for known issues
 		var ids = sample.name.match("ENYO-[0-9]+");
 		ids = (ids && ids.length) ? " OR ((id=" + ids.join(") OR (id=") + "))" : "";
@@ -863,7 +863,7 @@ enyo.kind({
 		item.$.issueSummary.setContent(issue.fields.summary);
 	},
 	descChanged: function() {
-		this.$.confirmBtn.setDisabled(this.$.descText.getValue().length == 0);
+		this.$.confirmBtn.setDisabled(this.$.descText.getValue().length === 0);
 	},
 	passTest: function() {
 		this.results[this.currSample] = {result: 1};
