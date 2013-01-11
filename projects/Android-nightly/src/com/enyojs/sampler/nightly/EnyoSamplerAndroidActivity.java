@@ -8,6 +8,6 @@ public class EnyoSamplerAndroidActivity extends DroidGap {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.loadUrl("http://nightly.enyojs.com/latest/sampler/index.html");
+        super.loadUrl("http://nightly.enyojs.com/latest/sampler/index.html?extras=true&debug=true");
     }
 }
