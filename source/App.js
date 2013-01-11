@@ -17,13 +17,13 @@ enyo.kind({
 						{kind: "onyx.Grabber", ontap:"toggleFullScreen"},
 						{fit:true}, // Spacer
 						{kind: "onyx.Button", name:"viewSource", content: "View Source", ontap:"viewSource", showing:false},
-						{kind: "onyx.TooltipDecorator", components: [
+						{kind: "onyx.TooltipDecorator", showing:(document.location.protocol != "file:"), components: [
 							{kind: "onyx.Button", name:"openFiddle", ontap:"openFiddle", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
 								{kind:"onyx.Icon", src:"assets/fiddle.png", style:"margin-top:-5px;"}
 							]},
 							{kind: "onyx.Tooltip", content:"Open sample in jsFiddle"}
 						]},
-						{kind: "onyx.TooltipDecorator", components: [
+						{kind: "onyx.TooltipDecorator", showing:(document.location.protocol != "file:"), components: [
 							{kind: "onyx.Button", name:"openExternal", ontap:"openExternal", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
 								{kind:"onyx.Icon", src:"assets/open-external.png", style:"margin-top:-5px;"}
 							]},
