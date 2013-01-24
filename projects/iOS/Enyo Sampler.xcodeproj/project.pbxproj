@@ -51,7 +51,7 @@
 
 /* Begin PBXFileReference section */
 		8251C1221611385C00BCCFD6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		82B108B215B092B700D10360 /* Enyo Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Enyo Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82B108B215B092B700D10360 /* Enyo Sampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Enyo Sampler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B108B615B092B700D10360 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		82B108B815B092B700D10360 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		82B108BA15B092B700D10360 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,10 +65,10 @@
 		82B108CA15B092B700D10360 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		82B108CC15B092B700D10360 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		82B108CE15B092B700D10360 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		82B108D215B092B700D10360 /* Enyo Companion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Enyo Companion-Info.plist"; sourceTree = "<group>"; };
+		82B108D215B092B700D10360 /* Enyo Sampler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Enyo Sampler-Info.plist"; sourceTree = "<group>"; };
 		82B108D415B092B700D10360 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		82B108D615B092B700D10360 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		82B108D815B092B700D10360 /* Enyo Companion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Enyo Companion-Prefix.pch"; sourceTree = "<group>"; };
+		82B108D815B092B700D10360 /* Enyo Sampler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Enyo Sampler-Prefix.pch"; sourceTree = "<group>"; };
 		82B108D915B092B700D10360 /* Cordova.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cordova.framework; path = /Users/Shared/Cordova/Frameworks/Cordova.framework; sourceTree = "<absolute>"; };
 		82B108DE15B092B700D10360 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82B108E215B092B700D10360 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Resources/es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		82B108B315B092B700D10360 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				82B108B215B092B700D10360 /* Enyo Companion.app */,
+				82B108B215B092B700D10360 /* Enyo Sampler.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,10 +193,10 @@
 		82B108D115B092B700D10360 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				82B108D215B092B700D10360 /* Enyo Companion-Info.plist */,
+				82B108D215B092B700D10360 /* Enyo Sampler-Info.plist */,
 				82B108D315B092B700D10360 /* InfoPlist.strings */,
 				82B108D615B092B700D10360 /* main.m */,
-				82B108D815B092B700D10360 /* Enyo Companion-Prefix.pch */,
+				82B108D815B092B700D10360 /* Enyo Sampler-Prefix.pch */,
 				82B108FA15B092B800D10360 /* Cordova.plist */,
 				82B1090315B092B800D10360 /* MainViewController.xib */,
 				82B1090715B092B800D10360 /* verify.sh */,
@@ -291,9 +291,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		82B108B115B092B700D10360 /* Enyo Companion */ = {
+		82B108B115B092B700D10360 /* Enyo Sampler */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 82B1090A15B092B800D10360 /* Build configuration list for PBXNativeTarget "Enyo Companion" */;
+			buildConfigurationList = 82B1090A15B092B800D10360 /* Build configuration list for PBXNativeTarget "Enyo Sampler" */;
 			buildPhases = (
 				82B108AB15B092B700D10360 /* Sources */,
 				82B108AC15B092B700D10360 /* Frameworks */,
@@ -306,9 +306,9 @@
 			);
 			dependencies = (
 			);
-			name = "Enyo Companion";
+			name = "Enyo Sampler";
 			productName = "Enyo Sampler";
-			productReference = 82B108B215B092B700D10360 /* Enyo Companion.app */;
+			productReference = 82B108B215B092B700D10360 /* Enyo Sampler.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -317,9 +317,9 @@
 		82B108A615B092B700D10360 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 82B108A915B092B700D10360 /* Build configuration list for PBXProject "Enyo Companion" */;
+			buildConfigurationList = 82B108A915B092B700D10360 /* Build configuration list for PBXProject "Enyo Sampler" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -334,7 +334,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				82B108B115B092B700D10360 /* Enyo Companion */,
+				82B108B115B092B700D10360 /* Enyo Sampler */,
 			);
 		};
 /* End PBXProject section */
@@ -470,7 +470,6 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -491,7 +490,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -510,13 +508,12 @@
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/Cordova/Frameworks;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Enyo Sampler/Enyo Companion-Prefix.pch";
+				GCC_PREFIX_HEADER = "Enyo Sampler/Enyo Sampler-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1,",
 					"CORDOVA_FRAMEWORK=1",
 				);
-				GCC_THUMB_SUPPORT = NO;
-				INFOPLIST_FILE = "Enyo Sampler/Enyo Companion-Info.plist";
+				INFOPLIST_FILE = "Enyo Sampler/Enyo Sampler-Info.plist";
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					UIKit,
@@ -526,7 +523,7 @@
 					CoreMedia,
 					"-weak-lSystem",
 				);
-				PRODUCT_NAME = "Enyo Companion";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
@@ -541,13 +538,12 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/Cordova/Frameworks;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Enyo Sampler/Enyo Companion-Prefix.pch";
+				GCC_PREFIX_HEADER = "Enyo Sampler/Enyo Sampler-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NDEBUG=1,",
 					"CORDOVA_FRAMEWORK=1",
 				);
-				GCC_THUMB_SUPPORT = NO;
-				INFOPLIST_FILE = "Enyo Sampler/Enyo Companion-Info.plist";
+				INFOPLIST_FILE = "Enyo Sampler/Enyo Sampler-Info.plist";
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					UIKit,
@@ -557,7 +553,7 @@
 					CoreMedia,
 					"-weak-lSystem",
 				);
-				PRODUCT_NAME = "Enyo Companion";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = armv7;
@@ -568,7 +564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		82B108A915B092B700D10360 /* Build configuration list for PBXProject "Enyo Companion" */ = {
+		82B108A915B092B700D10360 /* Build configuration list for PBXProject "Enyo Sampler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				82B1090815B092B800D10360 /* Debug */,
@@ -577,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82B1090A15B092B800D10360 /* Build configuration list for PBXNativeTarget "Enyo Companion" */ = {
+		82B1090A15B092B800D10360 /* Build configuration list for PBXNativeTarget "Enyo Sampler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				82B1090B15B092B800D10360 /* Debug */,
