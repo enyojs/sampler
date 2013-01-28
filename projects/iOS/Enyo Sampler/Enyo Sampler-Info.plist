@@ -16,14 +16,14 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>icon_57.png</string>
-				<string>icon_114.png</string>
-				<string>icon_72.png</string>
-				<string>icon_144.png</string>
 				<string>Default.png</string>
 				<string>Default@2x.png</string>
 				<string>Default-Portrait~ipad.png</string>
 				<string>Default-Landscape~ipad.png</string>
+				<string>icon_57.png</string>
+				<string>icon_114.png</string>
+				<string>icon_72.png</string>
+				<string>icon_144.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<false/>
