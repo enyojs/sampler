@@ -295,6 +295,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82B1090A15B092B800D10360 /* Build configuration list for PBXNativeTarget "Enyo Companion" */;
 			buildPhases = (
+				AF08EFA916B87DBD00C10563 /* ShellScript */,
 				82B108AB15B092B700D10360 /* Sources */,
 				82B108AC15B092B700D10360 /* Frameworks */,
 				82B108AD15B092B700D10360 /* Resources */,
@@ -385,6 +386,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "\n\t\t\t\t\t\t\t\tchmod 755 \"$PROJECT_DIR/$PROJECT_NAME/verify.sh\"\n\t\t\t\t\t\t\t\t\"$PROJECT_DIR/$PROJECT_NAME/verify.sh\"\n\t\t\t\t\t";
+		};
+		AF08EFA916B87DBD00C10563 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sed -i -e 's/Sampler/Companion/g' ../../assets/manifest.json";
 		};
 /* End PBXShellScriptBuildPhase section */
 
