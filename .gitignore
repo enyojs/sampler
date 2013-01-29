@@ -32,3 +32,7 @@ Snapshots
 projects/iOS/www/cordova-1.9.0.js
 
 projects/iOS/www/index.html
+
+projects/iOS-Companion/www/cordova-1.9.0.js
+
+projects/iOS-Companion/www/index.html
