@@ -1,18 +1,18 @@
 [submodule "enyo"]
 	path = enyo
-	url = ../enyo.git
+	url = https://github.com/enyojs/enyo.git
 [submodule "lib/onyx"]
 	path = lib/onyx
-	url = ../onyx.git
+	url = https://github.com/enyojs/onyx.git
 [submodule "lib/layout"]
 	path = lib/layout
-	url = ../layout.git
+	url = https://github.com/enyojs/layout.git
 [submodule "lib/canvas"]
 	path = lib/canvas
-	url = ../canvas.git
+	url = https://github.com/enyojs/canvas.git
 [submodule "lib/extra"]
 	path = lib/extra
-	url = ../extra.git
+	url = https://github.com/enyojs/extra.git
 [submodule "lib/g11n"]
 	path = lib/g11n
-	url = ../g11n.git
+	url = https://github.com/enyojs/g11n.git
