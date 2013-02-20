@@ -1,7 +1,7 @@
-Enyo 2.0 Sampler
+Enyo 2 Sampler
 =========
 
-A cross-platform application for viewing Enyo 2.0 samples from all its various libraries.
+A cross-platform application for viewing Enyo 2 samples from all its various libraries.
 
 For the most recent released version, see the [Enyo JS website](http://enyojs.com/sampler).
 The latest nightly build is also available at <http://nightly.enyojs.com/latest/sampler/debug.html>.
