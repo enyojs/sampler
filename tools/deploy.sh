@@ -88,6 +88,9 @@ for i in "$SOURCE/lib/"*; do
 	else
 		echo "Copying $o"
 		cp -r "$i" "$TARGET/lib"
+		if [ -e "$TARGET/lib/$o/.git" ]; then
+			rm -rf "$TARGET/lib/$o/.git"
+		fi
 	fi
 done
 
