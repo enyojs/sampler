@@ -1,6 +1,6 @@
 {
-  "id": "com.enyojs.enyo2sampler",
-  "version": "0.0.1",
+  "id": "com.palm.app.enyo2sampler",
+  "version": "2.0.0",
   "vendor": "Palm, Inc.",
   "type": "web",
   "main": "index.html",
