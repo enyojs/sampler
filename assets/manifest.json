@@ -24,15 +24,14 @@
 			{"name": "Group Boxes", "path":"$lib/onyx/samples/GroupboxSample", "css":"sample"},
 			{"name": "Progress Bars", "path":"$lib/onyx/samples/ProgressSample", "css":"sample"},
 			{"name": "Sliders", "path":"$lib/onyx/samples/SliderSample", "css":"sample"},
-			{"name": "Drawers", "path":"$lib/onyx/samples/DrawerSample"},
 			{"name": "Menus", "path":"$lib/onyx/samples/MenuSample", "css":"sample"},
 			{"name": "Pickers", "path":"$lib/onyx/samples/PickerSample", "css":"sample"},
-			{"name": "DatePicker", "path":"$lib/onyx/samples/DatePickerSample", "css":"sample"},			
-			{"name": "TimePicker", "path":"$lib/onyx/samples/TimePickerSample", "css":"sample"},						
+			{"name": "DatePicker", "path":"$lib/onyx/samples/DatePickerSample", "css":"sample"},
+			{"name": "TimePicker", "path":"$lib/onyx/samples/TimePickerSample", "css":"sample"},
 			{"name": "Tooltips", "path":"$lib/onyx/samples/TooltipSample", "css":"sample"},
 			{"name": "Spinners", "path":"$lib/onyx/samples/SpinnerSample", "css":"sample"},
 			{"name": "Popups", "path":"$lib/onyx/samples/PopupSample", "css":"sample"},
-			{"name": "ContextualPopups", "path":"$lib/onyx/samples/ContextualPopupSample", "css":"sample"}		
+			{"name": "ContextualPopups", "path":"$lib/onyx/samples/ContextualPopupSample", "css":"sample"}
 		]},
 		{"name": "Layout", "ns":"enyo.sample", "loadPackages":"$lib/layout", "samples": [
 			{"name": "Fittable Layouts", "loadPackages":"$lib/layout/fittable/samples", "samples": [
@@ -58,22 +57,23 @@
 			]},
 			{"name": "Tree", "ns":"enyo.sample", "loadPackages":"$lib/layout/tree/samples", "path":"$lib/layout/tree/samples/TreeSample"},
 			{"name": "Image View", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageViewSample"},
-			{"name": "Image Carousel", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageCarouselSample"}
+			{"name": "Image Carousel", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageCarouselSample"},
+			{"name": "Drawer", "loadPackages":"$lib/layout/drawer/samples", "path":"$lib/layout/drawer/samples/DrawerSample"}
 		]},
-		{"name": "Canvas", "ns":"enyo.sample", "loadPackages":"$lib/canvas $lib/canvas/samples", "samples": [	
+		{"name": "Canvas", "ns":"enyo.sample", "loadPackages":"$lib/canvas $lib/canvas/samples", "samples": [
 			{"name": "Canvas primitives", "path":"$lib/canvas/samples/CanvasPrimitivesSample"},
 			{"name": "Bouncing balls", "path":"$lib/canvas/samples/CanvasBallsSample"}
 		]},
-		{"name": "Globalization", "ns":"g11n.sample", "loadPackages":"$lib/g11n $lib/g11n/samples $lib/onyx/samples", "samples": [	
-			{"name": "CSS", "path":"$lib/g11n/samples/LocalizedCssSample", "css":"sample"},			
+		{"name": "Globalization", "ns":"g11n.sample", "loadPackages":"$lib/g11n $lib/g11n/samples $lib/onyx/samples", "samples": [
+			{"name": "CSS", "path":"$lib/g11n/samples/LocalizedCssSample", "css":"sample"},
 			{"name": "Date", "path":"$lib/g11n/samples/DateSample", "css":"sample"},
 			{"name": "Duration", "path":"$lib/g11n/samples/DurationSample", "css":"sample"},
 			{"name": "Name", "path":"$lib/g11n/samples/NameSample", "css":"sample"},
 			{"name": "Number", "path":"$lib/g11n/samples/NumberSample", "css":"sample"},
-			{"name": "Phone", "path":"$lib/g11n/samples/PhoneSample", "css":"sample"},				
+			{"name": "Phone", "path":"$lib/g11n/samples/PhoneSample", "css":"sample"},
 			{"name": "String", "path":"$lib/g11n/samples/StringSample", "css":"sample"},
-			{"name": "DatePicker", "ns":"onyx.sample", "path":"$lib/onyx/samples/DatePickerSample", "css":"sample"},			
-			{"name": "TimePicker", "ns":"onyx.sample", "path":"$lib/onyx/samples/TimePickerSample", "css":"sample"}			
+			{"name": "DatePicker", "ns":"onyx.sample", "path":"$lib/onyx/samples/DatePickerSample", "css":"sample"},
+			{"name": "TimePicker", "ns":"onyx.sample", "path":"$lib/onyx/samples/TimePickerSample", "css":"sample"}
 		]}
 	]
 }
