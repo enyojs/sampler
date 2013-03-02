@@ -22,6 +22,7 @@
 			{"name": "Checkboxes", "path":"$lib/onyx/samples/CheckboxSample", "css":"sample"},
 			{"name": "Inputs", "path":"$lib/onyx/samples/InputSample", "css":"sample"},
 			{"name": "Group Boxes", "path":"$lib/onyx/samples/GroupboxSample", "css":"sample"},
+			{"name": "Tables", "path":"$lib/onyx/samples/TableSample", "css":"sample"},
 			{"name": "Progress Bars", "path":"$lib/onyx/samples/ProgressSample", "css":"sample"},
 			{"name": "Sliders", "path":"$lib/onyx/samples/SliderSample", "css":"sample"},
 			{"name": "Menus", "path":"$lib/onyx/samples/MenuSample", "css":"sample"},
