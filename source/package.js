@@ -5,7 +5,6 @@ enyo.depends(
 	"$lib/g11n/source/css/",
 	"$lib/g11n/source/name",
 	"$lib/g11n/source/phone",
-	"$lib/layout/drawer/samples",
 	"$lib/layout/fittable/samples",
 	"$lib/layout/panels/samples",
 	"$lib/layout/list/samples",
