@@ -37,7 +37,7 @@ enyo.kind({
 	create: function() {
 		this.inherited(arguments);
 		this.parseQueryString();
-		window.onhashchange = enyo.bind(this, "hashChange");
+		window.onhashchange = this.bindSafely("hashChange");
 		this.loadSamples();
 		this.resized();
 	},
