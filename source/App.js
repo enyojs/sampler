@@ -792,7 +792,7 @@ enyo.kind({
 			if (sample.samples) {
 				this.populateSampleList(sample.samples, sample.ns || ns);
 			} else if (sample.path) {
-				sample.ns = ns;
+				if (!sample.ns) sample.ns = ns;
 				this.sampleList.push(sample);
 			}
 		}
