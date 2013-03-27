@@ -838,6 +838,9 @@ enyo.kind({
 		this.$.nextBtn.setDisabled(this.currSample == (this.sampleList.length-1));
 		this.$.prevBtn.setDisabled(this.currSample === 0);
 
+		/* Disable this code until we build new query method -- JIRA isn't handling
+		JSONP code anymore - BLC
+
 		// Query JIRA for known issues
 		var ids = sample.name.match("ENYO-[0-9]+");
 		ids = (ids && ids.length) ? " OR ((id=" + ids.join(") OR (id=") + "))" : "";
@@ -849,6 +852,7 @@ enyo.kind({
 		});
 		request.go({jql: jql});
 		request.response(this, "processKnownIssues");
+		*/
 	},
 	processKnownIssues: function(inSender, inResponse) {
 		this.knownIssues = inResponse.issues;
