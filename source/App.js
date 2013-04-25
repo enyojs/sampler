@@ -834,7 +834,9 @@ enyo.kind({
 		this.$.descText.setValue(currResult ? currResult.failDesc : "");
 		this.$.pickerItem.setContent(this.pickerNameForSample(this.currSample));
 		this.$.sampleName.setContent(this.pickerNameForSample(this.currSample));
+		var startTime = new Date();
 		this.doRenderSample({sample:sample});
+		this.log("sample", this.currSample + 1, "rendered in ", new Date() - startTime, "ms");
 		this.$.nextBtn.setDisabled(this.currSample == (this.sampleList.length-1));
 		this.$.prevBtn.setDisabled(this.currSample === 0);
 
