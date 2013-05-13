@@ -45,36 +45,42 @@ enyo.kind({
 		// Remove all navigation views
 		this.$.navPanels.popAll();
 		// Get the sample manifest
-		new enyo.Ajax({url: "assets/manifest.json"})
-			.response(this, function(inSender, inSamples) {
-				// This is the root of the sample tree
-				this.samples = inSamples;
-				this.samples.isTop = true;
-				// The path to find the JS/CSS source to display in the source viewer can
-				// be specified in the manifest (or query string), which is useful when deploying
-				var sourcePath = this.sourcePath || localStorage.getItem("sourcePath") || this.samples.sourcePath;
-				if (sourcePath) {
-					enyo.path.addPath("lib", sourcePath + "/lib");
-					enyo.path.addPath("enyo", sourcePath + "/enyo");
-				}
-				// When using an explicit source path, we go ahead and
-				// actually re-load the kind definitions from that location (tricky!)
-				if (this.sourcePath || localStorage.getItem("sourcePath")) {
-					this.loadSamplePackages(inSamples);
-				}
-				// We can specify additional sample manifests to add via a comma-separated
-				// query string parameter which is stored in localStorage
-				this.addSamples = enyo.json.parse(localStorage.getItem("addSamples"));
-				this.loadAddSamples();
-			})
-			.go();
+		if (this.preloadedManifest) {
+			this.processSamples(this.preloadedManifest);
+		} else {
+			new enyo.Ajax({url: "assets/manifest.json"})
+				.response(this.bindSafely(function(inSender, inSamples) {
+					this.processSamples(inSamples);
+				}))
+				.go();
+		}
+	},
+	processSamples: function(inSamples) {
+		this.samples = inSamples;
+		this.samples.isTop = true;
+		// The path to find the JS/CSS source to display in the source viewer can
+		// be specified in the manifest (or query string), which is useful when deploying
+		var sourcePath = this.sourcePath || localStorage.getItem("sourcePath") || this.samples.sourcePath;
+		if (sourcePath) {
+			enyo.path.addPath("lib", sourcePath + "/lib");
+			enyo.path.addPath("enyo", sourcePath + "/enyo");
+		}
+		// When using an explicit source path, we go ahead and
+		// actually re-load the kind definitions from that location (tricky!)
+		if (this.sourcePath || localStorage.getItem("sourcePath")) {
+			this.loadSamplePackages(inSamples);
+		}
+		// We can specify additional sample manifests to add via a comma-separated
+		// query string parameter which is stored in localStorage
+		this.addSamples = enyo.json.parse(localStorage.getItem("addSamples"));
+		this.loadAddSamples();
 	},
 	loadAddSamples: function() {
 		if (this.addSamples && this.addSamples.length) {
 			// Load any additional sample manifests one-by-one
 			var addManifest = this.addSamples.shift();
 			new enyo.Ajax({url: addManifest})
-				.response(this, this.bindSafely(function(inSender, inSamples) {
+				.response(this.bindSafely(function(inSender, inSamples) {
 					// To support manifests being on totally different servers, rewrite paths
 					// relative to where this manifest lives
 					var path = addManifest.substring(0, addManifest.lastIndexOf("/") + 1);
@@ -88,7 +94,7 @@ enyo.kind({
 					// Recurse, until the addSamples list is exhausted
 					this.loadAddSamples();
 				}))
-				.error(this, this.bindSafely(function() {
+				.error(this.bindSafely(function() {
 					this.loadAddSamples();
 				}))
 				.go();
