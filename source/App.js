@@ -74,7 +74,7 @@ enyo.kind({
 			// Load any additional sample manifests one-by-one
 			var addManifest = this.addSamples.shift();
 			new enyo.Ajax({url: addManifest})
-				.response(this, function(inSender, inSamples) {
+				.response(this, this.bindSafely(function(inSender, inSamples) {
 					// To support manifests being on totally different servers, rewrite paths
 					// relative to where this manifest lives
 					var path = addManifest.substring(0, addManifest.lastIndexOf("/") + 1);
@@ -87,10 +87,10 @@ enyo.kind({
 					this.loadSamplePackages(inSamples);
 					// Recurse, until the addSamples list is exhausted
 					this.loadAddSamples();
-				})
-				.error(this, function() {
+				}))
+				.error(this, this.bindSafely(function() {
 					this.loadAddSamples();
-				})
+				}))
 				.go();
 		} else {
 			// All additional samples loaded; push the first sample menu
