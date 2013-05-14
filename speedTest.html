@@ -26,10 +26,12 @@
 	</head>
 	<body class="enyo-unselectable">
 		<script>
-			BM.renderBenchmark = enyo.dev.bench({name: "renderApp", autostart: false, logging: false, average: true});
-			for (BM.i = 0; BM.i < 100; BM.i++) {
-				BM.renderBenchmark.start();
-				new App({
+		(function() {
+			var renderBenchmark = enyo.dev.bench({name: "renderApp", autostart: false, logging: false, average: true});
+			var samplerApp, i, j;
+			for (i = 0; i < 100; i++) {
+				renderBenchmark.start();
+				samplerApp = new App({
 					preloadedManifest: {
 						"sourcePath":"",
 						"name": "Enyo 2 Sampler",
@@ -104,16 +106,36 @@
 								{"name": "Name", "path":"$lib/g11n/samples/NameSample", "css":"sample"},
 								{"name": "Number", "path":"$lib/g11n/samples/NumberSample", "css":"sample"},
 								{"name": "Phone", "path":"$lib/g11n/samples/PhoneSample", "css":"sample"},
-								{"name": "String", "path":"$lib/g11n/samples/StringSample", "css":"sample"},
-								{"name": "DatePicker", "ns":"onyx.sample", "path":"$lib/onyx/samples/DatePickerSample", "css":"sample"},
-								{"name": "TimePicker", "ns":"onyx.sample", "path":"$lib/onyx/samples/TimePickerSample", "css":"sample"}
+								{"name": "String", "path":"$lib/g11n/samples/StringSample", "css":"sample"}
 							]}
 						]
 					}
 				}).renderInto(document.body);
-				BM.renderBenchmark.stop();
+				renderBenchmark.stop();
 			}
 			enyo.dev.report("renderApp");
+
+			var mockTestController = {
+				populateSampleList: TestController.prototype.populateSampleList,
+				sampleList: []
+			};
+			mockTestController.populateSampleList(samplerApp.samples.samples);
+			var samples = mockTestController.sampleList;
+
+			for (i = 0; i < samples.length; i++) {
+				var sample = samples[i];
+				var kindNamespace = sample.ns || "enyo.sample";
+				var kindName = kindNamespace + '.' + sample.path.substring(sample.path.lastIndexOf("/") + 1);
+				var testName = "renderTest: " + kindName;
+				var renderTestsBenchmark = enyo.dev.bench({name: testName, autostart: false, logging: false, average: true});
+				for (j = 0; j < 25; ++j) {
+					renderTestsBenchmark.start();
+					enyo.create({kind: kindName});
+					renderTestsBenchmark.stop();
+				}
+				enyo.dev.report(testName);
+			}
+		})();
 		</script>
 	</body>
 </html>
