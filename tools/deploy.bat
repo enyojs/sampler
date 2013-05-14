@@ -70,7 +70,7 @@ if not "%~1"=="" (
 :: Handle options
 IF DEFINED -h (
 	ECHO %USAGE%
-	GOTO end	
+	GOTO end
 )
 IF DEFINED -c (
 	SET NO_LESS="-no-less"
@@ -94,10 +94,10 @@ ECHO ==========
 ECHO.
 
 REM build enyo
-CALL %ENYO%\minify\minify.bat
+CALL %ENYO%\minify\minify.bat --beautify
 
 REM build app
-CALL %ENYO%\tools\minify.bat package.js -output ..\build\app
+CALL %ENYO%\tools\minify.bat package.js -output ..\build\app --beautify
 
 ECHO =========
 ECHO copy step
