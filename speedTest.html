@@ -14,9 +14,9 @@
 		<script src="disableEnyoDom.js"></script>
 		<!-- first benchmark: loading enyo library code and app code -->
 		<script>
-			console.log("Starting benchmarks...");
+			enyo.log("Starting benchmarks...");
 			var total = enyo.dev.bench({name: "Total", autostart: true, logging: false, average: true});
-			console.log("Loading framework...");
+			enyo.log("Loading framework...");
 			var loadAndInit = enyo.dev.bench({name: "Framework Load & Initialize", autostart: true, logging: false, average: true});
 		</script>
 		<!-- application (debug) -->
@@ -29,7 +29,7 @@
 	<body class="enyo-unselectable">
 		<script>
 		(function() {
-			console.log("Rendering main app...");
+			enyo.log("Rendering main app...");
 			var renderBenchmark = enyo.dev.bench({name: "Render Main App", autostart: false, logging: false, average: true});
 			var samplerApp, i, j;
 			for (i = 0; i < 100; i++) {
@@ -132,7 +132,7 @@
 				var kindName = kindNamespace + '.' + sample.path.substring(sample.path.lastIndexOf("/") + 1);
 				var testName = "Render Sample: " + kindName;
 				renderTestNames.push(testName);
-				console.log("Rendering sample: " + kindName);
+				enyo.log("Rendering sample: " + kindName);
 				var renderSample = enyo.dev.bench({name: testName, autostart: false, logging: false, average: true});
 				for (j = 0; j < 25; ++j) {
 					renderSample.start();
