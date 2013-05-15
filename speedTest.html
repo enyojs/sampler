@@ -14,20 +14,23 @@
 		<script src="disableEnyoDom.js"></script>
 		<!-- first benchmark: loading enyo library code and app code -->
 		<script>
-		var BM = {};
-		BM.loadingBenchmark = enyo.dev.bench({name: "loadingScripts"});
+			console.log("Starting benchmarks...");
+			var total = enyo.dev.bench({name: "Total", autostart: true, logging: false, average: true});
+			console.log("Loading framework...");
+			var loadAndInit = enyo.dev.bench({name: "Framework Load & Initialize", autostart: true, logging: false, average: true});
 		</script>
 		<!-- application (debug) -->
 		<script src="source/package.js" type="text/javascript"></script>
 		<!-- end of first benchmark -->
 		<script>
-		BM.loadingBenchmark.stop();
+		loadAndInit.stop();
 		</script>
 	</head>
 	<body class="enyo-unselectable">
 		<script>
 		(function() {
-			var renderBenchmark = enyo.dev.bench({name: "renderApp", autostart: false, logging: false, average: true});
+			console.log("Rendering main app...");
+			var renderBenchmark = enyo.dev.bench({name: "Render Main App", autostart: false, logging: false, average: true});
 			var samplerApp, i, j;
 			for (i = 0; i < 100; i++) {
 				renderBenchmark.start();
@@ -113,7 +116,6 @@
 				}).renderInto(document.body);
 				renderBenchmark.stop();
 			}
-			enyo.dev.report("renderApp");
 
 			var mockTestController = {
 				populateSampleList: TestController.prototype.populateSampleList,
@@ -121,20 +123,34 @@
 			};
 			mockTestController.populateSampleList(samplerApp.samples.samples);
 			var samples = mockTestController.sampleList;
-
+			
+			var renderAllSamples = enyo.dev.bench({name: "Render All Samples", autostart: true, logging: false, average: true});
+			var renderTestNames = [];
 			for (i = 0; i < samples.length; i++) {
 				var sample = samples[i];
 				var kindNamespace = sample.ns || "enyo.sample";
 				var kindName = kindNamespace + '.' + sample.path.substring(sample.path.lastIndexOf("/") + 1);
-				var testName = "renderTest: " + kindName;
-				var renderTestsBenchmark = enyo.dev.bench({name: testName, autostart: false, logging: false, average: true});
+				var testName = "Render Sample: " + kindName;
+				renderTestNames.push(testName);
+				console.log("Rendering sample: " + kindName);
+				var renderSample = enyo.dev.bench({name: testName, autostart: false, logging: false, average: true});
 				for (j = 0; j < 25; ++j) {
-					renderTestsBenchmark.start();
+					renderSample.start();
 					enyo.create({kind: kindName});
-					renderTestsBenchmark.stop();
+					renderSample.stop();
 				}
-				enyo.dev.report(testName);
 			}
+			renderAllSamples.stop();
+
+			total.stop();
+
+			for (i = 0; i < renderTestNames.length; i++) {
+				enyo.dev.report(renderTestNames[i]);
+			}
+			enyo.dev.report("Framework Load & Initialize");
+			enyo.dev.report("Render Main App");
+			enyo.dev.report("Render All Samples");
+			enyo.dev.report("Total");
 		})();
 		</script>
 	</body>
