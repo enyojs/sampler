@@ -9,11 +9,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<!-- enyo (debug) -->
-		<!-- css -->
-		<link href="build/enyo.css" rel="stylesheet"/>
-		<link href="build/app.css" rel="stylesheet"/>
-		<!-- js -->
-		<script src="build/enyo.js"></script>
+		<script src="enyo/enyo.js"></script>
 		<!-- disable DOM operations -->
 		<script src="disableEnyoDom.js"></script>
 		<!-- first benchmark: loading enyo library code and app code -->
@@ -24,7 +20,7 @@
 			var loadAndInit = enyo.dev.bench({name: "Framework Load & Initialize", autostart: true, logging: false, average: true});
 		</script>
 		<!-- application (debug) -->
-		<script src="build/app.js"></script>
+		<script src="source/package.js" type="text/javascript"></script>
 		<!-- end of first benchmark -->
 		<script>
 		loadAndInit.stop();
