@@ -121,4 +121,6 @@
 	enyo.dev.report("Render Main App");
 	enyo.dev.report("Render All Samples");
 	enyo.dev.report("Total");
+
+	document.body.innerText = console.getBuffer();
 })();
