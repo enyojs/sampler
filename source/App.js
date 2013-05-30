@@ -48,7 +48,7 @@ enyo.kind({
 		if (this.preloadedManifest) {
 			this.processSamples(this.preloadedManifest);
 		} else {
-			new enyo.Ajax({url: "assets/manifest.json"})
+			new enyo.Ajax({url: "assets/manifest.json", mimeType: "application/json"})
 				.response(this.bindSafely(function(inSender, inSamples) {
 					this.processSamples(inSamples);
 				}))
@@ -79,7 +79,7 @@ enyo.kind({
 		if (this.addSamples && this.addSamples.length) {
 			// Load any additional sample manifests one-by-one
 			var addManifest = this.addSamples.shift();
-			new enyo.Ajax({url: addManifest})
+			new enyo.Ajax({url: addManifest, mimeType: "application/json"})
 				.response(this.bindSafely(function(inSender, inSamples) {
 					// To support manifests being on totally different servers, rewrite paths
 					// relative to where this manifest lives
