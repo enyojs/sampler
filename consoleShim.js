@@ -1,7 +1,6 @@
+/* global console:true */
 (function() {
 	var buffer = "";
-
-	var originalLog = console.log;
 
 	console.log = function() {
 		var a$ = Array.prototype.slice.call(arguments);

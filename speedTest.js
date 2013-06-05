@@ -1,3 +1,4 @@
+/* global App: false, TestController: false, total: false, console: false */
 (function() {
 	enyo.log("Rendering main app...");
 	var renderBenchmark = enyo.dev.bench({name: "Render Main App", autostart: false, logging: false, average: true});

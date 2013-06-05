@@ -13,14 +13,14 @@ enyo.dom.byId = function(id) {
 
 // disable code in enyo.Control that sets generated to true or creates nodes
 enyo.Control.prototype.generateHtml = function() {
-		if (this.canGenerate === false) {
-			return '';
-		}
-		// do this first in case content generation affects outer html (styles or attributes)
-		var c = this.generateInnerHtml();
-		// generate tag, styles, attributes
-		var h = this.generateOuterHtml(c);
-		return h;
+	if (this.canGenerate === false) {
+		return '';
+	}
+	// do this first in case content generation affects outer html (styles or attributes)
+	var c = this.generateInnerHtml();
+	// generate tag, styles, attributes
+	var h = this.generateOuterHtml(c);
+	return h;
 };
 
 enyo.Control.prototype.renderNode = function() {
@@ -42,4 +42,4 @@ enyo.Control.prototype.write = function() {
 	}
 	// support method chaining
 	return this;
-}
+};
