@@ -45,36 +45,42 @@ enyo.kind({
 		// Remove all navigation views
 		this.$.navPanels.popAll();
 		// Get the sample manifest
-		new enyo.Ajax({url: "assets/manifest.json"})
-			.response(this, function(inSender, inSamples) {
-				// This is the root of the sample tree
-				this.samples = inSamples;
-				this.samples.isTop = true;
-				// The path to find the JS/CSS source to display in the source viewer can
-				// be specified in the manifest (or query string), which is useful when deploying
-				var sourcePath = this.sourcePath || localStorage.getItem("sourcePath") || this.samples.sourcePath;
-				if (sourcePath) {
-					enyo.path.addPath("lib", sourcePath + "/lib");
-					enyo.path.addPath("enyo", sourcePath + "/enyo");
-				}
-				// When using an explicit source path, we go ahead and
-				// actually re-load the kind definitions from that location (tricky!)
-				if (this.sourcePath || localStorage.getItem("sourcePath")) {
-					this.loadSamplePackages(inSamples);
-				}
-				// We can specify additional sample manifests to add via a comma-separated
-				// query string parameter which is stored in localStorage
-				this.addSamples = enyo.json.parse(localStorage.getItem("addSamples"));
-				this.loadAddSamples();
-			})
-			.go();
+		if (this.preloadedManifest) {
+			this.processSamples(this.preloadedManifest);
+		} else {
+			new enyo.Ajax({url: "assets/manifest.json", mimeType: "application/json"})
+				.response(this.bindSafely(function(inSender, inSamples) {
+					this.processSamples(inSamples);
+				}))
+				.go();
+		}
+	},
+	processSamples: function(inSamples) {
+		this.samples = inSamples;
+		this.samples.isTop = true;
+		// The path to find the JS/CSS source to display in the source viewer can
+		// be specified in the manifest (or query string), which is useful when deploying
+		var sourcePath = this.sourcePath || localStorage.getItem("sourcePath") || this.samples.sourcePath;
+		if (sourcePath) {
+			enyo.path.addPath("lib", sourcePath + "/lib");
+			enyo.path.addPath("enyo", sourcePath + "/enyo");
+		}
+		// When using an explicit source path, we go ahead and
+		// actually re-load the kind definitions from that location (tricky!)
+		if (this.sourcePath || localStorage.getItem("sourcePath")) {
+			this.loadSamplePackages(inSamples);
+		}
+		// We can specify additional sample manifests to add via a comma-separated
+		// query string parameter which is stored in localStorage
+		this.addSamples = enyo.json.parse(localStorage.getItem("addSamples"));
+		this.loadAddSamples();
 	},
 	loadAddSamples: function() {
 		if (this.addSamples && this.addSamples.length) {
 			// Load any additional sample manifests one-by-one
 			var addManifest = this.addSamples.shift();
-			new enyo.Ajax({url: addManifest})
-				.response(this, function(inSender, inSamples) {
+			new enyo.Ajax({url: addManifest, mimeType: "application/json"})
+				.response(this.bindSafely(function(inSender, inSamples) {
 					// To support manifests being on totally different servers, rewrite paths
 					// relative to where this manifest lives
 					var path = addManifest.substring(0, addManifest.lastIndexOf("/") + 1);
@@ -87,10 +93,10 @@ enyo.kind({
 					this.loadSamplePackages(inSamples);
 					// Recurse, until the addSamples list is exhausted
 					this.loadAddSamples();
-				})
-				.error(this, function() {
+				}))
+				.error(this.bindSafely(function() {
 					this.loadAddSamples();
-				})
+				}))
 				.go();
 		} else {
 			// All additional samples loaded; push the first sample menu
@@ -234,7 +240,7 @@ enyo.kind({
 				.response(this, function(inSender, inSource) {
 					this.cssSource = inSource;
 					var components = this.getComponents();
-					for(var i=0, showingSource=false;i<components.length;i++) {
+					for(var i=0;i<components.length;i++) {
 						if(components[i].name == "sourceViewer") {
 							this.$.sourceViewer.cssSource = inSource;
 							this.$.sourceViewer.cssSourceChanged();
@@ -347,7 +353,7 @@ enyo.kind({
 		window.location.hash = inName;
 	},
 	hashChange: function() {
-		var n = this.getHashComponentName();
+		// var n = this.getHashComponentName();
 	},
 	handleMenuAction: function(inSender, inEvent) {
 		if (inEvent.action == "startTest") {
@@ -356,8 +362,10 @@ enyo.kind({
 					onQuit:"quitTest",
 					onRenderSample:"renderTest",
 					samples:this.samples,
-					browserScopeTestKey: this.browserScopeTestKey },
-				{ owner:this }
+					browserScopeTestKey: this.browserScopeTestKey
+				}, {
+					owner:this
+				}
 			);
 		} else if (inEvent.action == "browserscope") {
 			this.resetSample();
@@ -601,7 +609,8 @@ enyo.kind({
 		this.doMenuAction({
 			action:"switchNightly",
 			version:inEvent.originator.version,
-			content:inEvent.originator.content});
+			content:inEvent.originator.content
+		});
 		return true;
 	},
 	samplesChanged: function() {
@@ -781,7 +790,7 @@ enyo.kind({
 		if (!document.getElementById("_jira_collector")) {
 			var newScript = document.createElement('script');
 			newScript.id = "_jira_collector";
-			firstScript = document.getElementsByTagName('script')[0];
+			var firstScript = document.getElementsByTagName('script')[0];
 			newScript.src = "https://enyojs.atlassian.net/s/en_USx1agvx-418945332/801/41/1.1/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=" + jiraCollectorId;
 			firstScript.parentNode.insertBefore(newScript, firstScript);
 		}
@@ -792,7 +801,9 @@ enyo.kind({
 			if (sample.samples) {
 				this.populateSampleList(sample.samples, sample.ns || ns);
 			} else if (sample.path) {
-				if (!sample.ns) sample.ns = ns;
+				if (!sample.ns) {
+					sample.ns = ns;
+				}
 				this.sampleList.push(sample);
 			}
 		}
