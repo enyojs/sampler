@@ -240,7 +240,7 @@ enyo.kind({
 				.response(this, function(inSender, inSource) {
 					this.cssSource = inSource;
 					var components = this.getComponents();
-					for(var i=0, showingSource=false;i<components.length;i++) {
+					for(var i=0;i<components.length;i++) {
 						if(components[i].name == "sourceViewer") {
 							this.$.sourceViewer.cssSource = inSource;
 							this.$.sourceViewer.cssSourceChanged();
@@ -353,7 +353,7 @@ enyo.kind({
 		window.location.hash = inName;
 	},
 	hashChange: function() {
-		var n = this.getHashComponentName();
+		// var n = this.getHashComponentName();
 	},
 	handleMenuAction: function(inSender, inEvent) {
 		if (inEvent.action == "startTest") {
@@ -362,8 +362,10 @@ enyo.kind({
 					onQuit:"quitTest",
 					onRenderSample:"renderTest",
 					samples:this.samples,
-					browserScopeTestKey: this.browserScopeTestKey },
-				{ owner:this }
+					browserScopeTestKey: this.browserScopeTestKey
+				}, {
+					owner:this
+				}
 			);
 		} else if (inEvent.action == "browserscope") {
 			this.resetSample();
@@ -607,7 +609,8 @@ enyo.kind({
 		this.doMenuAction({
 			action:"switchNightly",
 			version:inEvent.originator.version,
-			content:inEvent.originator.content});
+			content:inEvent.originator.content
+		});
 		return true;
 	},
 	samplesChanged: function() {
@@ -787,7 +790,7 @@ enyo.kind({
 		if (!document.getElementById("_jira_collector")) {
 			var newScript = document.createElement('script');
 			newScript.id = "_jira_collector";
-			firstScript = document.getElementsByTagName('script')[0];
+			var firstScript = document.getElementsByTagName('script')[0];
 			newScript.src = "https://enyojs.atlassian.net/s/en_USx1agvx-418945332/801/41/1.1/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=" + jiraCollectorId;
 			firstScript.parentNode.insertBefore(newScript, firstScript);
 		}
@@ -798,7 +801,9 @@ enyo.kind({
 			if (sample.samples) {
 				this.populateSampleList(sample.samples, sample.ns || ns);
 			} else if (sample.path) {
-				if (!sample.ns) sample.ns = ns;
+				if (!sample.ns) {
+					sample.ns = ns;
+				}
 				this.sampleList.push(sample);
 			}
 		}
