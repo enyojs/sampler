@@ -179,8 +179,10 @@ enyo.kind({
 	},
 	pushSampleList: function(inSamples) {
 		// Add a new NavigationList
+		var name = enyo.uncap(inSamples.name.replace(/[^\w]/g, "")) + "NavList";
 		this.$.navPanels.pushView(
 			{kind:"NavigationList",
+				name: name,
 				samples: inSamples,
 				onNavTap: "navTap",
 				onNavBack: "navBack",
@@ -216,7 +218,7 @@ enyo.kind({
 		var kindNamespace = sample.ns || this.currNamespace;
 		var path = sample.path.substring(0, sample.path.lastIndexOf("/") + 1);
 		this.kind = kindNamespace + "." + kind;
-		var instance = this.$.sampleContent.createComponent({kind:this.kind});
+		var instance = this.$.sampleContent.createComponent({kind:this.kind, name: enyo.uncap(kind)});
 		window.sample=instance;
 		this.$.sampleContent.render();
 		this.$.sampleContent.resized();
