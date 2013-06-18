@@ -66,8 +66,7 @@
 						]},
 						{"name": "Tree", "ns":"enyo.sample", "loadPackages":"$lib/layout/tree/samples", "path":"$lib/layout/tree/samples/TreeSample"},
 						{"name": "Image View", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageViewSample"},
-						{"name": "Image Carousel", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageCarouselSample"},
-						{"name": "Flex", "loadPackages":"$lib/layout/flex/samples", "path":"$lib/layout/flex/samples/FlexLayoutSample"}
+						{"name": "Image Carousel", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageCarouselSample"}
 					]},
 					{"name": "Canvas", "ns":"enyo.sample", "loadPackages":"$lib/canvas $lib/canvas/samples", "samples": [
 						{"name": "Canvas primitives", "path":"$lib/canvas/samples/CanvasPrimitivesSample"},
