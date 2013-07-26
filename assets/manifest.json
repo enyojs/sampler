@@ -12,7 +12,9 @@
 			{"name": "Scroller", "path":"$enyo/samples/ScrollerSample"},
 			{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"},
 			{"name": "Gestures", "path":"$enyo/samples/GestureSample"},
-			{"name": "Drawer", "path":"$enyo/samples/DrawerSample"}
+			{"name": "Drawer", "path":"$enyo/samples/DrawerSample"},
+			{"name": "DataRepeater", "path":"$enyo/samples/DataRepeaterSample"},
+			{"name": "DataList", "path":"$enyo/samples/DataListSample"}
 		]},
 		{"name": "Onyx", "ns":"onyx.sample", "loadPackages":"$lib/onyx $lib/onyx/samples", "samples": [
 			{"name": "Toolbars", "path":"$lib/onyx/samples/ToolbarSample", "css":"sample"},
