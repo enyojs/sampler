@@ -17,13 +17,13 @@ enyo.kind({
 						{kind: "onyx.Grabber", ontap:"toggleFullScreen"},
 						{fit:true}, // Spacer
 						{kind: "onyx.Button", name:"viewSource", content: "View Source", ontap:"viewSource", showing:false},
-						{kind: "onyx.TooltipDecorator", showing:(document.location.protocol != "file:" && document.location.protocol != "x-wmapp0:" && document.location.protocol != "ms-appx:"), components: [
+						{kind: "onyx.TooltipDecorator", name:"fiddleDecorator", components: [
 							{kind: "onyx.Button", name:"openFiddle", ontap:"openFiddle", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
 								{kind:"onyx.Icon", src:"assets/fiddle.png", style:"margin-top:-5px;"}
 							]},
 							{kind: "onyx.Tooltip", content:"Open sample in jsFiddle"}
 						]},
-						{kind: "onyx.TooltipDecorator", showing:(document.location.protocol != "file:" && document.location.protocol != "x-wmapp0:" && document.location.protocol != "ms-appx:"), components: [
+						{kind: "onyx.TooltipDecorator", name:"openExternalDecorator", components: [
 							{kind: "onyx.Button", name:"openExternal", ontap:"openExternal", style:"padding-left:8px; padding-right:8px;", showing:false, components: [
 								{kind:"onyx.Icon", src:"assets/open-external.png", style:"margin-top:-5px;"}
 							]},
@@ -37,9 +37,18 @@ enyo.kind({
 	create: function() {
 		this.inherited(arguments);
 		this.parseQueryString();
+		this.updateExternalTools();
 		window.onhashchange = this.bindSafely("hashChange");
 		this.loadSamples();
 		this.resized();
+	},
+	updateExternalTools: function() {
+		var showExternalToosl = this.debug || 
+			(document.location.protocol != "file:" && 
+			document.location.protocol != "x-wmapp0:" && 
+			document.location.protocol != "ms-appx:");
+		this.$.fiddleDecorator.setShowing(showExternalToosl);
+		this.$.openExternalDecorator.setShowing(showExternalToosl);
 	},
 	loadSamples: function() {
 		// Remove all navigation views
@@ -172,6 +181,8 @@ enyo.kind({
 		}
 		if (!queryString["debug"]) {
 			window.location = window.location.pathname;
+		} else {
+			this.debug = true;
 		}
 	},
 	rendered: function() {
@@ -358,7 +369,8 @@ enyo.kind({
 		// var n = this.getHashComponentName();
 	},
 	handleMenuAction: function(inSender, inEvent) {
-		if (inEvent.action == "startTest") {
+		switch (inEvent.action) {
+		case "startTest":
 			this.$.navPanels.pushView({
 					kind:"TestController",
 					onQuit:"quitTest",
@@ -369,22 +381,38 @@ enyo.kind({
 					owner:this
 				}
 			);
-		} else if (inEvent.action == "browserscope") {
+			break;
+		case "browserscope":
 			this.resetSample();
 			var src = 'http://www.browserscope.org/user/tests/table/' + this.browserScopeTestKey + '?o=html&v=1';
 			var style = "width:100%; height:100%; border:0px;";
 			this.$.sampleContent.createComponent({tag:"iframe", src:src, style:style});
 			this.$.sampleContent.render();
 			this.$.sampleContent.resized();
-		} else if (inEvent.action == "switchNightly") {
+			break;
+		case "switchNightly":
 			this.sourcePath = "http://nightly.enyojs.com/enyo-nightly-" + inEvent.version;
 			this.versionContent = inEvent.content;
 			this.loadSamples();
-		} else if (inEvent.action == "settings") {
+			break;
+		case "settings":
 			this.$.navPanels.pushView(
 				{kind:"SettingsView", onQuit:"quitTest"},
 				{owner:this}
 			);
+			break;
+		case "toggleRTL":
+			if (enyo.Control.prototype.rtl) {
+				delete enyo.Control.prototype.rtl;
+				this.$.sampleContent.removeClass("enyo-locale-right-to-left");
+				inEvent.item.setContent("Toggle RTL (off)");
+			} else {
+				enyo.Control.prototype.rtl = true;
+				this.$.sampleContent.addClass("enyo-locale-right-to-left");
+				inEvent.item.setContent("Toggle RTL (on)");
+			}
+			this.$.sampleContent.render();
+			break;
 		}
 	},
 	renderTest: function(inSender, inEvent) {
@@ -569,13 +597,14 @@ enyo.kind({
 			{kind: "onyx.MenuDecorator", name:"extrasMenu", showing:false, components: [
 				{kind: "onyx.Button", content:"Extras"},
 				{kind: "onyx.Menu", onSelect: "menuAction", floating:true, components: [
+					{content:"Settings", action:"settings"},
+					{content:"Toggle RTL (off)", action:"toggleRTL", name:"toggleRTLButton"},
 					{content:"Start Test Mode", action:"startTest"},
 					{content:"Browserscope Results", action:"browserscope"},
 					{kind:"onyx.PickerDecorator", components: [
 						{kind: "onyx.MenuItem", content:"Switch to Nightly (experimental)"},
 						{kind: "onyx.Picker", name:"nightlyPicker", modal:false, onSelect:"nightlyAction", floating:true}
-					]},
-					{content:"Settings", action:"settings"}
+					]}
 				]}
 			]}
 		]}
@@ -604,7 +633,7 @@ enyo.kind({
 	},
 	menuAction: function(inSender, inEvent) {
 		if (inEvent.originator.action) {
-			this.doMenuAction({action:inEvent.originator.action});
+			this.doMenuAction({action:inEvent.originator.action, item:inEvent.originator});
 		}
 	},
 	nightlyAction: function(inSender, inEvent) {
