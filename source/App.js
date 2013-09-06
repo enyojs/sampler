@@ -413,6 +413,17 @@ enyo.kind({
 			}
 			this.$.sampleContent.render();
 			break;
+		case "toggleNonLatin":
+			if (this.nonLatin) {
+				this.nonLatin = false;
+				this.$.sampleContent.removeClass("enyo-locale-non-latin");
+				inEvent.item.setContent("Toggle Non-Latin (off)");
+			} else {
+				this.nonLatin = true;
+				this.$.sampleContent.addClass("enyo-locale-non-latin");
+				inEvent.item.setContent("Toggle Non-latin (on)");
+			}
+			break;
 		}
 	},
 	renderTest: function(inSender, inEvent) {
@@ -598,7 +609,8 @@ enyo.kind({
 				{kind: "onyx.Button", content:"Extras"},
 				{kind: "onyx.Menu", onSelect: "menuAction", floating:true, components: [
 					{content:"Settings", action:"settings"},
-					{content:"Toggle RTL (off)", action:"toggleRTL", name:"toggleRTLButton"},
+					{content:"Toggle RTL (off)", action:"toggleRTL"},
+					{content:"Toggle Non-Latin (off)", action:"toggleNonLatin"},
 					{content:"Start Test Mode", action:"startTest"},
 					{content:"Browserscope Results", action:"browserscope"},
 					{kind:"onyx.PickerDecorator", components: [
