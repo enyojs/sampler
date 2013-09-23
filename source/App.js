@@ -13,7 +13,7 @@ enyo.kind({
 			{kind: "Panels", name:"contentPanels", arrangerKind:"CollapsingArranger", draggable:false, classes:"panels enyo-fit", onTransitionFinish: "contentTransitionComplete", components: [
 				{kind: "FittableRows", classes:"wide", components: [
 					{kind:"Scroller", name:"sampleContent", horizontal: "hidden", fit:true, classes:"onyx enyo-unselectable"},
-					{kind: "onyx.Toolbar", layoutKind:"FittableColumnsLayout", name:"viewSourceToolbar", noStretch: true, classes: "footer-toolbar", components: [
+					{kind: "onyx.Toolbar", layoutKind:"FittableColumnsLayout", name:"viewSourceToolbar", noStretch: true, rtl: false, classes: "footer-toolbar", components: [
 						{kind: "onyx.Grabber", ontap:"toggleFullScreen"},
 						{fit:true}, // Spacer
 						{kind: "onyx.Button", name:"viewSource", content: "View Source", ontap:"viewSource", showing:false},
