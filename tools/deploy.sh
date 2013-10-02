@@ -1,114 +1,41 @@
-	#!/bin/bash
+#!/bin/bash
 
-cd `dirname $0`
+# the folder this script is in (*/bootplate/tools)
+TOOLS=$(cd `dirname $0` && pwd)
 
-# the deploy target folder
-FOLDER=deploy
+# application root
+SRC="$TOOLS/.."
 
-# the deploy target suffix
-SUFFIX=`date "+-%Y_%m_%d-%I_%M_%S%p"`
+# enyo location
+ENYO="$SRC/enyo"
 
-# The grandparent folder for this script
-SOURCE=$(cd `dirname $0`/../; pwd)
+# deploy script location
+DEPLOY="$ENYO/tools/deploy.js"
 
-# extract project folder name
-NAME=${SOURCE##*/}
-
-# target names
-if [ -z "${DEPLOY}" ]; then
-    DEPLOY="$NAME$SUFFIX"
-fi
-
-if [ -z "${TARGET}" ]; then
-    TARGET="$SOURCE/$FOLDER/$DEPLOY"
-fi    
-
-if [ -d $TARGET ]; then
-	echo "$TARGET folder already exists, please rename or remove it and try again."
+# check for node, but quietly
+if command -v node >/dev/null 2>&1; then
+	# use node to invoke deploy with imported parameters
+	echo "node $DEPLOY -T -s $SRC -o $SRC/deploy $@"
+	node "$DEPLOY" -T -s "$SRC" -o "$SRC/deploy" $@
+else
+	echo "No node found in path"
 	exit 1
 fi
 
-# use less by default
-NO_LESS=""
-
-USAGE="Usage: `basename $0` [-h] [-c] [-o output_dir] args"
-
-# Parse command line options.
-while getopts hco: OPT; do
-    case "$OPT" in
-        h)
-            echo $USAGE
-            exit 0
-            ;;
-        o)
-            TARGET=$OPTARG
-            rm -rf $TARGET
-            ;;
-        c)
-            NO_LESS="-no-less"
-            ;;
-        \?)
-            # getopts issues an error message
-            echo $USAGE >&2
-            exit 1
-            ;;
-    esac
-done
-	
-echo "This script can create a deployment in $TARGET"
-
-cat <<EOF
-==========
-build step
-==========
-EOF
-
-./minify.sh $NO_LESS
-
-cat <<EOF
-=========
-copy step
-=========
-EOF
-
-# make deploy folder
-mkdir -p "$TARGET/lib"
-
-# copy root folder files
-cp "$SOURCE/index.html" "$SOURCE/icon.png" "$TARGET"
-
-# copy assets and build
-cp -r "$SOURCE/assets" "$SOURCE/build" "$TARGET"
-
-for i in "$SOURCE/lib/"*; do
-	o=${i##*/}
-	if [ -x $i/deploy.sh ]; then
-		echo "Deploying $o"
-		$i/deploy.sh "$TARGET/lib/$o"
-	else
-		echo "Copying $o"
-		cp -r "$i" "$TARGET/lib"
-		if [ -e "$TARGET/lib/$o/.git" ]; then
-			rm -rf "$TARGET/lib/$o/.git"
-		fi
-	fi
-done
-
-# copy samples - sampler only step!
-echo "Copying samples"
-pushd ..
-pushd enyo
-ENYO_SAMPLES=`find . -name samples -type d | sed 's/\/samples//g'`
-popd
-LIB_SAMPLES=`find lib -name samples -type d | sed 's/\/samples//g'`
-popd
-for f in $ENYO_SAMPLES; do
-	mkdir -p ../build/$f/samples; 
-	cp -r ../enyo/$f/samples ../build/$f; 
-	mkdir -p $TARGET/build/$f/samples; 
-	cp -r ../enyo/$f/samples $TARGET/build/$f; 
-done
-for f in $LIB_SAMPLES; do
-	mkdir -p $TARGET/$f/samples; 
-	cp -r ../$f/samples $TARGET/$f; 
+# copy files and package if deploying to cordova webos
+while [ "$1" != "" ]; do
+	case $1 in
+		-w | --cordova-webos )
+			# copy appinfo.json and cordova*.js files
+			DEST="$TOOLS/../deploy/"${PWD##*/}
+			
+			cp "$SRC"/appinfo.json "$DEST" -v
+			cp "$SRC"/cordova*.js "$DEST" -v
+			
+			# package it up
+			mkdir -p "$DEST/bin"
+			palm-package "$DEST/bin"
+			;;
+	esac
+	shift
 done
