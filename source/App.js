@@ -571,6 +571,7 @@ enyo.kind({
 		}
 	},
 	popAll: function() {
+		this.currView = -1;
 		this.saveAnimate = this.getAnimate();
 		this.setAnimate(false);
 		this.suppressFinish = true;
