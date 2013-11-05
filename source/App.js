@@ -404,11 +404,11 @@ enyo.kind({
 		case "toggleRTL":
 			if (enyo.Control.prototype.rtl) {
 				delete enyo.Control.prototype.rtl;
-				this.$.sampleContent.removeClass("enyo-locale-right-to-left");
+				enyo.dom.removeClass(document.body, "enyo-locale-right-to-left");
 				inEvent.item.setContent("Toggle RTL (off)");
 			} else {
 				enyo.Control.prototype.rtl = true;
-				this.$.sampleContent.addClass("enyo-locale-right-to-left");
+				enyo.dom.addClass(document.body, "enyo-locale-right-to-left");
 				inEvent.item.setContent("Toggle RTL (on)");
 			}
 			this.$.sampleContent.render();
