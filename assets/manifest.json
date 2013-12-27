@@ -10,12 +10,29 @@
 				{"name": "WebService Component", "path":"$enyo/samples/WebServiceSample"}
 			]},
 			{"name": "Scroller", "path":"$enyo/samples/ScrollerSample"},
-			{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"},
 			{"name": "Gestures", "path":"$enyo/samples/GestureSample"},
-			{"name": "Drawer", "path":"$enyo/samples/DrawerSample"},
-			{"name": "DataRepeater", "path":"$enyo/samples/DataRepeaterSample"},
-			{"name": "DataList", "path":"$enyo/samples/DataListSample"},
-			{"name": "DataGridList", "path":"$enyo/samples/DataGridListSample"}
+			{"name": "UI", "samples": [
+				{"name": "Anchor", "path":"$enyo/samples/AnchorSample"},
+				{"name": "Animator", "path":"$enyo/samples/AnimatorSample"},
+				{"name": "Audio", "path":"$enyo/samples/AudioSample"},
+				{"name": "Button", "path":"$enyo/samples/ButtonSample"},
+				{"name": "Checkbox", "path":"$enyo/samples/CheckboxSample"},
+				{"name": "DataRepeater", "path":"$enyo/samples/DataRepeaterSample"},
+				{"name": "DataList", "path":"$enyo/samples/DataListSample"},
+				{"name": "DataGridList", "path":"$enyo/samples/DataGridListSample"},
+				{"name": "DragAvatar", "path":"$enyo/samples/DragAvatarSample"},
+				{"name": "Drawer", "path":"$enyo/samples/DrawerSample"},
+				{"name": "Grouping", "path":"$enyo/samples/GroupSample"},
+				{"name": "Image", "path":"$enyo/samples/ImageSample"},
+				{"name": "Input", "path":"$enyo/samples/InputSample"},
+				{"name": "Popup", "path":"$enyo/samples/PopupSample"},
+				{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"},
+				{"name": "RichText", "path":"$enyo/samples/RichTextSample"},
+				{"name": "Select Lists", "path":"$enyo/samples/SelectSample"},
+				{"name": "Table", "path":"$enyo/samples/TableSample"},
+				{"name": "TextArea", "path":"$enyo/samples/TextAreaSample"},
+				{"name": "Video", "path":"$enyo/samples/VideoSample"}
+			]}
 		]},
 		{"name": "Onyx", "ns":"onyx.sample", "loadPackages":"$lib/onyx $lib/onyx/samples", "samples": [
 			{"name": "Toolbars", "path":"$lib/onyx/samples/ToolbarSample", "css":"sample"},
