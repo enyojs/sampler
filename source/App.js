@@ -43,9 +43,9 @@ enyo.kind({
 		this.resized();
 	},
 	updateExternalTools: function() {
-		var showExternalToosl = this.debug || 
-			(document.location.protocol != "file:" && 
-			document.location.protocol != "x-wmapp0:" && 
+		var showExternalToosl = this.debug ||
+			(document.location.protocol != "file:" &&
+			document.location.protocol != "x-wmapp0:" &&
 			document.location.protocol != "ms-appx:");
 		this.$.fiddleDecorator.setShowing(showExternalToosl);
 		this.$.openExternalDecorator.setShowing(showExternalToosl);
@@ -57,7 +57,7 @@ enyo.kind({
 		if (this.preloadedManifest) {
 			this.processSamples(this.preloadedManifest);
 		} else {
-			new enyo.Ajax({url: "assets/manifest.json", mimeType: "application/json"})
+			new enyo.Ajax({url: "assets/sampler-manifest.json", mimeType: "application/json"})
 				.response(this.bindSafely(function(inSender, inSamples) {
 					this.processSamples(inSamples);
 				}))
