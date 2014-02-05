@@ -34,26 +34,6 @@
 				{"name": "Video", "path":"$enyo/samples/VideoSample"}
 			]}
 		]},
-		{"name": "Onyx", "ns":"onyx.sample", "loadPackages":"$lib/onyx $lib/onyx/samples", "samples": [
-			{"name": "Toolbars", "path":"$lib/onyx/samples/ToolbarSample", "css":"sample"},
-			{"name": "Basic Buttons", "path":"$lib/onyx/samples/ButtonSample", "css":"sample"},
-			{"name": "Grouped Buttons", "path":"$lib/onyx/samples/ButtonGroupSample", "css":"sample"},
-			{"name": "Icon Buttons", "path":"$lib/onyx/samples/IconButtonSample", "css":"sample"},
-			{"name": "Toggle Buttons", "path":"$lib/onyx/samples/ToggleButtonSample", "css":"sample"},
-			{"name": "Checkboxes", "path":"$lib/onyx/samples/CheckboxSample", "css":"sample"},
-			{"name": "Inputs", "path":"$lib/onyx/samples/InputSample", "css":"sample"},
-			{"name": "Group Boxes", "path":"$lib/onyx/samples/GroupboxSample", "css":"sample"},
-			{"name": "Progress Bars", "path":"$lib/onyx/samples/ProgressSample", "css":"sample"},
-			{"name": "Sliders", "path":"$lib/onyx/samples/SliderSample", "css":"sample"},
-			{"name": "Menus", "path":"$lib/onyx/samples/MenuSample", "css":"sample"},
-			{"name": "Pickers", "path":"$lib/onyx/samples/PickerSample", "css":"sample"},
-			{"name": "DatePicker", "path":"$lib/onyx/samples/DatePickerSample", "css":"sample"},
-			{"name": "TimePicker", "path":"$lib/onyx/samples/TimePickerSample", "css":"sample"},
-			{"name": "Tooltips", "path":"$lib/onyx/samples/TooltipSample", "css":"sample"},
-			{"name": "Spinners", "path":"$lib/onyx/samples/SpinnerSample", "css":"sample"},
-			{"name": "Popups", "path":"$lib/onyx/samples/PopupSample", "css":"sample"},
-			{"name": "ContextualPopups", "path":"$lib/onyx/samples/ContextualPopupSample", "css":"sample"}
-		]},
 		{"name": "Layout", "ns":"enyo.sample", "loadPackages":"$lib/layout", "samples": [
 			{"name": "Fittable Layouts", "loadPackages":"$lib/layout/fittable/samples", "samples": [
 				{"name": "Basic sample", "path":"$lib/layout/fittable/samples/FittableSample", "css":"sample"},
@@ -80,20 +60,124 @@
 			{"name": "Image View", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageViewSample"},
 			{"name": "Image Carousel", "loadPackages":"$lib/layout/imageview/samples", "path":"$lib/layout/imageview/samples/ImageCarouselSample"}
 		]},
+		{"name": "Onyx UI", "ns":"onyx.sample", "loadPackages":"$lib/onyx $lib/onyx/samples", "samples": [
+			{"name": "Toolbars", "path":"$lib/onyx/samples/ToolbarSample", "css":"sample"},
+			{"name": "Basic Buttons", "path":"$lib/onyx/samples/ButtonSample", "css":"sample"},
+			{"name": "Grouped Buttons", "path":"$lib/onyx/samples/ButtonGroupSample", "css":"sample"},
+			{"name": "Icon Buttons", "path":"$lib/onyx/samples/IconButtonSample", "css":"sample"},
+			{"name": "Toggle Buttons", "path":"$lib/onyx/samples/ToggleButtonSample", "css":"sample"},
+			{"name": "Checkboxes", "path":"$lib/onyx/samples/CheckboxSample", "css":"sample"},
+			{"name": "Inputs", "path":"$lib/onyx/samples/InputSample", "css":"sample"},
+			{"name": "Group Boxes", "path":"$lib/onyx/samples/GroupboxSample", "css":"sample"},
+			{"name": "Progress Bars", "path":"$lib/onyx/samples/ProgressSample", "css":"sample"},
+			{"name": "Sliders", "path":"$lib/onyx/samples/SliderSample", "css":"sample"},
+			{"name": "Menus", "path":"$lib/onyx/samples/MenuSample", "css":"sample"},
+			{"name": "Pickers", "path":"$lib/onyx/samples/PickerSample", "css":"sample"},
+			{"name": "DatePicker", "path":"$lib/onyx/samples/DatePickerSample", "css":"sample"},
+			{"name": "TimePicker", "path":"$lib/onyx/samples/TimePickerSample", "css":"sample"},
+			{"name": "Tooltips", "path":"$lib/onyx/samples/TooltipSample", "css":"sample"},
+			{"name": "Spinners", "path":"$lib/onyx/samples/SpinnerSample", "css":"sample"},
+			{"name": "Popups", "path":"$lib/onyx/samples/PopupSample", "css":"sample"},
+			{"name": "ContextualPopups", "path":"$lib/onyx/samples/ContextualPopupSample", "css":"sample"}
+		]},
+		{"name": "Moonstone UI", "ns": "moon.sample", "samples": [
+			{"name": "Accordion", "path":"$lib/moonstone/samples/AccordionSample", "css":"sample"},
+			{"name": "Buttons", "samples": [
+				{"name": "Button", "path":"$lib/moonstone/samples/ButtonSample"},
+				{"name": "Toggle Button", "path":"$lib/moonstone/samples/ToggleButtonSample"},
+				{"name": "Icon Button", "path":"$lib/moonstone/samples/IconButtonSample"}
+			]},
+			{"name": "Clock", "path":"$lib/moonstone/samples/ClockSample"},
+			{"name": "Divider", "path":"$lib/moonstone/samples/DividerSample"},
+			{"name": "Drawer", "path":"$lib/moonstone/samples/DrawerSample"},
+			{"name": "Fonts", "path":"$lib/moonstone/samples/FontSample"},
+			{"name": "Form Checkbox", "path":"$lib/moonstone/samples/FormCheckboxSample"},
+			{"name": "Headers", "samples": [
+				{"name": "Header", "path":"$lib/moonstone/samples/HeaderSample"},
+				{"name": "Input Header", "path":"$lib/moonstone/samples/InputHeaderSample"},
+				{"name": "Auto-collapsing Header", "path":"$lib/moonstone/samples/HeaderAutoCollapsingSample"}
+			]},
+			{"name": "Icon", "path":"$lib/moonstone/samples/IconSample"},
+			{"name": "Icon Button", "path":"$lib/moonstone/samples/IconButtonSample"},
+			{"name": "Image Badge", "path":"$lib/moonstone/samples/ImageBadgeSample"},
+			{"name": "Inputs", "samples": [
+				{"name": "Basic Inputs", "path":"$lib/moonstone/samples/InputSample"},
+				{"name": "Expandable Input", "path":"$lib/moonstone/samples/ExpandableInputSample"},
+				{"name": "Input Header", "path":"$lib/moonstone/samples/InputHeaderSample"}
+			]},
+			{"name": "Items", "samples": [
+				{"name": "Basic Item", "path":"$lib/moonstone/samples/ItemSample"},
+				{"name": "Selectable Item", "path":"$lib/moonstone/samples/SelectableItemSample"},
+				{"name": "Radio Item", "path":"$lib/moonstone/samples/RadioItemSample"},
+				{"name": "Checkbox Item", "path":"$lib/moonstone/samples/CheckboxItemSample"},
+				{"name": "Toggle Item", "path":"$lib/moonstone/samples/ToggleItemSample"}
+			]},
+			{"name": "List", "samples": [
+				{"name": "Horizontal List", "path":"$lib/moonstone/samples/ListHorizontalSample"},
+				{"name": "Vertical List", "path":"$lib/moonstone/samples/ListVerticalSample"},
+				{"name": "Grid List", "path":"$lib/moonstone/samples/GridListSample"},
+				{"name": "List Items", "samples": [
+					{"name": "Labeled Text Item", "path":"$lib/moonstone/samples/LabeledTextItemSample"},
+					{"name": "Image Item", "path":"$lib/moonstone/samples/ImageItemSample"}
+				]},
+				{"name": "Data List", "path":"$lib/moonstone/samples/DataListSample", "css":"sample"},
+				{"name": "Data Grid List", "path":"$lib/moonstone/samples/DataGridListSample", "css":"sample"}
+			]},
+			{"name": "List Actions", "path":"$lib/moonstone/samples/ListActionsSample"},
+			{"name": "Media", "samples": [
+				{"name": "Fullscreen Video Player", "path":"$lib/moonstone/samples/VideoPlayerSample"},
+				{"name": "Inline Video Player", "path":"$lib/moonstone/samples/PanelsVideoPlayerSample"},
+				{"name": "Always Viewing Panels with Video", "path":"$lib/moonstone/samples/AlwaysViewingPanelsWithVideoSample"},
+				{"name": "Activity Panels with Video", "path":"$lib/moonstone/samples/ActivityPanelsWithVideoSample"}
+			]},
+			{"name": "Object Actions", "samples": [
+				{"name": "Horizontal Object Actions", "path":"$lib/moonstone/samples/ObjectActionHorizontalTypeSample"},
+				{"name": "Vertical Object Actions", "path":"$lib/moonstone/samples/ObjectActionVerticalTypeSample"}
+			]},
+			{"name": "Panels", "samples": [
+				{"name": "Always Viewing Pattern", "path":"$lib/moonstone/samples/AlwaysViewingPanelsSample"},
+				{"name": "Activity Pattern", "path":"$lib/moonstone/samples/ActivityPanelsSample"},
+				{"name": "Card Arranger", "path":"$lib/moonstone/samples/PanelsWithCardArrangerSample"},
+				{"name": "Carousel Arranger", "path":"$lib/moonstone/samples/PanelsWithCarouselArrangerSample"}
+			]},
+			{"name": "Pickers", "samples": [
+				{"name": "Expandable Picker", "path":"$lib/moonstone/samples/ExpandablePickerSample"},
+				{"name": "Simple Picker", "path":"$lib/moonstone/samples/SimplePickerSample", "css":"sample"},
+				{"name": "Date Picker", "path":"$lib/moonstone/samples/DatePickerSample"},
+				{"name": "Time Picker", "path":"$lib/moonstone/samples/TimePickerSample", "css":"sample"},
+				{"name": "Integer Picker", "path":"$lib/moonstone/samples/IntegerPickerSample"},
+				{"name": "Calendar", "path":"$lib/moonstone/samples/CalendarSample"}
+			]},
+			{"name": "Popups", "samples": [
+				{"name": "Basic Popup", "path":"$lib/moonstone/samples/PopupSample", "css":"sample"},
+				{"name": "Dialog Popup", "path":"$lib/moonstone/samples/DialogSample", "css":"sample"},
+				{"name": "Contextual Popup", "path":"$lib/moonstone/samples/ContextualPopupSample"}
+			]},
+			{"name": "Progress Bar", "path":"$lib/moonstone/samples/ProgressSample"},
+			{"name": "Scroller", "samples": [
+				{"name": "Horizontal Scroller", "path":"$lib/moonstone/samples/ScrollerHorizontalSample"},
+				{"name": "Vertical Scroller", "path":"$lib/moonstone/samples/ScrollerVerticalSample"},
+				{"name": "2D Scroller", "path":"$lib/moonstone/samples/Scroller2dSample"},
+				{"name": "Text Scroller", "path":"$lib/moonstone/samples/ScrollerTextSample"}
+			]},
+			{"name": "Slider", "path":"$lib/moonstone/samples/SliderSample"},
+			{"name": "Spinner", "path":"$lib/moonstone/samples/SpinnerSample"},
+			{"name": "Text", "samples": [
+				{"name": "Body Text", "path":"$lib/moonstone/samples/BodyTextSample"},
+				{"name": "Expandable Text", "path":"$lib/moonstone/samples/ExpandableTextSample"},
+				{"name": "Highlight Text", "path":"$lib/moonstone/samples/HighlightTextSample"}
+			]},
+			{"name": "Tooltip", "path":"$lib/moonstone/samples/TooltipSample"}
+		]},
 		{"name": "Canvas", "ns":"enyo.sample", "loadPackages":"$lib/canvas $lib/canvas/samples", "samples": [
 			{"name": "Canvas primitives", "path":"$lib/canvas/samples/CanvasPrimitivesSample"},
 			{"name": "Bouncing balls", "path":"$lib/canvas/samples/CanvasBallsSample"}
 		]},
-		{"name": "Globalization", "ns":"g11n.sample", "loadPackages":"$lib/g11n $lib/g11n/samples $lib/onyx/samples", "samples": [
-			{"name": "CSS", "path":"$lib/g11n/samples/LocalizedCssSample", "css":"sample"},
-			{"name": "Date", "path":"$lib/g11n/samples/DateSample", "css":"sample"},
-			{"name": "Duration", "path":"$lib/g11n/samples/DurationSample", "css":"sample"},
-			{"name": "Name", "path":"$lib/g11n/samples/NameSample", "css":"sample"},
-			{"name": "Number", "path":"$lib/g11n/samples/NumberSample", "css":"sample"},
-			{"name": "Phone", "path":"$lib/g11n/samples/PhoneSample", "css":"sample"},
-			{"name": "String", "path":"$lib/g11n/samples/StringSample", "css":"sample"},
-			{"name": "DatePicker", "ns":"onyx.sample", "path":"$lib/onyx/samples/DatePickerSample", "css":"sample"},
-			{"name": "TimePicker", "ns":"onyx.sample", "path":"$lib/onyx/samples/TimePickerSample", "css":"sample"}
-		]}
+		{"name": "iLib (i18n)", "ns": "ilib.sample", "samples": [
+	        {"name": "Locale Info", "path": "$lib/enyo-ilib/samples/LocaleInfo"},
+	        {"name": "Date Formatting", "path": "$lib/enyo-ilib/samples/DateFormatting"},
+	        {"name": "Advanced Date Formatting", "path": "$lib/enyo-ilib/samples/AdvDateFormatting"},
+	        {"name": "Number Formatting", "path": "$lib/enyo-ilib/samples/NumberFormatting"}        
+	    ]}
 	]
 }
