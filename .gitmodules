@@ -14,5 +14,14 @@
 	path = lib/extra
 	url = ../../enyojs/extra.git
 [submodule "lib/g11n"]
-	path = lib/g11n
-	url = ../../enyojs/g11n.git
+        path = lib/g11n
+        url = ../../enyojs/g11n.git
+[submodule "lib/spotlight"]
+	path = lib/spotlight
+	url = ../../enyojs/spotlight.git
+[submodule "lib/moonstone"]
+	path = lib/moonstone
+	url = ../../enyojs/moonstone.git
+[submodule "lib/enyo-ilib"]
+	path = lib/enyo-ilib
+	url = ../../enyojs/enyo-ilib.git
