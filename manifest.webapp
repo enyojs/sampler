@@ -1,0 +1,13 @@
+{
+  "name": "Enyo 2 Sampler",
+  "description": "showing UI features of Enyo and its libraries",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/icon.png"
+  },
+  "developer": {
+    "name": "Enyo JS Framework",
+    "url": "http://enyojs.com"
+  },
+  "default_locale": "en"
+}
