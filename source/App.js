@@ -43,9 +43,9 @@ enyo.kind({
 		this.resized();
 	},
 	updateExternalTools: function() {
-		var showExternalToosl = this.debug || 
-			(document.location.protocol != "file:" && 
-			document.location.protocol != "x-wmapp0:" && 
+		var showExternalToosl = this.debug ||
+			(document.location.protocol != "file:" &&
+			document.location.protocol != "x-wmapp0:" &&
 			document.location.protocol != "ms-appx:");
 		this.$.fiddleDecorator.setShowing(showExternalToosl);
 		this.$.openExternalDecorator.setShowing(showExternalToosl);
@@ -239,32 +239,26 @@ enyo.kind({
 			new enyo.Ajax({url: enyo.path.rewrite(sample.path + ".js"), handleAs:"text"})
 				.response(this, function(inSender, inSource) {
 					this.jsSource = inSource;
-					var components = this.getComponents();
-					for(var i=0;i<components.length;i++) {
-						if(components[i].name == "sourceViewer") {
-							this.$.sourceViewer.jsSource = inSource;
-							this.$.sourceViewer.jsSourceChanged();
-							break;
-						}
+					if (this.$.sourceViewer) {
+						this.$.sourceViewer.setJsSource(inSource);
 					}
 				})
 				.go();
 			new enyo.Ajax({url: enyo.path.rewrite(path + (sample.css || kind) + ".css"), handleAs:"text"})
 				.response(this, function(inSender, inSource) {
 					this.cssSource = inSource;
-					var components = this.getComponents();
-					for(var i=0;i<components.length;i++) {
-						if(components[i].name == "sourceViewer") {
-							this.$.sourceViewer.cssSource = inSource;
-							this.$.sourceViewer.cssSourceChanged();
-							break;
-						}
+					if (this.$.sourceViewer) {
+						this.$.sourceViewer.setCssSource(inSource);
 					}
 				})
 				.go();
 		} else {
-			this.$.jsContent.setContent("Sorry, the source for this sample is on a separate server and cannot be displayed due to cross-origin restrictions.");
-			this.$.cssContent.setContent("Sorry, the source for this sample is on a separate server and cannot be displayed due to cross-origin restrictions.");
+			this.jsSource = "Sorry, the source for this sample is on a separate server and cannot be displayed due to cross-origin restrictions.";
+			this.cssSource = "Sorry, the source for this sample is on a separate server and cannot be displayed due to cross-origin restrictions.";
+			if (this.$.sourceViewer) {
+				this.$.sourceViewer.setJsSource(this.jsSource);
+				this.$.sourceViewer.setCssSource(this.cssSource);
+			}
 		}
 		// Advance to the sample panel
 		if (enyo.Panels.isScreenNarrow()) {
@@ -276,12 +270,8 @@ enyo.kind({
 		this.$.viewSourceToolbar.resized();
 	},
 	resized: function() {
-		var components = this.getComponents();
-		for(var i=0;i<components.length;i++) {
-			if(components[i].name == "sourceViewer") {
-				this.$.sourceViewer.resized();
-				break;
-			}
+		if (this.$.sourceViewer) {
+			this.$.sourceViewer.resized();
 		}
 	},
 	navChanged: function() {
@@ -501,7 +491,9 @@ enyo.kind({
 	jsSourceChanged: function() {
 		this.$.jsContent.setContent(this.getJsSource());
 	},
-	cssSourceChanged: function() { this.$.cssContent.setContent(this.getCssSource()); },
+	cssSourceChanged: function() {
+		this.$.cssContent.setContent(this.getCssSource());
+	},
 	sourceChanged: function(inSender, inEvent) {
 		if (inEvent.originator.active) {
 			this.$.sourcePanels.setIndex(inEvent.originator.indexInContainer());
