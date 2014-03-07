@@ -113,9 +113,6 @@
 				{"name": "Toggle Item", "path":"$lib/moonstone/samples/ToggleItemSample"}
 			]},
 			{"name": "List", "samples": [
-				{"name": "Horizontal List", "path":"$lib/moonstone/samples/ListHorizontalSample"},
-				{"name": "Vertical List", "path":"$lib/moonstone/samples/ListVerticalSample"},
-				{"name": "Grid List", "path":"$lib/moonstone/samples/GridListSample"},
 				{"name": "List Items", "samples": [
 					{"name": "Labeled Text Item", "path":"$lib/moonstone/samples/LabeledTextItemSample"},
 					{"name": "Image Item", "path":"$lib/moonstone/samples/ImageItemSample"}
@@ -165,8 +162,7 @@
 			{"name": "Spinner", "path":"$lib/moonstone/samples/SpinnerSample"},
 			{"name": "Text", "samples": [
 				{"name": "Body Text", "path":"$lib/moonstone/samples/BodyTextSample"},
-				{"name": "Expandable Text", "path":"$lib/moonstone/samples/ExpandableTextSample"},
-				{"name": "Highlight Text", "path":"$lib/moonstone/samples/HighlightTextSample"}
+				{"name": "Expandable Text", "path":"$lib/moonstone/samples/ExpandableTextSample"}
 			]},
 			{"name": "Tooltip", "path":"$lib/moonstone/samples/TooltipSample"}
 		]},
@@ -178,7 +174,7 @@
 	        {"name": "Locale Info", "path": "$lib/enyo-ilib/samples/LocaleInfo"},
 	        {"name": "Date Formatting", "path": "$lib/enyo-ilib/samples/DateFormatting"},
 	        {"name": "Advanced Date Formatting", "path": "$lib/enyo-ilib/samples/AdvDateFormatting"},
-	        {"name": "Number Formatting", "path": "$lib/enyo-ilib/samples/NumberFormatting"}        
+	        {"name": "Number Formatting", "path": "$lib/enyo-ilib/samples/NumberFormatting"}
 	    ]}
 	]
 }
