@@ -221,6 +221,7 @@ enyo.kind({
 				this.$.mainPanels.next();
 			}
 		}
+		inEvent.preventDefault();
 	},
 	renderSample: function(sample) {
 		// Create a new sample kind instance inside sampleContent
