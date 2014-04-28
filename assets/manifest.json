@@ -2,36 +2,36 @@
 	"sourcePath":"",
 	"name": "Enyo 2 Sampler",
 	"samples": [
-		{"name": "Enyo Core", "ns":"enyo.sample", "loadPackages":"$enyo/samples", "samples": [
-			{"name": "Platform", "path":"$enyo/samples/PlatformSample"},
+		{"name": "Enyo Core", "ns":"enyo.sample", "loadPackages":"enyo/samples", "samples": [
+			{"name": "Platform", "path":"enyo/samples/PlatformSample"},
 			{"name": "Ajax", "samples": [
-				{"name": "Ajax", "path":"$enyo/samples/AjaxSample"},
-				{"name": "JSON-P", "path":"$enyo/samples/JsonpSample"},
-				{"name": "WebService Component", "path":"$enyo/samples/WebServiceSample"}
+				{"name": "Ajax", "path":"enyo/samples/AjaxSample"},
+				{"name": "JSON-P", "path":"enyo/samples/JsonpSample"},
+				{"name": "WebService Component", "path":"enyo/samples/WebServiceSample"}
 			]},
-			{"name": "Scroller", "path":"$enyo/samples/ScrollerSample"},
-			{"name": "Gestures", "path":"$enyo/samples/GestureSample"},
+			{"name": "Scroller", "path":"enyo/samples/ScrollerSample"},
+			{"name": "Gestures", "path":"enyo/samples/GestureSample"},
 			{"name": "UI", "samples": [
-				{"name": "Anchor", "path":"$enyo/samples/AnchorSample"},
-				{"name": "Animator", "path":"$enyo/samples/AnimatorSample"},
-				{"name": "Audio", "path":"$enyo/samples/AudioSample"},
-				{"name": "Button", "path":"$enyo/samples/ButtonSample"},
-				{"name": "Checkbox", "path":"$enyo/samples/CheckboxSample"},
-				{"name": "DataRepeater", "path":"$enyo/samples/DataRepeaterSample"},
-				{"name": "DataList", "path":"$enyo/samples/DataListSample"},
-				{"name": "DataGridList", "path":"$enyo/samples/DataGridListSample"},
-				{"name": "DragAvatar", "path":"$enyo/samples/DragAvatarSample"},
-				{"name": "Drawer", "path":"$enyo/samples/DrawerSample"},
-				{"name": "Grouping", "path":"$enyo/samples/GroupSample"},
-				{"name": "Image", "path":"$enyo/samples/ImageSample"},
-				{"name": "Input", "path":"$enyo/samples/InputSample"},
-				{"name": "Popup", "path":"$enyo/samples/PopupSample"},
-				{"name": "Repeater", "path":"$enyo/samples/RepeaterSample"},
-				{"name": "RichText", "path":"$enyo/samples/RichTextSample"},
-				{"name": "Select Lists", "path":"$enyo/samples/SelectSample"},
-				{"name": "Table", "path":"$enyo/samples/TableSample"},
-				{"name": "TextArea", "path":"$enyo/samples/TextAreaSample"},
-				{"name": "Video", "path":"$enyo/samples/VideoSample"}
+				{"name": "Anchor", "path":"enyo/samples/AnchorSample"},
+				{"name": "Animator", "path":"enyo/samples/AnimatorSample"},
+				{"name": "Audio", "path":"enyo/samples/AudioSample"},
+				{"name": "Button", "path":"enyo/samples/ButtonSample"},
+				{"name": "Checkbox", "path":"enyo/samples/CheckboxSample"},
+				{"name": "DataRepeater", "path":"enyo/samples/DataRepeaterSample"},
+				{"name": "DataList", "path":"enyo/samples/DataListSample"},
+				{"name": "DataGridList", "path":"enyo/samples/DataGridListSample"},
+				{"name": "DragAvatar", "path":"enyo/samples/DragAvatarSample"},
+				{"name": "Drawer", "path":"enyo/samples/DrawerSample"},
+				{"name": "Grouping", "path":"enyo/samples/GroupSample"},
+				{"name": "Image", "path":"enyo/samples/ImageSample"},
+				{"name": "Input", "path":"enyo/samples/InputSample"},
+				{"name": "Popup", "path":"enyo/samples/PopupSample"},
+				{"name": "Repeater", "path":"enyo/samples/RepeaterSample"},
+				{"name": "RichText", "path":"enyo/samples/RichTextSample"},
+				{"name": "Select Lists", "path":"enyo/samples/SelectSample"},
+				{"name": "Table", "path":"enyo/samples/TableSample"},
+				{"name": "TextArea", "path":"enyo/samples/TextAreaSample"},
+				{"name": "Video", "path":"enyo/samples/VideoSample"}
 			]}
 		]},
 		{"name": "Layout", "ns":"enyo.sample", "loadPackages":"$lib/layout", "samples": [

@@ -1,0 +1,13 @@
+{
+	"packagejs": "./package.js",
+	"assets": [
+		"assets",
+		"enyo/samples",
+		"lib/canvas/samples",
+		"lib/layout",
+		"lib/onyx/samples",
+		"lib/moonstone/samples",
+		"lib/enyo-ilib/samples"
+	],
+	"libs": []
+}
