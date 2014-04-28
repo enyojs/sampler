@@ -43,12 +43,12 @@ enyo.kind({
 		this.resized();
 	},
 	updateExternalTools: function() {
-		var showExternalToosl = this.debug ||
+		var showExternalTools = this.debug ||
 			(document.location.protocol != "file:" &&
 			document.location.protocol != "x-wmapp0:" &&
 			document.location.protocol != "ms-appx:");
-		this.$.fiddleDecorator.setShowing(showExternalToosl);
-		this.$.openExternalDecorator.setShowing(showExternalToosl);
+		this.$.fiddleDecorator.setShowing(showExternalTools);
+		this.$.openExternalDecorator.setShowing(showExternalTools);
 	},
 	loadSamples: function() {
 		// Remove all navigation views
@@ -81,7 +81,10 @@ enyo.kind({
 		}
 		// We can specify additional sample manifests to add via a comma-separated
 		// query string parameter which is stored in localStorage
-		this.addSamples = enyo.json.parse(localStorage.getItem("addSamples"));
+		var addSamples = localStorage.getItem("addSamples");
+		// Below check is to guard against older versions of sampler that acidentally saved "null"
+		// as a string to localStorage
+		this.addSamples = (addSamples !== "null") ? enyo.json.parse(addSamples) || [] : [];
 		this.loadAddSamples();
 	},
 	loadAddSamples: function() {
@@ -380,11 +383,6 @@ enyo.kind({
 			this.$.sampleContent.render();
 			this.$.sampleContent.resized();
 			break;
-		case "switchNightly":
-			this.sourcePath = "http://nightly.enyojs.com/enyo-nightly-" + inEvent.version;
-			this.versionContent = inEvent.content;
-			this.loadSamples();
-			break;
 		case "settings":
 			this.$.navPanels.pushView(
 				{kind:"SettingsView", onQuit:"quitTest"},
@@ -605,11 +603,7 @@ enyo.kind({
 					{content:"Toggle RTL (off)", action:"toggleRTL"},
 					{content:"Toggle Non-Latin (off)", action:"toggleNonLatin"},
 					{content:"Start Test Mode", action:"startTest"},
-					{content:"Browserscope Results", action:"browserscope"},
-					{kind:"onyx.PickerDecorator", components: [
-						{kind: "onyx.MenuItem", content:"Switch to Nightly (experimental)"},
-						{kind: "onyx.Picker", name:"nightlyPicker", modal:false, onSelect:"nightlyAction", floating:true}
-					]}
+					{content:"Browserscope Results", action:"browserscope"}
 				]}
 			]}
 		]}
@@ -618,36 +612,14 @@ enyo.kind({
 		this.inherited(arguments);
 		this.samplesChanged();
 
-		if (localStorage.getItem("extras") == "true") {
+		if (localStorage.getItem("extras") == "true" || (enyo.platform.webos >= 4)) {
 			this.$.extrasMenu.setShowing(true);
-		}
-
-		// Populate last 20 nightly dates
-		var date = new Date();
-		for (var i=0; i<20; i++) {
-			var y = date.getFullYear();
-			var m = date.getMonth() + 1;
-			m = (m < 10) ? "0" + m : m;
-			var d = date.getDate();
-			d = (d < 10) ? "0" + d : d;
-			var content = y + "/" + m + "/" + d;
-			var version = y + "" + m + "" + d;
-			this.$.nightlyPicker.createComponent({content:content, version:version});
-			date = new Date(date.getTime() - (1000*60*60*24));
 		}
 	},
 	menuAction: function(inSender, inEvent) {
 		if (inEvent.originator.action) {
 			this.doMenuAction({action:inEvent.originator.action, item:inEvent.originator});
 		}
-	},
-	nightlyAction: function(inSender, inEvent) {
-		this.doMenuAction({
-			action:"switchNightly",
-			version:inEvent.originator.version,
-			content:inEvent.originator.content
-		});
-		return true;
 	},
 	samplesChanged: function() {
 		this.$.toolbar.setContent(this.samples.name + (this.version ? " (" + this.version + ")" : ""));
@@ -715,7 +687,10 @@ enyo.kind({
 	],
 	create: function() {
 		this.inherited(arguments);
-		this.addSamples = enyo.json.parse(localStorage.getItem("addSamples")) || [];
+		var addSamples = localStorage.getItem("addSamples");
+		// Below check is to guard against older versions of sampler that acidentally saved "null"
+		// as a string to localStorage
+		this.addSamples = (addSamples !== "null") ? enyo.json.parse(addSamples) || [] : [];
 		this.$.addSamplesList.setCount(this.addSamples.length);
 		this.$.addSamplesGroup.setShowing(this.addSamples.length);
 		this.$.sourcePath.setValue(localStorage.getItem("sourcePath"));
@@ -738,9 +713,21 @@ enyo.kind({
 		this.addSamples[inEvent.index] = inEvent.originator.getValue();
 	},
 	save: function() {
-		localStorage.setItem("addSamples", enyo.json.stringify(this.addSamples));
-		localStorage.setItem("sourcePath", this.$.sourcePath.getValue());
-		localStorage.setItem("jiraCollectorId", this.$.jiraCollectorId.getValue());
+		if (this.addSamples) {
+			localStorage.setItem("addSamples", enyo.json.stringify(this.addSamples));
+		} else {
+			localStorage.removeItem("addSamples");
+		}
+		if (this.$.sourcePath.getValue()) {
+			localStorage.setItem("sourcePath", this.$.sourcePath.getValue());
+		} else {
+			localStorage.removeItem("sourcePath");
+		}
+		if (this.$.jiraCollectorId.getValue()) {
+			localStorage.setItem("jiraCollectorId", this.$.jiraCollectorId.getValue());
+		} else {
+			localStorage.removeItem("jiraCollectorId");
+		}
 		window.location = window.location.pathname;
 	}
 });
