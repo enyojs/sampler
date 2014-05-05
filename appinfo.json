@@ -1,7 +1,7 @@
 {
-	"id": "com.enyojs.enyo2sampler",
-	"version": "0.0.3",
-	"vendor": "LGE",
+	"id": "com.webos.app.enyo2sampler",
+	"version": "2.4.0",
+	"vendor": "LGE-SVL",
 	"type": "web",
 	"main": "index.html",
 	"title": "Enyo 2 Sampler",
