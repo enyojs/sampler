@@ -154,7 +154,7 @@ enyo.kind({
 			return;
 		}
 		var keyValues = q.split('&');
-		for (var i in keyValues) {
+		for (var i = 0; i < keyValues.length; ++i) {
 			var key = keyValues[i].split('=');
 			if (key.length > 1) {
 				queryString[decode(key[0])] = decode(key[1]);
