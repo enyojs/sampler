@@ -6,7 +6,7 @@
 	"main": "index.html",
 	"title": "Enyo 2 Sampler",
 	"icon": "icon.png",
-	"largeIcon": "assets/icon_130.png",
+	"largeIcon": "largeIcon.png",
 	"iconColor": "#305b6e",
 	"transparent": false,
 	"visible": true,
