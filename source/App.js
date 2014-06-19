@@ -235,7 +235,7 @@ enyo.kind({
 		var instance = this.$.sampleContent.createComponent({kind:this.kind, name: enyo.uncap(kind)});
 		window.sample=instance;
 		this.$.sampleContent.render();
-		this.$.sampleContent.resized();
+		this.$.sampleContent.resize();
 		// Load the source code for the sample
 		this.externalURL = enyo.path.rewrite(sample.path + ".html");
 		if ((this.externalURL.indexOf("http") !== 0) || (this.externalURL.indexOf(window.location.origin) === 0)) {
@@ -270,7 +270,7 @@ enyo.kind({
 		this.$.viewSource.show();
 		this.$.openExternal.show();
 		this.$.openFiddle.show();
-		this.$.viewSourceToolbar.resized();
+		this.$.viewSourceToolbar.resize();
 	},
 	resized: function() {
 		if (this.$.sourceViewer) {
@@ -381,7 +381,7 @@ enyo.kind({
 			var style = "width:100%; height:100%; border:0px;";
 			this.$.sampleContent.createComponent({tag:"iframe", src:src, style:style});
 			this.$.sampleContent.render();
-			this.$.sampleContent.resized();
+			this.$.sampleContent.resize();
 			break;
 		case "settings":
 			this.$.navPanels.pushView(
