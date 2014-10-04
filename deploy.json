@@ -2,5 +2,5 @@
 	"enyo": "./enyo",
 	"packagejs": "./package.js",
 	"libs": ["./lib/onyx", "./lib/layout", "./lib/canvas", "./lib/enyo-ilib", "./lib/moonstone"],
-	"assets": ["./icon.png", "./index.html", "./assets", "./appinfo.json", "./enyo/samples", "./lib/canvas/samples", "./lib/enyo-ilib/samples", "./lib/layout/contextual/samples", "./lib/layout/easing/samples", "./lib/layout/fittable/samples", "./lib/layout/flex/samples", "./lib/layout/imageview/samples", "./lib/layout/list/samples", "./lib/layout/panels/samples", "./lib/layout/slideable/samples", "./lib/layout/tree/samples", "./lib/moonstone/samples", "./lib/onyx/samples"]
+	"assets": ["./icon.png", "./index.html", "./assets", "./appinfo.json", "./enyo/samples", "./lib/canvas/samples", "./lib/enyo-ilib/samples", "./lib/layout/contextual/samples", "./lib/layout/easing/samples", "./lib/layout/fittable/samples", "./lib/layout/imageview/samples", "./lib/layout/list/samples", "./lib/layout/panels/samples", "./lib/layout/slideable/samples", "./lib/layout/tree/samples", "./lib/moonstone/samples", "./lib/onyx/samples"]
 }
