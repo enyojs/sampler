@@ -110,7 +110,9 @@
 				{"name": "Selectable Item", "path":"lib/moonstone/samples/SelectableItemSample"},
 				{"name": "Radio Item", "path":"lib/moonstone/samples/RadioItemSample"},
 				{"name": "Checkbox Item", "path":"lib/moonstone/samples/CheckboxItemSample"},
-				{"name": "Toggle Item", "path":"lib/moonstone/samples/ToggleItemSample"}
+				{"name": "Toggle Item", "path":"lib/moonstone/samples/ToggleItemSample"},
+				{"name": "Image Item", "path":"lib/moonstone/samples/ImageItemSample"},
+				{"name": "Labeled Text Item", "path":"lib/moonstone/samples/LabeledTextItemSample"}
 			]},
 			{"name": "List", "samples": [
 				{"name": "List Items", "samples": [
@@ -144,6 +146,7 @@
 				{"name": "Date Picker", "path":"lib/moonstone/samples/DatePickerSample"},
 				{"name": "Time Picker", "path":"lib/moonstone/samples/TimePickerSample", "css":"sample"},
 				{"name": "Integer Picker", "path":"lib/moonstone/samples/IntegerPickerSample"},
+				{"name": "Simple Integer Picker", "path":"lib/moonstone/samples/SimpleIntegerPickerSample"},
 				{"name": "Calendar", "path":"lib/moonstone/samples/CalendarSample"}
 			]},
 			{"name": "Popups", "samples": [
