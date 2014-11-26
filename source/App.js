@@ -42,8 +42,8 @@ enyo.kind({
 		this.loadSamples();
 		this.resized();
 		if (typeof ilib !== 'undefined') {
-			var li = new ilib.LocaleInfo();
-			var script = new ilib.ScriptInfo(li.getScript());
+			var li = new window.ilib.LocaleInfo();
+			var script = new window.ilib.ScriptInfo(li.getScript());
 
 			this._defaultLocale = li.locale.spec;
 			this._defaultRTL = script.info.rtl;
@@ -309,7 +309,7 @@ enyo.kind({
 		window.sample = undefined;
 	},
 	resetLocale: function() {
-		if (typeof ilib !== 'undefined' && ilib.getLocale() != this._defaultLocale) {
+		if (typeof ilib !== 'undefined' && window.ilib.getLocale() != this._defaultLocale) {
 			enyo.updateLocale(this._defaultLocale);
 		}
 		this.setRTL(this._defaultRTL);
