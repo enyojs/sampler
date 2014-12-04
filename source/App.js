@@ -41,6 +41,17 @@ enyo.kind({
 		window.onhashchange = this.bindSafely("hashChange");
 		this.loadSamples();
 		this.resized();
+		if (typeof ilib !== 'undefined') {
+			var li = new window.ilib.LocaleInfo();
+			var script = new window.ilib.ScriptInfo(li.getScript());
+
+			this._defaultLocale = li.locale.spec;
+			this._defaultRTL = script.info.rtl;
+			this._defaultNonLatin = script.script != "Latn";
+		} else {
+			this._defaultRTL = false;
+			this._defaultNonLatin = false;
+		}
 	},
 	updateExternalTools: function() {
 		var showExternalTools = this.debug ||
@@ -290,11 +301,19 @@ enyo.kind({
 		this.resetSample();
 	},
 	resetSample: function() {
+		this.resetLocale();
 		this.$.sampleContent.destroyClientControls();
 		this.$.viewSource.hide();
 		this.$.openExternal.hide();
 		this.$.openFiddle.hide();
 		window.sample = undefined;
+	},
+	resetLocale: function() {
+		if (typeof ilib !== 'undefined' && window.ilib.getLocale() != this._defaultLocale) {
+			enyo.updateLocale(this._defaultLocale);
+		}
+		this.setRTL(this._defaultRTL);
+		this.setNonLatin(this._defaultNonLatin);
 	},
 	viewSource: function() {
 		var newComponent = this.$.contentPanels.createComponent({name: "sourceViewer", kind: "dynamicSourceViewer", jsSource: this.jsSource, cssSource: this.cssSource}, {owner: this});
@@ -390,28 +409,42 @@ enyo.kind({
 			);
 			break;
 		case "toggleRTL":
-			if (enyo.Control.prototype.rtl) {
-				delete enyo.Control.prototype.rtl;
-				enyo.dom.removeClass(document.body, "enyo-locale-right-to-left");
-				inEvent.item.setContent("Toggle RTL (off)");
-			} else {
-				enyo.Control.prototype.rtl = true;
-				enyo.dom.addClass(document.body, "enyo-locale-right-to-left");
+			this.setRTL(!this._defaultRTL);
+			if (this._defaultRTL) {
 				inEvent.item.setContent("Toggle RTL (on)");
+			} else {
+				inEvent.item.setContent("Toggle RTL (off)");
 			}
 			this.$.sampleContent.render();
 			break;
 		case "toggleNonLatin":
-			if (this.nonLatin) {
-				this.nonLatin = false;
-				this.$.sampleContent.removeClass("enyo-locale-non-latin");
-				inEvent.item.setContent("Toggle Non-Latin (off)");
+			this.setNonLatin(!this._defaultNonLatin);
+			if (this._defaultNonLatin) {
+				inEvent.item.setContent("Toggle Non-Latin (on)");
 			} else {
-				this.nonLatin = true;
-				this.$.sampleContent.addClass("enyo-locale-non-latin");
-				inEvent.item.setContent("Toggle Non-latin (on)");
+				inEvent.item.setContent("Toggle Non-latin (off)");
 			}
 			break;
+		}
+	},
+	setRTL: function(bool) {
+		this._defaultRTL = bool;
+		if (bool) {
+			enyo.Control.prototype.rtl = true;
+			enyo.dom.addClass(document.body, "enyo-locale-right-to-left");
+		} else {
+			enyo.Control.prototype.rtl = false;
+			enyo.dom.removeClass(document.body, "enyo-locale-right-to-left");
+		}
+	},
+	setNonLatin: function(bool) {
+		this._defaultNonLatin = bool;
+		if (bool) {
+			this.nonLatin = true;
+			this.$.sampleContent.addClass("enyo-locale-non-latin");
+		} else {
+			this.nonLatin = false;
+			this.$.sampleContent.removeClass("enyo-locale-non-latin");
 		}
 	},
 	renderTest: function(inSender, inEvent) {
