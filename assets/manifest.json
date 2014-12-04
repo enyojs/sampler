@@ -123,6 +123,7 @@
 				{"name": "Data Grid List", "path":"lib/moonstone/samples/DataGridListSample", "css":"sample"}
 			]},
 			{"name": "List Actions", "path":"lib/moonstone/samples/ListActionsSample"},
+			{"name": "Marquee", "path":"lib/moonstone/samples/MarqueeSample"},
 			{"name": "Media", "samples": [
 				{"name": "Fullscreen Video Player", "path":"lib/moonstone/samples/VideoPlayerSample"},
 				{"name": "Inline Video Player", "path":"lib/moonstone/samples/PanelsVideoPlayerSample"},
