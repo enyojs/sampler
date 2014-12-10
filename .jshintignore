@@ -3,3 +3,5 @@ build
 assets
 enyo
 lib
+Gruntfile.js
+tasks
