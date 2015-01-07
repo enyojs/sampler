@@ -1,6 +1,6 @@
 {
 	"id": "com.webos.app.enyo2sampler",
-	"version": "2.5.4-pre.1.lite.2",
+	"version": "2.5.4-pre.2",
 	"vendor": "LGE-SVL",
 	"type": "web",
 	"main": "index.html",
@@ -24,6 +24,6 @@
 		"lib/enyo-ilib":        "$enyo-framework/2.5/lib/enyo-ilib"
 	},
 	"enyoVersion": "2.5",
-	"containerJS": "build/app1.js",
-	"containerCSS": "build/app1.css"
+	"containerJS": "build/app.js",
+	"containerCSS": "build/app.css"
 }
