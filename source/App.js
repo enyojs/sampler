@@ -235,6 +235,10 @@ enyo.kind({
 				this.$.mainPanels.next();
 			}
 		}
+		if (sample.lib) {
+			this.libraries = sample.lib;
+			this.log('lib =', this.libraries);
+		}
 	},
 	renderSample: function(sample) {
 		// Create a new sample kind instance inside sampleContent
@@ -343,7 +347,7 @@ enyo.kind({
 		var form;
 		form = document.createElement("form");
 		form.method = "post";
-		form.action = "http://jsfiddle.net/api/post/enyo/nightly/dependencies/onyx,layout,canvas,dark,spotlight,ilib/";
+		form.action = "http://jsfiddle.net/api/post/enyo/nightly/" + (this.libraries ? "dependencies/" + this.libraries + "/" : "");
 		form.target = "_blank";
 		var el;
 		// JavaScript
