@@ -24,6 +24,6 @@
 		"lib/enyo-ilib":        "$enyo-framework/2.5/lib/enyo-ilib"
 	},
 	"enyoVersion": "2.5",
-	"containerJS": "build/app.js",
-	"containerCSS": "build/app.css"
+	"containerJS": "build/app1.js",
+	"containerCSS": "build/app1.css"
 }
