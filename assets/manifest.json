@@ -2,7 +2,7 @@
 	"sourcePath":"",
 	"name": "Enyo 2 Sampler",
 	"samples": [
-		{"name": "Enyo Core", "ns":"enyo.sample", "loadPackages":"enyo/samples", "samples": [
+		{"name": "Enyo Core", "ns":"enyo.sample", "loadPackages":"enyo/samples", "lib": "onyx,layout", "samples": [
 			{"name": "Platform", "path":"enyo/samples/PlatformSample"},
 			{"name": "Ajax", "samples": [
 				{"name": "Ajax", "path":"enyo/samples/AjaxSample"},
@@ -34,7 +34,7 @@
 				{"name": "Video", "path":"enyo/samples/VideoSample"}
 			]}
 		]},
-		{"name": "Layout", "ns":"enyo.sample", "loadPackages":"lib/layout", "samples": [
+		{"name": "Layout", "ns":"enyo.sample", "loadPackages":"lib/layout", "lib": "onyx,layout", "samples": [
 			{"name": "Fittable Layouts", "loadPackages":"lib/layout/fittable/samples", "samples": [
 				{"name": "Basic sample", "path":"lib/layout/fittable/samples/FittableSample", "css":"sample"},
 				{"name": "Details", "path":"lib/layout/fittable/samples/FittableDescription", "css":"sample"},
@@ -60,7 +60,7 @@
 			{"name": "Image View", "loadPackages":"lib/layout/imageview/samples", "path":"lib/layout/imageview/samples/ImageViewSample"},
 			{"name": "Image Carousel", "loadPackages":"lib/layout/imageview/samples", "path":"lib/layout/imageview/samples/ImageCarouselSample"}
 		]},
-		{"name": "Onyx UI", "ns":"onyx.sample", "loadPackages":"lib/onyx lib/onyx/samples", "samples": [
+		{"name": "Onyx UI", "ns":"onyx.sample", "loadPackages":"lib/onyx lib/onyx/samples", "lib": "onyx,layout", "samples": [
 			{"name": "Toolbars", "path":"lib/onyx/samples/ToolbarSample", "css":"sample"},
 			{"name": "Basic Buttons", "path":"lib/onyx/samples/ButtonSample", "css":"sample"},
 			{"name": "Grouped Buttons", "path":"lib/onyx/samples/ButtonGroupSample", "css":"sample"},
@@ -80,7 +80,7 @@
 			{"name": "Popups", "path":"lib/onyx/samples/PopupSample", "css":"sample"},
 			{"name": "ContextualPopups", "path":"lib/onyx/samples/ContextualPopupSample", "css":"sample"}
 		]},
-		{"name": "Moonstone UI", "ns": "moon.sample", "samples": [
+		{"name": "Moonstone UI", "ns": "moon.sample", "lib": "layout,dark,spotlight,ilib", "samples": [
 			{"name": "Accordion", "path":"lib/moonstone/samples/AccordionSample", "css":"sample"},
 			{"name": "Buttons", "samples": [
 				{"name": "Button", "path":"lib/moonstone/samples/ButtonSample"},
@@ -170,11 +170,11 @@
 			]},
 			{"name": "Tooltip", "path":"lib/moonstone/samples/TooltipSample"}
 		]},
-		{"name": "Canvas", "ns":"enyo.sample", "loadPackages":"lib/canvas lib/canvas/samples", "samples": [
+		{"name": "Canvas", "ns":"enyo.sample", "loadPackages":"lib/canvas lib/canvas/samples", "lib": "canvas", "samples": [
 			{"name": "Canvas primitives", "path":"lib/canvas/samples/CanvasPrimitivesSample"},
 			{"name": "Bouncing balls", "path":"lib/canvas/samples/CanvasBallsSample"}
 		]},
-		{"name": "iLib (i18n)", "ns": "ilib.sample", "samples": [
+		{"name": "iLib (i18n)", "ns": "ilib.sample", "lib": "ilib", "samples": [
 	        {"name": "Locale Info", "path": "lib/enyo-ilib/samples/LocaleInfo"},
 	        {"name": "Date Formatting", "path": "lib/enyo-ilib/samples/DateFormatting"},
 	        {"name": "Advanced Date Formatting", "path": "lib/enyo-ilib/samples/AdvDateFormatting"},
