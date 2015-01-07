@@ -174,10 +174,14 @@
 			{"name": "Bouncing balls", "path":"lib/canvas/samples/CanvasBallsSample"}
 		]},
 		{"name": "iLib (i18n)", "ns": "ilib.sample", "samples": [
-	        {"name": "Locale Info", "path": "lib/enyo-ilib/samples/LocaleInfo"},
-	        {"name": "Date Formatting", "path": "lib/enyo-ilib/samples/DateFormatting"},
-	        {"name": "Advanced Date Formatting", "path": "lib/enyo-ilib/samples/AdvDateFormatting"},
-	        {"name": "Number Formatting", "path": "lib/enyo-ilib/samples/NumberFormatting"}
-	    ]}
+	        	{"name": "Locale Info", "path": "lib/enyo-ilib/samples/LocaleInfo"},
+	        	{"name": "Date Formatting", "path": "lib/enyo-ilib/samples/DateFormatting"},
+	        	{"name": "Advanced Date Formatting", "path": "lib/enyo-ilib/samples/AdvDateFormatting"},
+        		{"name": "Number Formatting", "path": "$lib/enyo-ilib/samples/NumberFormatting"},
+			{"name": "Name Parsing", "path": "$lib/enyo-ilib/samples/NameParsing"},
+			{"name": "Name Formatting", "path": "$lib/enyo-ilib/samples/NameFormatting"},
+			{"name": "Address Parsing", "path": "$lib/enyo-ilib/samples/AddressParsing"},
+			{"name": "Address Formatting", "path": "$lib/enyo-ilib/samples/AddressFormatting"}
+	        ]}
 	]
 }
