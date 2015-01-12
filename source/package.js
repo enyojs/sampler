@@ -1,7 +1,7 @@
 enyo.depends(
 	"$lib/layout",
 	"$lib/onyx",
-	"$lib/enyo-ilib",
+	"$lib/enyo-ilib/full-package.js",
 	"$lib/layout/fittable/samples",
 	"$lib/layout/panels/samples",
 	"$lib/layout/list/samples",
