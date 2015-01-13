@@ -2,7 +2,7 @@ enyo.depends(
 	"$lib/layout",
 	"$lib/spotlight",
 	"$lib/moonstone",
-	"$lib/enyo-ilib",
+	"$lib/enyo-ilib/full-package.js",
 	"$lib/onyx",
 	"$lib/canvas",
 	"$enyo/samples",
