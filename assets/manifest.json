@@ -85,7 +85,8 @@
 			{"name": "Buttons", "samples": [
 				{"name": "Button", "path":"lib/moonstone/samples/ButtonSample"},
 				{"name": "Toggle Button", "path":"lib/moonstone/samples/ToggleButtonSample"},
-				{"name": "Icon Button", "path":"lib/moonstone/samples/IconButtonSample"}
+				{"name": "Icon Button", "path":"lib/moonstone/samples/IconButtonSample"},
+				{"name": "Progress Button", "path":"lib/moonstone/samples/ProgressButtonSample"}
 			]},
 			{"name": "Clock", "path":"lib/moonstone/samples/ClockSample"},
 			{"name": "Divider", "path":"lib/moonstone/samples/DividerSample"},
@@ -112,7 +113,8 @@
 				{"name": "Checkbox Item", "path":"lib/moonstone/samples/CheckboxItemSample"},
 				{"name": "Toggle Item", "path":"lib/moonstone/samples/ToggleItemSample"},
 				{"name": "Image Item", "path":"lib/moonstone/samples/ImageItemSample"},
-				{"name": "Labeled Text Item", "path":"lib/moonstone/samples/LabeledTextItemSample"}
+				{"name": "Labeled Text Item", "path":"lib/moonstone/samples/LabeledTextItemSample"},
+				{"name": "Expandable List Item", "path":"lib/moonstone/samples/ExpandableListItemSample"}
 			]},
 			{"name": "List", "samples": [
 				{"name": "List Items", "samples": [
