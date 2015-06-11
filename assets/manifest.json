@@ -29,6 +29,7 @@
 				{"name": "Repeater", "path":"enyo/samples/RepeaterSample"},
 				{"name": "RichText", "path":"enyo/samples/RichTextSample"},
 				{"name": "Select Lists", "path":"enyo/samples/SelectSample"},
+				{"name": "SpriteAnimation", "path":"enyo/samples/SpriteAnimationSample"},
 				{"name": "Table", "path":"enyo/samples/TableSample"},
 				{"name": "TextArea", "path":"enyo/samples/TextAreaSample"},
 				{"name": "Video", "path":"enyo/samples/VideoSample"}
